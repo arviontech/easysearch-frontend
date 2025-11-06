@@ -1,0 +1,3 @@
+module.exports=[27223,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(28084);a.n(d("[project]/Arvion Tech/arvion-rent/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},30768,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(28084);a.n(d("[project]/Arvion Tech/arvion-rent/node_modules/next/dist/client/components/builtin/global-error.js"))},56564,a=>{"use strict";a.i(27223);var b=a.i(30768);a.n(b)}];
+
+//# sourceMappingURL=929dd_next_dist_client_components_builtin_global-error_d7e96fda.js.map

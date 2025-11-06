@@ -1,0 +1,11 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_global-error/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7d61b934._.js")
+R.c("server/chunks/ssr/Arvion Tech_arvion-rent_d3ddf772._.js")
+R.c("server/chunks/ssr/929dd_next_dist_74c5d794._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__831daf5f._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__897219b5._.js")
+R.c("server/chunks/ssr/929dd_next_dist_0239fe29._.js")
+R.c("server/chunks/ssr/Arvion Tech_arvion-rent_src_app_65923c17._.js")
+R.c("server/chunks/ssr/0707d_arvion-rent__next-internal_server_app__global-error_page_actions_9fe1ee78.js")
+R.m(64299)
+module.exports=R.m(64299).exports

@@ -1,0 +1,994 @@
+[00:00:02.392] Server  LOG      ✓ Ready in 2s
+[00:00:08.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.428] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:16.721] Server  LOG      ✓ Compiled in 1237ms
+[00:05:35.907] Server  LOG      ✓ Compiled in 2.5s
+[00:07:43.583] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:10.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:58:25.035] Server  LOG      ✓ Compiled in 1492ms
+[01:01:44.422] Server  LOG      ✓ Compiled in 536ms
+[01:01:53.222] Server  LOG      ✓ Compiled in 250ms
+[01:02:04.098] Server  LOG      ✓ Compiled in 449ms
+[01:17:12.039] Server  LOG      ✓ Compiled in 1926ms
+[01:17:15.941] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:17:39.845] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:19:37.377] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:19:37.922] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:19:37.960] Server  LOG      ✓ Compiled in 5ms
+[01:19:38.120] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:20:09.263] Server  LOG      ✓ Compiled in 164ms
+[01:20:53.420] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:22:08.742] Server  LOG      ✓ Compiled in 1152ms
+[01:22:42.220] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:35:02.652] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:35:03.618] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:44:12.124] Server  LOG      ✓ Compiled in 3s
+[01:44:20.509] Server  LOG      ✓ Compiled in 291ms
+[01:44:40.050] Server  LOG      ✓ Compiled in 567ms
+[01:45:13.327] Server  LOG      ✓ Compiled in 143ms
+[01:46:06.850] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:46:06.972] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:46:27.741] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:46:52.096] Server  LOG      ✓ Compiled in 357ms
+[01:59:39.254] Server  LOG      ✓ Compiled in 1056ms
+[02:00:05.193] Server  LOG      ✓ Compiled in 903ms
+[02:00:29.419] Server  LOG      ✓ Compiled in 301ms
+[02:00:59.886] Server  LOG      ✓ Compiled in 61ms
+[02:01:26.810] Server  LOG      ✓ Compiled in 113ms
+[02:02:51.591] Server  LOG      ✓ Compiled in 89ms
+[02:04:47.043] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:11:38.286] Server  LOG      ○ Compiling /_not-found/page ...
+[02:11:41.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:11:43.122] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:11:43.377] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:11:43.377] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:14:18.349] Server  LOG      ✓ Compiled in 945ms
+[02:14:43.353] Server  LOG      ✓ Compiled in 121ms
+[02:15:05.477] Server  LOG      ✓ Compiled in 225ms
+[02:15:40.969] Server  LOG      ✓ Compiled in 49ms
+[02:15:49.692] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:20:57.306] Server  LOG      ✓ Compiled in 885ms
+[02:21:16.394] Server  LOG      ✓ Compiled in 1369ms
+[02:21:29.765] Server  LOG      ✓ Compiled in 229ms
+[02:21:47.800] Server  LOG      ✓ Compiled in 406ms
+[02:21:59.640] Server  LOG      ✓ Compiled in 1080ms
+[02:22:19.414] Server  LOG      ✓ Compiled in 53ms
+[02:22:29.964] Server  LOG      ✓ Compiled in 99ms
+[02:22:59.964] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:24:38.509] Server  LOG      ✓ Compiled in 211ms
+[02:24:38.703] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:24:39.618] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:24:59.566] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:24:59.569] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:24:59.570] Server  LOG      ✓ Compiled in 99ms
+[02:24:59.621] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:24:59.667] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:24:59.801] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:24:59.802] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:25:00.295] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:00.344] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:25:00.535] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:25:00.716] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:25:00.840] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:25:00.897] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:00.897] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:25:01.624] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:01.624] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:25:22.932] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:25:22.936] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:25:22.952] Server  LOG      ✓ Compiled in 126ms
+[02:25:23.202] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:23.246] Browser ERROR   unhandledRejection: Error: No link element found for chunk /_next/static/chunks/%5Broot-of-the-server%5D__e92e5f4b._.css
+[02:25:23.467] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:25:23.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:25:23.691] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:23.691] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:25:24.618] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:25:24.618] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:28:27.290] Server  LOG      ✓ Compiled in 358ms
+[02:28:39.053] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:28:43.813] Server  LOG      ✓ Compiled in 230ms
+[02:29:14.464] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:11.992] Server  LOG      ✓ Compiled in 498ms
+[02:30:12.182] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:12.619] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:23.614] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:23.622] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:23.942] Server  LOG      ✓ Compiled in 301ms
+[02:30:24.066] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:24.139] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:30:24.179] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:24.179] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:24.212] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:30:24.607] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:24.719] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:24.811] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:24.811] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:25.021] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:25.021] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:35.177] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:35.180] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:35.214] Server  LOG      ✓ Compiled in 76ms
+[02:30:35.385] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:35.400] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:30:35.437] Server  ERROR    ⨯ ReferenceError: scrollContainerRef is not defined
+[02:30:35.576] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:35.602] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:35.735] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:35.735] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:35.758] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:35.758] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:30:51.986] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:51.987] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:30:52.014] Server  LOG      ✓ Compiled in 77ms
+[02:30:52.270] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:52.510] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:52.605] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:30:52.695] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:52.695] Browser WARN    Image with src "/assets/hero-img.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:30:52.695] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:30:52.756] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:30:52.756] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:33:44.639] Server  LOG      ✓ Compiled in 1087ms
+[02:33:44.672] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:33:44.905] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:34:05.396] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:34:05.397] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:34:05.397] Server  LOG      ✓ Compiled in 265ms
+[02:34:07.287] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:07.561] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:34:07.576] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:34:07.721] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:07.721] Browser WARN    Image with src "/assets/hero-img.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:34:07.721] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:34:07.730] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:07.730] Browser WARN    Image with src "/assets/hero-img.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[02:34:07.730] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:34:35.797] Server  LOG      ✓ Compiled in 323ms
+[02:34:35.869] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:34:35.900] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:34:53.809] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:34:53.810] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:34:53.946] Server  LOG      ✓ Compiled in 236ms
+[02:34:54.151] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:54.396] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:34:54.438] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:34:54.580] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:54.580] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:34:54.602] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:34:54.602] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:35:21.680] Server  LOG      ✓ Compiled in 273ms
+[02:35:21.780] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:35:21.782] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:35:40.757] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:35:40.758] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:35:40.922] Server  LOG      ✓ Compiled in 365ms
+[02:35:41.359] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:35:41.596] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:35:41.630] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:35:41.753] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:35:41.753] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:35:41.789] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:35:41.789] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:36:07.324] Server  LOG      ✓ Compiled in 164ms
+[02:36:07.417] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:36:07.417] Browser ERROR   uncaughtError: ReferenceError: scrollContainerRef is not defined
+[02:36:24.905] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:36:24.908] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[02:36:24.930] Server  LOG      ✓ Compiled in 106ms
+[02:36:25.247] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:36:25.520] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:25.553] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:25.683] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:36:25.683] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:36:25.714] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:36:25.714] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:02:39.081] Server  LOG      ✓ Compiled in 2.8s
+[03:02:46.513] Server  LOG      ✓ Compiled in 152ms
+[03:04:05.317] Server  LOG      ✓ Compiled in 855ms
+[03:04:11.202] Server  LOG      ✓ Compiled in 89ms
+[03:04:16.674] Server  LOG      ✓ Compiled in 100ms
+[03:04:16.826] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/FeaturedHouses.tsx:159:13
+Parsing ecmascript source code failed
+  157 |           </div>
+  158 |         </div>
+> 159 |       </div>
+      |             ^
+> 160 |     </section>
+      | ^^^^^
+  161 |   );
+  162 | };
+  163 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/FeaturedHouses.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:04:16.880] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/FeaturedHouses.tsx:159:13
+Parsing ecmascript source code failed
+  157 |           </div>
+  158 |         </div>
+> 159 |       </div>
+      |             ^
+> 160 |     </section>
+      | ^^^^^
+  161 |   );
+  162 | };
+  163 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/FeaturedHouses.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:04:21.687] Server  LOG      ✓ Compiled in 84ms
+[03:04:34.299] Server  LOG      ✓ Compiled in 82ms
+[03:04:39.556] Server  LOG      ✓ Compiled in 25ms
+[03:04:39.667] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/PopularHostels.tsx:158:13
+Parsing ecmascript source code failed
+  156 |           </div>
+  157 |         </div>
+> 158 |       </div>
+      |             ^
+> 159 |     </section>
+      | ^^^^^
+  160 |   );
+  161 | };
+  162 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/PopularHostels.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:04:39.668] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/PopularHostels.tsx:158:13
+Parsing ecmascript source code failed
+  156 |           </div>
+  157 |         </div>
+> 158 |       </div>
+      |             ^
+> 159 |     </section>
+      | ^^^^^
+  160 |   );
+  161 | };
+  162 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/PopularHostels.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:04:50.219] Server  LOG      ✓ Compiled in 79ms
+[03:04:55.746] Server  LOG      ✓ Compiled in 102ms
+[03:04:55.851] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/TopDoctors.tsx:166:13
+Parsing ecmascript source code failed
+  164 |           </div>
+  165 |         </div>
+> 166 |       </div>
+      |             ^
+> 167 |     </section>
+      | ^^^^^
+  168 |   );
+  169 | };
+  170 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/TopDoctors.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:04:55.851] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/TopDoctors.tsx:166:13
+Parsing ecmascript source code failed
+  164 |           </div>
+  165 |         </div>
+> 166 |       </div>
+      |             ^
+> 167 |     </section>
+      | ^^^^^
+  168 |   );
+  169 | };
+  170 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/TopDoctors.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:07.162] Server  LOG      ✓ Compiled in 93ms
+[03:05:11.980] Server  LOG      ✓ Compiled in 80ms
+[03:05:12.082] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/CateringServices.tsx:162:13
+Parsing ecmascript source code failed
+  160 |           </div>
+  161 |         </div>
+> 162 |       </div>
+      |             ^
+> 163 |     </section>
+      | ^^^^^
+  164 |   );
+  165 | };
+  166 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/CateringServices.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:12.083] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/CateringServices.tsx:162:13
+Parsing ecmascript source code failed
+  160 |           </div>
+  161 |         </div>
+> 162 |       </div>
+      |             ^
+> 163 |     </section>
+      | ^^^^^
+  164 |   );
+  165 | };
+  166 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/CateringServices.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:23.798] Server  LOG      ✓ Compiled in 57ms
+[03:05:28.595] Server  LOG      ✓ Compiled in 24ms
+[03:05:28.702] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:28.703] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:34.074] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:34.074] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/LocalFoods.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:39.366] Server  LOG      ✓ Compiled in 144ms
+[03:05:43.875] Server  LOG      ✓ Compiled in 21ms
+[03:05:43.979] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/TourismDestinations.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/TourismDestinations.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:43.981] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/TourismDestinations.tsx:154:13
+Parsing ecmascript source code failed
+  152 |           </div>
+  153 |         </div>
+> 154 |       </div>
+      |             ^
+> 155 |     </section>
+      | ^^^^^
+  156 |   );
+  157 | };
+  158 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/TourismDestinations.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:05:50.390] Server  LOG      ✓ Compiled in 548ms
+[03:06:01.039] Server  LOG      ✓ Compiled in 83ms
+[03:06:06.124] Server  LOG      ✓ Compiled in 33ms
+[03:06:06.227] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/PopularAreas.tsx:110:13
+Parsing ecmascript source code failed
+  108 |           ))}
+  109 |         </div>
+> 110 |       </div>
+      |             ^
+> 111 |     </section>
+      | ^^^^^
+  112 |   );
+  113 | };
+  114 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/PopularAreas.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:06:06.228] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/sections/PopularAreas.tsx:110:13
+Parsing ecmascript source code failed
+  108 |           ))}
+  109 |         </div>
+> 110 |       </div>
+      |             ^
+> 111 |     </section>
+      | ^^^^^
+  112 |   );
+  113 | };
+  114 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/sections/PopularAreas.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:06:19.390] Server  LOG      ✓ Compiled in 42ms
+[03:06:25.104] Server  LOG      ✓ Compiled in 26ms
+[03:06:25.207] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/ads/AdBanner.tsx:64:13
+Parsing ecmascript source code failed
+  62 |           </div>
+  63 |         </div>
+> 64 |       </div>
+     |             ^
+> 65 |     </div>
+     | ^^^^^
+  66 |   );
+  67 | };
+  68 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/ads/AdBanner.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:06:25.208] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/ads/AdBanner.tsx:64:13
+Parsing ecmascript source code failed
+  62 |           </div>
+  63 |         </div>
+> 64 |       </div>
+     |             ^
+> 65 |     </div>
+     | ^^^^^
+  66 |   );
+  67 | };
+  68 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/ads/AdBanner.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:06:40.586] Server  LOG      ✓ Compiled in 17ms
+[03:06:40.689] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/ads/AdSection.tsx:31:13
+Parsing ecmascript source code failed
+  29 |           />
+  30 |         </div>
+> 31 |       </div>
+     |             ^
+> 32 |     </section>
+     | ^^^^^
+  33 |   );
+  34 | };
+  35 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/ads/AdSection.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:06:40.690] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/ads/AdSection.tsx:31:13
+Parsing ecmascript source code failed
+  29 |           />
+  30 |         </div>
+> 31 |       </div>
+     |             ^
+> 32 |     </section>
+     | ^^^^^
+  33 |   );
+  34 | };
+  35 |
+
+Expected '</', got 'jsx text (
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/ads/AdSection.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/page.tsx
+[03:08:45.617] Server  LOG      ✓ Compiled in 398ms
+[03:08:54.569] Server  LOG      ✓ Compiled in 78ms
+[03:08:54.679] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:204:13
+Parsing ecmascript source code failed
+  202 |           </div>
+  203 |         </div>
+> 204 |       </div>
+      |             ^
+> 205 |
+      | ^
+> 206 |     </nav>
+      | ^^^^^
+  207 |   );
+  208 | };
+  209 |
+
+Expected '</', got 'jsx text (
+
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:08:54.680] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:204:13
+Parsing ecmascript source code failed
+  202 |           </div>
+  203 |         </div>
+> 204 |       </div>
+      |             ^
+> 205 |
+      | ^
+> 206 |     </nav>
+      | ^^^^^
+  207 |   );
+  208 | };
+  209 |
+
+Expected '</', got 'jsx text (
+
+    )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:09:00.842] Server  LOG      ✓ Compiled in 24ms
+[03:09:00.945] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:203:21
+Parsing ecmascript source code failed
+  201 |             </div>
+  202 |           </div>
+> 203 |         </Container>
+      |                     ^
+> 204 |       </div>
+      | ^^^^^^^
+  205 |     </nav>
+  206 |   );
+  207 | };
+
+Expected '</', got 'jsx text (
+      )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:09:00.945] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:203:21
+Parsing ecmascript source code failed
+  201 |             </div>
+  202 |           </div>
+> 203 |         </Container>
+      |                     ^
+> 204 |       </div>
+      | ^^^^^^^
+  205 |     </nav>
+  206 |   );
+  207 | };
+
+Expected '</', got 'jsx text (
+      )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:10:00.921] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:203:21
+Parsing ecmascript source code failed
+  201 |             </div>
+  202 |           </div>
+> 203 |         </Container>
+      |                     ^
+> 204 |       </div>
+      | ^^^^^^^
+  205 |     </nav>
+  206 |   );
+  207 | };
+
+Expected '</', got 'jsx text (
+      )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:10:00.923] Browser ERROR   ./Arvion Tech/arvion-rent/src/components/Navbar.tsx:203:21
+Parsing ecmascript source code failed
+  201 |             </div>
+  202 |           </div>
+> 203 |         </Container>
+      |                     ^
+> 204 |       </div>
+      | ^^^^^^^
+  205 |     </nav>
+  206 |   );
+  207 | };
+
+Expected '</', got 'jsx text (
+      )'
+
+Import trace:
+  Server Component:
+    ./Arvion Tech/arvion-rent/src/components/Navbar.tsx
+    ./Arvion Tech/arvion-rent/src/app/(public)/layout.tsx
+[03:12:39.633] Server  LOG      ✓ Compiled in 837ms
+[03:12:41.654] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:12:43.595] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:12:43.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:12:43.792] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:12:43.937] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:12:44.038] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:12:44.103] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:16:03.803] Server  LOG      ✓ Compiled in 656ms
+[03:16:16.630] Server  ERROR    ⨯ ReferenceError: AdBanner is not defined
+[03:16:16.722] Server  ERROR    ⨯ ReferenceError: AdBanner is not defined
+[03:16:17.007] Browser ERROR   uncaughtError: ReferenceError: AdBanner is not defined
+[03:16:17.073] Browser ERROR   uncaughtError: ReferenceError: AdBanner is not defined
+[03:16:23.025] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:16:23.205] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:16:23.205] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:16:23.516] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:16:23.566] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:16:23.577] Server  LOG      ✓ Compiled in 16ms
+[03:16:23.735] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:16:23.735] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:16:23.760] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:16:23.761] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:17:47.818] Server  LOG      ✓ Compiled in 351ms
+[03:17:47.928] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'length')
+[03:17:47.996] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'length')
+[03:17:57.433] Server  LOG      ✓ Compiled in 45ms
+[03:17:57.959] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:17:58.278] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:17:58.367] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:17:58.468] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:17:58.468] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:17:58.563] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:17:58.563] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:18:10.292] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:18:10.533] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:18:10.533] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:18:11.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:18:12.430] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:18:12.599] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:18:12.600] Browser WARN    Image with src "/assets/hero-img.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[03:18:46.254] Server  LOG      ✓ Compiled in 402ms
+[03:20:50.402] Server  LOG      ✓ Compiled in 977ms
+[03:21:06.660] Server  LOG      ✓ Compiled in 107ms
+[03:21:20.959] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:21:21.014] Server  LOG      ✓ Compiled in 0ms
+[03:21:21.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:21:21.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:21:21.558] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:21:21.558] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[03:21:21.635] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[03:21:21.635] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[04:00:57.482] Server  LOG      ✓ Compiled in 3.3s
+[04:01:17.855] Server  LOG      ✓ Compiled in 783ms
+[04:02:47.736] Server  LOG      ✓ Compiled in 637ms
+[04:13:21.984] Server  LOG      ✓ Compiled in 1710ms
+[04:13:35.284] Server  LOG      ✓ Compiled in 1376ms
+[04:13:48.826] Server  LOG      ✓ Compiled in 129ms
+[04:13:58.990] Server  LOG      ✓ Compiled in 79ms
+[04:14:08.534] Server  LOG      ✓ Compiled in 65ms
+[04:14:20.979] Server  LOG      ✓ Compiled in 134ms
+[04:21:27.103] Server  LOG      ✓ Compiled in 1737ms
+[04:21:55.788] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:22:07.871] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:22:08.037] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:22:08.037] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[04:22:43.741] Server  LOG      ✓ Compiled in 194ms
+[04:23:05.079] Server  LOG      ✓ Compiled in 809ms
+[04:23:14.507] Server  LOG      ✓ Compiled in 260ms
+[04:23:24.017] Server  LOG      ✓ Compiled in 84ms
+[04:23:33.025] Server  LOG      ✓ Compiled in 49ms
+[04:23:42.559] Server  LOG      ✓ Compiled in 99ms
+[04:23:52.144] Server  LOG      ✓ Compiled in 239ms
+[04:25:30.885] Server  LOG      ✓ Compiled in 231ms
+[04:25:42.630] Server  LOG      ✓ Compiled in 138ms
+[04:25:58.503] Server  LOG      ✓ Compiled in 188ms
+[04:26:06.895] Server  LOG      ✓ Compiled in 40ms
+[04:26:15.554] Server  LOG      ✓ Compiled in 98ms
+[04:26:23.238] Server  LOG      ✓ Compiled in 257ms
+[04:26:32.993] Server  LOG      ✓ Compiled in 55ms
+[04:27:19.749] Server  LOG      ✓ Compiled in 158ms
+[04:28:01.913] Server  LOG      ✓ Compiled in 107ms
+[04:28:46.243] Server  LOG      ✓ Compiled in 185ms
+[04:34:42.306] Server  LOG      ✓ Compiled in 1548ms
+[04:34:51.717] Server  LOG      ✓ Compiled in 105ms
+[04:35:13.784] Server  LOG      ✓ Compiled in 211ms
+[04:43:03.589] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:43:04.637] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:43:04.790] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:43:04.790] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:12:37.957] Server  LOG      ✓ Compiled in 2.9s
+[05:12:45.819] Server  LOG      ✓ Compiled in 306ms
+[05:15:31.605] Server  LOG      ✓ Compiled in 553ms
+[05:15:32.669] Server  LOG      ✓ Compiled in 223ms
+[05:20:14.642] Server  LOG      ✓ Compiled in 2.6s
+[05:20:48.861] Server  LOG      ✓ Compiled in 1674ms
+[05:21:06.384] Server  LOG      ✓ Compiled in 133ms
+[05:21:07.826] Server  LOG      ✓ Compiled in 540ms
+[05:21:08.167] Server  LOG      ✓ Compiled in 90ms
+[05:23:53.955] Server  LOG      ✓ Compiled in 185ms
+[05:23:55.162] Server  LOG      ✓ Compiled in 1051ms
+[05:23:55.391] Server  LOG      ✓ Compiled in 224ms
+[05:23:55.836] Server  LOG      ✓ Compiled in 83ms
+[05:23:58.723] Server  LOG      ✓ Compiled in 31ms
+[05:26:24.427] Server  LOG      ✓ Compiled in 124ms
+[05:26:25.314] Server  LOG      ✓ Compiled in 57ms
+[05:26:25.764] Server  LOG      ✓ Compiled in 99ms
+[05:26:26.086] Server  LOG      ✓ Compiled in 134ms
+[05:26:26.616] Server  LOG      ✓ Compiled in 47ms
+[05:30:00.095] Server  LOG      ✓ Compiled in 410ms
+[05:30:41.291] Server  LOG      ✓ Compiled in 163ms
+[05:31:49.599] Server  LOG      ✓ Compiled in 544ms
+[05:32:25.155] Server  LOG      ✓ Compiled in 286ms
+[05:35:42.940] Server  LOG      ✓ Compiled in 204ms
+[05:35:46.748] Server  LOG      ✓ Compiled in 3.6s
+[05:36:57.564] Server  LOG      ✓ Compiled in 200ms
+[05:38:17.448] Server  LOG      ✓ Compiled in 252ms
+[05:39:04.658] Server  LOG      ✓ Compiled in 261ms
+[05:39:49.316] Server  LOG      ✓ Compiled in 218ms
+[05:39:49.504] Browser ERROR   uncaughtError: TypeError: Illegal constructor
+[05:39:49.841] Browser ERROR   uncaughtError: TypeError: Illegal constructor
+[05:39:49.845] Browser ERROR   uncaughtError: TypeError: Illegal constructor
+[05:39:50.246] Server  LOG      ✓ Compiled in 791ms
+[05:39:50.586] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:39:50.590] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:39:50.590] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:39:55.388] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:40:00.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:40:00.895] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:40:01.273] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:40:01.273] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:40:01.453] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:40:01.541] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:40:01.639] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:40:02.631] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:40:02.631] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:40:57.567] Server  LOG      ✓ Compiled in 1770ms
+[05:41:44.223] Server  LOG      ✓ Compiled in 107ms
+[05:41:44.317] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[05:41:44.367] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[05:41:45.552] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[05:41:45.835] Server  LOG      ✓ Compiled in 243ms
+[05:41:45.836] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:41:45.836] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:41:46.692] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:41:48.012] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:41:48.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:41:48.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:41:48.597] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:41:48.655] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:41:48.655] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:41:48.701] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:41:48.701] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:41:49.619] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[05:41:49.619] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[05:43:53.202] Server  LOG      ✓ Compiled in 655ms
+[05:46:36.481] Server  LOG      ✓ Compiled in 3s
+[05:47:44.724] Server  LOG      ✓ Compiled in 136ms
+[05:47:46.263] Server  LOG      ✓ Compiled in 265ms
+[05:49:31.791] Server  LOG      ✓ Compiled in 237ms
+[05:50:16.809] Server  LOG      ✓ Compiled in 90ms
+[05:50:39.160] Server  LOG      ✓ Compiled in 66ms
+[05:56:34.603] Server  LOG      ✓ Compiled in 1561ms
+[05:57:14.150] Server  LOG      ✓ Compiled in 2.1s
+[05:57:15.048] Server  LOG      ✓ Compiled in 153ms
+[05:57:16.845] Server  LOG      ✓ Compiled in 200ms
+[05:57:17.042] Server  LOG      ✓ Compiled in 76ms
+[05:57:17.387] Server  LOG      ✓ Compiled in 81ms
+[05:57:17.653] Server  LOG      ✓ Compiled in 31ms
+[05:57:17.976] Server  LOG      ✓ Compiled in 47ms
+[05:57:18.248] Server  LOG      ✓ Compiled in 25ms
+[05:57:18.736] Server  LOG      ✓ Compiled in 113ms
+[05:57:19.296] Server  LOG      ✓ Compiled in 27ms
+[05:58:41.659] Server  LOG      ✓ Compiled in 95ms
+[05:58:42.923] Server  LOG      ✓ Compiled in 91ms
+[05:58:43.187] Server  LOG      ✓ Compiled in 57ms
+[05:58:43.771] Server  LOG      ✓ Compiled in 55ms
+[05:58:44.061] Server  LOG      ✓ Compiled in 59ms
+[05:58:44.338] Server  LOG      ✓ Compiled in 31ms
+[05:58:44.648] Server  LOG      ✓ Compiled in 64ms
+[05:58:44.897] Server  LOG      ✓ Compiled in 23ms
+[05:58:45.179] Server  LOG      ✓ Compiled in 25ms
+[05:58:45.539] Server  LOG      ✓ Compiled in 54ms
+[05:58:46.114] Server  LOG      ✓ Compiled in 40ms
+[05:58:46.487] Server  LOG      ✓ Compiled in 22ms
+[05:59:48.013] Server  LOG      ✓ Compiled in 62ms
+[06:02:10.239] Server  LOG      ✓ Compiled in 90ms
+[06:02:12.071] Server  LOG      ✓ Compiled in 247ms
+[06:04:24.648] Server  LOG      ✓ Compiled in 806ms
+[06:05:13.627] Server  WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:05:19.231] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:05:19.317] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:05:19.343] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:05:19.476] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:05:19.528] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:05:19.602] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[06:05:19.654] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:05:19.682] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[06:05:20.618] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[06:05:29.460] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:05:29.613] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:05:29.613] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[06:08:33.201] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:11:45.451] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:11:45.666] Browser WARN    Image with src "/assets/hero-img.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[06:11:45.666] Browser WARN    Image with src "/assets/hero-img.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[06:11:54.210] Browser WARN    Image with src "/assets/hero-img.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
