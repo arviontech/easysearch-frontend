@@ -1,7 +1,19 @@
 {
   "/(dashboard)/admin/page": "/admin",
+  "/(public)/catering/[id]/page": "/catering/[id]",
+  "/(public)/catering/page": "/catering",
+  "/(public)/find/doctor/page": "/find/doctor",
+  "/(public)/find/jobs/page": "/find/jobs",
+  "/(public)/foods/page": "/foods",
+  "/(public)/for-rent/hostels/[id]/page": "/for-rent/hostels/[id]",
+  "/(public)/for-rent/hostels/page": "/for-rent/hostels",
+  "/(public)/for-rent/houses/[id]/page": "/for-rent/houses/[id]",
+  "/(public)/for-rent/houses/page": "/for-rent/houses",
   "/(public)/page": "/",
+  "/(public)/tourism/page": "/tourism",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
-  "/favicon.ico/route": "/favicon.ico"
+  "/debug-jwt/page": "/debug-jwt",
+  "/favicon.ico/route": "/favicon.ico",
+  "/sitemap.xml/route": "/sitemap.xml"
 }

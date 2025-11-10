@@ -3,10 +3,43 @@
     "[project]/Arvion Tech/arvion-rent/src/app/(dashboard)/admin/page": [
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/catering/[id]/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/catering/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/find/doctor/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/find/jobs/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/foods/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/for-rent/hostels/[id]/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/for-rent/hostels/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/for-rent/houses/[id]/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/for-rent/houses/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
     "[project]/Arvion Tech/arvion-rent/src/app/(public)/page": [
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ],
+    "[project]/Arvion Tech/arvion-rent/src/app/(public)/tourism/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
     "[project]/Arvion Tech/arvion-rent/src/app/_not-found/page": [
+      "static/media/797e433ab948586e-s.p.dbea232f.woff2"
+    ],
+    "[project]/Arvion Tech/arvion-rent/src/app/debug-jwt/page": [
       "static/media/797e433ab948586e-s.p.dbea232f.woff2"
     ]
   },

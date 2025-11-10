@@ -1,16 +1,19 @@
-import React from "react";
+import type React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-interface IProps {
-  childern: React.ReactNode;
-  onSubmit: (data: any) => void;
+interface IProps<T = Record<string, unknown>> {
+  children: React.ReactNode;
+  onSubmit: (data: T) => void;
 }
 
-const AForm = ({ childern, onSubmit }: IProps) => {
-  const methods = useForm();
+const AForm = <T extends Record<string, unknown> = Record<string, unknown>>({
+  children,
+  onSubmit,
+}: IProps<T>) => {
+  const methods = useForm<T>();
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{childern}</form>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
     </FormProvider>
   );
 };

@@ -1,0 +1,13 @@
+# robots.txt for Rajshahi Local Services Platform
+
+# Allow all robots
+User-agent: *
+Allow: /
+
+# Disallow admin and dashboard areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: http://localhost:3000/sitemap.xml

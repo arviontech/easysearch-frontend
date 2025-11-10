@@ -19,7 +19,32 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/catering/[id]",
+      "regex": "^/catering/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/catering/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/for-rent/hostels/[id]",
+      "regex": "^/for\\-rent/hostels/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/for\\-rent/hostels/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/for-rent/houses/[id]",
+      "regex": "^/for\\-rent/houses/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/for\\-rent/houses/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -46,10 +71,64 @@
       "namedRegex": "^/admin(?:/)?$"
     },
     {
+      "page": "/catering",
+      "regex": "^/catering(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catering(?:/)?$"
+    },
+    {
+      "page": "/debug-jwt",
+      "regex": "^/debug\\-jwt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/debug\\-jwt(?:/)?$"
+    },
+    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/find/doctor",
+      "regex": "^/find/doctor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/find/doctor(?:/)?$"
+    },
+    {
+      "page": "/find/jobs",
+      "regex": "^/find/jobs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/find/jobs(?:/)?$"
+    },
+    {
+      "page": "/foods",
+      "regex": "^/foods(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/foods(?:/)?$"
+    },
+    {
+      "page": "/for-rent/hostels",
+      "regex": "^/for\\-rent/hostels(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-rent/hostels(?:/)?$"
+    },
+    {
+      "page": "/for-rent/houses",
+      "regex": "^/for\\-rent/houses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-rent/houses(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/tourism",
+      "regex": "^/tourism(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tourism(?:/)?$"
     }
   ],
   "dataRoutes": [],

@@ -52,12 +52,7 @@ const AdBanner = ({
 
             {/* Image */}
             <div className="relative h-64 md:h-full">
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className="object-cover"
-              />
+              <Image src={imageUrl} alt={title} fill className="object-cover" />
             </div>
           </div>
         </div>

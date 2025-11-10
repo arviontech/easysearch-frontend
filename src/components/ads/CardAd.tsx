@@ -1,7 +1,9 @@
 "use client";
 
+import { Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface CardAdProps {
   title: string;
@@ -19,41 +21,75 @@ const CardAd = ({
   ctaLink,
 }: CardAdProps) => {
   return (
-    <Link
-      href={ctaLink}
-      className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative h-full"
+    <motion.div
+      whileHover={{ scale: 1.02, y: -8 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ scale: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Full Card Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover"
-        />
-      </div>
+      <motion.div
+        whileHover="hover"
+        initial="initial"
+        animate="initial"
+      >
+        <Link
+          href={ctaLink}
+          className="group block bg-gradient-to-t from-cyan-50/90 via-cyan-50/40 to-transparent backdrop-blur-md rounded-3xl border border-white shadow-[0_4px_8px_rgba(0,0,0,0.1),inset_0_4px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.15),inset_0_4px_8px_rgba(0,0,0,0.2)] transition-all duration-300 overflow-hidden h-full min-h-[380px] flex flex-col"
+        >
+          {/* Image */}
+          <div className="relative h-48 w-full overflow-hidden">
+            <Image
+              src={imageUrl}
+              alt={title}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
+            />
 
-      {/* Black Gradient Overlay - Fades from bottom upward */}
-      <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+            {/* Featured Badge */}
+            <div className="absolute top-3 left-3">
+              <span className="bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                Featured
+              </span>
+            </div>
+          </div>
 
-      {/* Content at Bottom */}
-      <div className="absolute inset-x-0 bottom-0 p-4 text-white flex flex-col justify-end h-[140px]">
-        <div className="flex-1 flex flex-col justify-end">
-          <h3 className="text-lg font-bold mb-1.5 leading-tight">
-            {title}
-          </h3>
-          {subtitle && (
-            <p className="text-sm opacity-90 mb-3">
-              {subtitle}
-            </p>
-          )}
-        </div>
+          {/* Content */}
+          <div className="p-4 flex flex-col flex-1">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition">
+              {title}
+            </h3>
+            {subtitle && (
+              <p className="text-sm text-gray-600 mb-4 flex-1">{subtitle}</p>
+            )}
 
-        <button className="w-full bg-white text-gray-900 font-bold py-2 px-4 rounded-lg hover:bg-gray-100 transition text-sm">
-          {ctaText}
-        </button>
-      </div>
-    </Link>
+            {/* CTA Button - Opposite hover effect */}
+            <div className="mt-auto pt-4 border-t border-gray-200">
+              <div className="bg-cyan-600 text-white text-sm font-semibold px-3 py-2 rounded-2xl border border-cyan-600 shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden flex items-center justify-center gap-2">
+                <motion.div
+                  className="absolute inset-0 bg-cyan-100 rounded-2xl"
+                  variants={{
+                    initial: { scale: 0 },
+                    hover: { scale: 1 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="relative z-10 flex items-center gap-2"
+                  variants={{
+                    initial: { color: "#ffffff" },
+                    hover: { color: "#0e7490" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Eye className="w-4 h-4" />
+                  <span>{ctaText}</span>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+    </motion.div>
   );
 };
 

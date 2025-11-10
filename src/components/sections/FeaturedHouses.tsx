@@ -1,15 +1,16 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import PropertyCard from "@/components/cards/PropertyCard";
+import { motion, AnimatePresence } from "framer-motion";
 import CardAd from "@/components/ads/CardAd";
 import Container from "@/components/Container";
-import Link from "next/link";
+import PropertyCard from "@/components/cards/PropertyCard";
 
 const FeaturedHouses = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const cardsPerPage = 4;
+  const _cardsPerPage = 4;
 
   const houses = [
     {
@@ -21,8 +22,8 @@ const FeaturedHouses = () => {
       features: ["2 Beds", "1 Bath", "Furnished"],
       rating: 4.8,
       reviewCount: 24,
-      imageUrl: "/assets/hero-img.jpg",
-      href: "/house-rent/1",
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/for-rent/houses/1",
     },
     {
       id: "2",
@@ -33,8 +34,8 @@ const FeaturedHouses = () => {
       features: ["1 Bed", "1 Bath", "Wi-Fi"],
       rating: 4.6,
       reviewCount: 18,
-      imageUrl: "/assets/hero-img.jpg",
-      href: "/house-rent/2",
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/for-rent/houses/2",
     },
     {
       id: "3",
@@ -45,8 +46,8 @@ const FeaturedHouses = () => {
       features: ["3 Beds", "2 Baths", "Parking"],
       rating: 4.9,
       reviewCount: 32,
-      imageUrl: "/assets/hero-img.jpg",
-      href: "/house-rent/3",
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/for-rent/houses/3",
     },
     {
       id: "4",
@@ -57,8 +58,8 @@ const FeaturedHouses = () => {
       features: ["Studio", "1 Bath", "Balcony"],
       rating: 4.5,
       reviewCount: 12,
-      imageUrl: "/assets/hero-img.jpg",
-      href: "/house-rent/4",
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/for-rent/houses/4",
     },
   ];
 
@@ -77,10 +78,16 @@ const FeaturedHouses = () => {
   const visibleItems = houses.slice(startIndex, startIndex + cardsToShow);
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-white/40 backdrop-blur-sm">
       <Container>
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <motion.div
+          className="flex items-center justify-between mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Featured Houses in Rajshahi
           </h2>
@@ -88,43 +95,97 @@ const FeaturedHouses = () => {
           <div className="flex items-center gap-3">
             {/* Navigation Arrows */}
             <div className="hidden md:flex gap-2">
-              <button
+              <motion.button
+                type="button"
                 onClick={prevPage}
                 disabled={currentPage === 0}
-                className="p-2 rounded-full border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-cyan-100 border border-cyan-600 p-2 rounded-full shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Previous page"
+                whileHover="hover"
+                whileTap={{ scale: 0.9 }}
+                initial="initial"
+                animate="initial"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-              <button
+                <motion.div
+                  className="absolute inset-0 bg-cyan-600 rounded-full"
+                  variants={{
+                    initial: { scale: 0 },
+                    hover: { scale: 1 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="relative z-10"
+                  variants={{
+                    initial: { color: "#0e7490" },
+                    hover: { color: "#ffffff" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </motion.div>
+              </motion.button>
+              <motion.button
+                type="button"
                 onClick={nextPage}
                 disabled={currentPage === totalPages - 1}
-                className="p-2 rounded-full border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-cyan-100 border border-cyan-600 p-2 rounded-full shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Next page"
+                whileHover="hover"
+                whileTap={{ scale: 0.9 }}
+                initial="initial"
+                animate="initial"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
+                <motion.div
+                  className="absolute inset-0 bg-cyan-600 rounded-full"
+                  variants={{
+                    initial: { scale: 0 },
+                    hover: { scale: 1 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="relative z-10"
+                  variants={{
+                    initial: { color: "#0e7490" },
+                    hover: { color: "#ffffff" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </motion.div>
+              </motion.button>
             </div>
 
             {/* View All Link */}
             <Link
-              href="/house-rent"
-              className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition"
+              href="/for-rent/houses"
+              className="text-cyan-600 hover:text-cyan-700 font-semibold text-sm flex items-center gap-1 transition"
             >
               View All
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Main Layout: Carousel (Left) + Fixed Ad (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           {/* Left: Paginated Carousel - 3 cards */}
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visibleItems.map((house) => (
-                <PropertyCard key={house.id} {...house} />
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden pl-3 pt-2 pb-2">
+              <AnimatePresence>
+                {visibleItems.map((house, index) => (
+                  <motion.div
+                    key={`${currentPage}-${house.id}`}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <PropertyCard {...house} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -133,9 +194,9 @@ const FeaturedHouses = () => {
             <CardAd
               title="Discover great deals on houses"
               subtitle="Find your perfect home today"
-              imageUrl="/assets/hero-img.jpg"
+              imageUrl="/assets/hero-image.jpg"
               ctaText="Explore Now"
-              ctaLink="/house-rent"
+              ctaLink="/for-rent/houses"
             />
           </div>
         </div>

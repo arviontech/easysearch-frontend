@@ -1,106 +1,176 @@
 "use client";
 
+import {
+  Star,
+  Phone,
+  MapPin,
+  Languages,
+  Briefcase,
+  Clock,
+  Eye,
+  Navigation,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Star, Calendar, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface DoctorCardProps {
   id: string;
   name: string;
-  specialization: string;
   qualifications: string;
-  experience: string;
-  consultationFee: number;
-  available: string;
-  hospital: string;
+  specialization: string;
   rating: number;
   reviewCount: number;
-  imageUrl: string;
-  href: string;
+  experience: number; // in years
+  consultationFee: number;
+  availableDays: string;
+  availableTimes: string;
+  languages?: string[];
+  hospital: string;
+  location: string;
+  imageUrl?: string;
+  phoneNumber?: string;
 }
 
 const DoctorCard = ({
   id,
   name,
-  specialization,
   qualifications,
-  experience,
-  consultationFee,
-  available,
-  hospital,
+  specialization,
   rating,
   reviewCount,
-  imageUrl,
-  href,
+  experience,
+  consultationFee,
+  availableDays,
+  availableTimes,
+  languages,
+  hospital,
+  location,
+  imageUrl = "/assets/hero-image.jpg",
+  phoneNumber,
 }: DoctorCardProps) => {
   return (
-    <Link
-      href={href}
-      className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[380px] flex flex-col"
+    <motion.div
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Image */}
-      <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
-        <Image
-          src={imageUrl}
-          alt={name}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-300"
-        />
+      <motion.div whileHover="hover" initial="initial" animate="initial">
+        <div className="group bg-cyan-50/60 backdrop-blur-md rounded-3xl border border-white shadow-[0_4px_8px_rgba(0,0,0,0.1),inset_0_4px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.1),inset_0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden">
+          {/* Header with Profile Photo */}
+          <div className="p-6 pb-4">
+            <div className="flex items-start gap-4 mb-4">
+              {/* Circular Profile Photo */}
+              <div className="relative w-20 h-20 shrink-0">
+                <Image
+                  src={imageUrl}
+                  alt={name}
+                  fill
+                  sizes="80px"
+                  className="object-cover rounded-full border-4 border-cyan-100"
+                />
+              </div>
 
-        {/* Available Time Badge */}
-        <div className="absolute top-3 left-3">
-          <span className="bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-            <Calendar className="w-3 h-3" />
-            {available}
-          </span>
-        </div>
+              {/* Name & Qualifications */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg font-bold text-gray-900 mb-1 line-clamp-1">
+                  {name}
+                </h3>
+                <p className="text-sm text-cyan-600 font-medium mb-1">
+                  {qualifications}
+                </p>
+                <p className="text-sm text-gray-600">{specialization}</p>
+              </div>
+            </div>
 
-        {/* Specialization Badge */}
-        <div className="absolute top-3 right-3">
-          <span className="bg-blue-600/80 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            {specialization}
-          </span>
-        </div>
-      </div>
+            {/* Rating */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-1">
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                <span className="text-sm font-semibold text-gray-900">
+                  {rating}
+                </span>
+              </div>
+              <span className="text-sm text-gray-500">
+                ({reviewCount} reviews)
+              </span>
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1 text-sm text-gray-600">
+                <Briefcase className="w-3.5 h-3.5" />
+                <span>{experience} years</span>
+              </div>
+            </div>
 
-      {/* Content */}
-      <div className="p-3 flex flex-col flex-1">
-        {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-600 transition">
-          {name}
-        </h3>
+            {/* Info Grid */}
+            <div className="space-y-2.5 mb-4">
+              {/* Consultation Fee */}
+              <div className="flex items-center gap-2 text-sm">
+                <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                  <span className="text-cyan-600 font-bold">৳</span>
+                </div>
+                <span className="text-gray-700">
+                  <span className="font-semibold text-gray-900">
+                    ৳{consultationFee}
+                  </span>{" "}
+                  consultation fee
+                </span>
+              </div>
 
-        {/* Hospital Location */}
-        <div className="flex items-center gap-1.5 text-sm text-gray-600 mb-3">
-          <MapPin className="w-4 h-4 flex-shrink-0" />
-          <span className="line-clamp-1">{hospital}</span>
-        </div>
+              {/* Available Days & Times */}
+              <div className="flex items-start gap-2 text-sm">
+                <Clock className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col">
+                  <span className="text-gray-700 font-medium">
+                    {availableDays}
+                  </span>
+                  <span className="text-gray-500 text-xs">{availableTimes}</span>
+                </div>
+              </div>
 
-        {/* Rating */}
-        <div className="flex items-center gap-1 mb-3">
-          <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-          <span className="text-sm font-semibold text-gray-900">
-            {rating}
-          </span>
-          <span className="text-sm text-gray-500">({reviewCount})</span>
-        </div>
+              {/* Languages */}
+              <div className="flex items-center gap-2 text-sm">
+                <Languages className="w-5 h-5 text-gray-400 shrink-0" />
+                <span className="text-gray-700">{languages?.join(", ") || "Not specified"}</span>
+              </div>
 
-        {/* Price & View Details Button */}
-        <div className="flex items-center justify-between pt-3 border-t border-gray-200 mt-auto">
-          <div>
-            <span className="text-lg font-bold text-gray-900">
-              ৳{consultationFee}
-            </span>
+              {/* Hospital & Location */}
+              <div className="flex items-start gap-2 text-sm">
+                <MapPin className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col">
+                  <span className="text-gray-900 font-medium">{hospital}</span>
+                  <span className="text-gray-500 text-xs">{location}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <button
-            className="bg-blue-600 text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-            View Details
-          </button>
+          {/* Action Buttons */}
+          <div className="px-6 pb-6">
+            <div className="grid grid-cols-3 gap-2">
+              <Link href={`/find/doctor/${id}`}>
+                <button className="w-full px-3 py-2 bg-white border border-cyan-200 rounded-xl text-sm font-medium text-gray-700 hover:bg-cyan-50 hover:border-cyan-400 transition flex items-center justify-center gap-1.5">
+                  <Eye className="w-4 h-4" />
+                  <span className="hidden sm:inline">Profile</span>
+                </button>
+              </Link>
+
+              {phoneNumber && (
+                <a href={`tel:${phoneNumber}`}>
+                  <button className="w-full px-3 py-2 bg-white border border-cyan-200 rounded-xl text-sm font-medium text-gray-700 hover:bg-cyan-50 hover:border-cyan-400 transition flex items-center justify-center gap-1.5">
+                    <Phone className="w-4 h-4" />
+                    <span className="hidden sm:inline">Call</span>
+                  </button>
+                </a>
+              )}
+
+              <button className="w-full px-3 py-2 bg-white border border-cyan-200 rounded-xl text-sm font-medium text-gray-700 hover:bg-cyan-50 hover:border-cyan-400 transition flex items-center justify-center gap-1.5">
+                <Navigation className="w-4 h-4" />
+                <span className="hidden sm:inline">Map</span>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </Link>
+      </motion.div>
+    </motion.div>
   );
 };
 

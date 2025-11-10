@@ -1,3 +1,0 @@
-module.exports=[35214,a=>{a.v({className:"geist_mono_8d43a2aa-module__8Li5zG__className",variable:"geist_mono_8d43a2aa-module__8Li5zG__variable"})},46461,a=>{"use strict";var b=a.i(11646),c=a.i(35214);let d={className:c.default.className,style:{fontFamily:"'Geist Mono', 'Geist Mono Fallback'",fontStyle:"normal"}};function e({children:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsx)("body",{className:`${d.variable} font-sans antialiased`,children:a})})}null!=c.default.variable&&(d.variable=c.default.variable),a.s(["default",()=>e,"metadata",0,{title:"Rajshahi Services - Local Services Platform",description:"Find houses, hostels, doctors, catering, tourism and more in Rajshahi"}],46461)}];
-
-//# sourceMappingURL=%5Broot-of-the-server%5D__dd696dcd._.js.map

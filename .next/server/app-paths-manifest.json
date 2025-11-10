@@ -1,7 +1,19 @@
 {
   "/(dashboard)/admin/page": "app/(dashboard)/admin/page.js",
+  "/(public)/catering/[id]/page": "app/(public)/catering/[id]/page.js",
+  "/(public)/catering/page": "app/(public)/catering/page.js",
+  "/(public)/find/doctor/page": "app/(public)/find/doctor/page.js",
+  "/(public)/find/jobs/page": "app/(public)/find/jobs/page.js",
+  "/(public)/foods/page": "app/(public)/foods/page.js",
+  "/(public)/for-rent/hostels/[id]/page": "app/(public)/for-rent/hostels/[id]/page.js",
+  "/(public)/for-rent/hostels/page": "app/(public)/for-rent/hostels/page.js",
+  "/(public)/for-rent/houses/[id]/page": "app/(public)/for-rent/houses/[id]/page.js",
+  "/(public)/for-rent/houses/page": "app/(public)/for-rent/houses/page.js",
   "/(public)/page": "app/(public)/page.js",
+  "/(public)/tourism/page": "app/(public)/tourism/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/debug-jwt/page": "app/debug-jwt/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }

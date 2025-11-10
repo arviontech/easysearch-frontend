@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 
 interface CarouselAd {
@@ -30,7 +30,7 @@ const ImageAdBanner = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === carouselAds.length - 1 ? 0 : prevIndex + 1
+        prevIndex === carouselAds.length - 1 ? 0 : prevIndex + 1,
       );
     }, autoPlayInterval);
 
@@ -38,14 +38,14 @@ const ImageAdBanner = ({
   }, [carouselAds.length, autoPlayInterval]);
 
   return (
-    <div className="w-full py-6">
+    <div className="w-full py-6 bg-white/40 backdrop-blur-sm">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left Image Ad - Takes 2/3 width */}
           <div className="md:col-span-2">
             <Link
               href={leftLink}
-              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 block"
+              className="group relative overflow-hidden rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 block"
             >
               <div className={`relative ${height} w-full`}>
                 <Image
@@ -60,13 +60,17 @@ const ImageAdBanner = ({
 
           {/* Right Carousel Ad - Takes 1/3 width */}
           <div className="md:col-span-1">
-            <div className={`relative overflow-hidden rounded-xl shadow-md ${height}`}>
+            <div
+              className={`relative overflow-hidden rounded-3xl shadow-md ${height}`}
+            >
               {carouselAds.map((ad, index) => (
                 <Link
-                  key={index}
+                  key={`${ad.link}-${index}`}
                   href={ad.link}
                   className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                    index === currentIndex
+                      ? "opacity-100 z-10"
+                      : "opacity-0 z-0"
                   }`}
                 >
                   <div className="relative w-full h-full">
@@ -82,14 +86,13 @@ const ImageAdBanner = ({
 
               {/* Carousel Indicators */}
               <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-                {carouselAds.map((_, index) => (
+                {carouselAds.map((ad, index) => (
                   <button
-                    key={index}
+                    type="button"
+                    key={`indicator-${ad.link}-${index}`}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex
-                        ? "bg-white w-6"
-                        : "bg-white/60"
+                      index === currentIndex ? "bg-white w-6" : "bg-white/60"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

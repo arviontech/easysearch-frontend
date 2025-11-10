@@ -1,4 +1,7 @@
 {
+  "/(dashboard)/admin/page": "app/(dashboard)/admin/page.js",
+  "/(dashboard)/admin/properties/page": "app/(dashboard)/admin/properties/page.js",
+  "/(dashboard)/admin/users/page": "app/(dashboard)/admin/users/page.js",
   "/(public)/page": "app/(public)/page.js",
   "/_not-found/page": "app/_not-found/page.js"
 }

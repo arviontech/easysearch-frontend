@@ -1,32 +1,39 @@
 "use client";
 
 import {
-  Home,
   Building2,
-  Stethoscope,
-  UtensilsCrossed,
+  Home,
   MapPin,
   Package,
+  Stethoscope,
+  UtensilsCrossed,
+  Briefcase,
 } from "lucide-react";
-import ServiceCategoryCard from "@/components/ServiceCategoryCard";
+import { motion } from "framer-motion";
 import Container from "@/components/Container";
+import ServiceCategoryCard from "@/components/ServiceCategoryCard";
 
 const ServiceCategories = () => {
   const categories = [
     {
       icon: Home,
       title: "Houses",
-      href: "/house-rent",
+      href: "/for-rent/houses",
     },
     {
       icon: Building2,
       title: "Hostels",
-      href: "/hostel-rent",
+      href: "/for-rent/hostels",
     },
     {
       icon: Stethoscope,
       title: "Doctors",
-      href: "/find-doctor",
+      href: "/find/doctor",
+    },
+    {
+      icon: Briefcase,
+      title: "Jobs",
+      href: "/find/jobs",
     },
     {
       icon: UtensilsCrossed,
@@ -38,30 +45,52 @@ const ServiceCategories = () => {
       title: "Tourism",
       href: "/tourism",
     },
-    {
-      icon: Package,
-      title: "All Services",
-      href: "/services",
-    },
   ];
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 bg-white/40 backdrop-blur-sm">
       <Container>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           Which type of service suits your needs?
-        </h2>
+        </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {categories.map((category, index) => (
-            <ServiceCategoryCard
-              key={index}
-              icon={category.icon}
-              title={category.title}
-              href={category.href}
-            />
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
+          {categories.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              <ServiceCategoryCard
+                icon={category.icon}
+                title={category.title}
+                href={category.href}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

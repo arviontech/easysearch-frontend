@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/mursalin/Arvion%20Tech/arvion-rent/src/app/%28public%29/layout.tsx"],"sourcesContent":["import React from \"react\";\n\nconst PublicLayout = ({ children }: { children: React.ReactNode }) => {\n  return <div>{children}</div>;\n};\n\nexport default PublicLayout;\n"],"names":[],"mappings":";;;;;;AAEA,MAAM,eAAe,CAAC,EAAE,QAAQ,EAAiC;IAC/D,qBAAO,gRAAC;kBAAK;;;;;;AACf;uCAEe","debugId":null}}]
-}

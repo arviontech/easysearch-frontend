@@ -1,8 +1,9 @@
 "use client";
 
+import { Clock, Eye, Star, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Star, Tag } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TourismCardProps {
   id: string;
@@ -17,7 +18,7 @@ interface TourismCardProps {
 }
 
 const TourismCard = ({
-  id,
+  id: _id,
   name,
   type,
   entryFee,
@@ -28,80 +29,96 @@ const TourismCard = ({
   href,
 }: TourismCardProps) => {
   return (
-    <Link
-      href={href}
-      className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[380px] flex flex-col"
+    <motion.div
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Image */}
-      <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
-        <Image
-          src={imageUrl}
-          alt={name}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-300"
-        />
+      <motion.div
+        whileHover="hover"
+        initial="initial"
+        animate="initial"
+      >
+      <Link
+        href={href}
+        className="group block bg-cyan-50/60 backdrop-blur-md rounded-3xl border border-white shadow-[0_4px_8px_rgba(0,0,0,0.1),inset_0_4px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.1),inset_0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden h-[380px] flex flex-col"
+      >
+        {/* Image */}
+        <div className="relative h-48 w-full overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={name}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-300"
+          />
 
-        {/* Type Badge */}
-        <div className="absolute top-3 left-3">
-          <span className="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            {type}
-          </span>
+          {/* Type Badge */}
+          <div className="absolute top-3 left-3">
+            <span className="bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              {type}
+            </span>
+          </div>
+
+          {/* Rating Badge */}
+          <div className="absolute top-3 right-3 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-semibold text-gray-900">{rating}</span>
+          </div>
         </div>
 
-        {/* Rating */}
-        <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full flex items-center gap-1">
-          <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-          <span className="text-sm font-semibold text-gray-900">{rating}</span>
+        {/* Content */}
+        <div className="p-3 flex flex-col flex-1">
+          {/* Name */}
+          <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1 group-hover:text-cyan-600 transition">
+            {name}
+          </h3>
+
+          {/* Entry Fee */}
+          <div className="flex items-center gap-1.5 text-sm text-gray-600 mb-2">
+            <Tag className="w-4 h-4" />
+            <span>Entry: ৳{entryFee}</span>
+          </div>
+
+          {/* Best Time */}
+          <div className="flex items-center gap-1.5 text-sm text-gray-600 mb-2">
+            <Clock className="w-4 h-4" />
+            <span className="line-clamp-1">{bestTime}</span>
+          </div>
+
+          {/* Rating */}
+          <div className="flex items-center gap-1 mb-3">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-semibold text-gray-900">{rating}</span>
+            <span className="text-sm text-gray-500">({reviewCount})</span>
+          </div>
+
+          {/* View Button */}
+          <div className="flex items-center justify-end pt-3 border-t border-gray-200 mt-auto">
+            <div className="bg-cyan-100 text-cyan-700 text-sm font-semibold px-3 py-2 rounded-2xl border border-cyan-600 shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden flex items-center gap-2">
+              <motion.div
+                className="absolute inset-0 bg-cyan-600 rounded-2xl"
+                variants={{
+                  initial: { scale: 0 },
+                  hover: { scale: 1 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="relative z-10 flex items-center gap-2"
+                variants={{
+                  initial: { color: "#0e7490" },
+                  hover: { color: "#ffffff" }
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Eye className="w-4 h-4" />
+                <span>View</span>
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-3 flex flex-col flex-1">
-        {/* Name */}
-        <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-600 transition">
-          {name}
-        </h3>
-
-        {/* Entry Fee */}
-        <div className="flex items-center gap-1.5 text-sm text-gray-700 mb-2">
-          <Tag className="w-4 h-4 text-blue-600 flex-shrink-0" />
-          <span>
-            Entry: <span className="font-semibold">৳{entryFee}</span>
-          </span>
-        </div>
-
-        {/* Best Time */}
-        <div className="flex items-center gap-1.5 text-sm text-gray-700 mb-2">
-          <Clock className="w-4 h-4 text-blue-600 flex-shrink-0" />
-          <span className="line-clamp-1">{bestTime}</span>
-        </div>
-
-        {/* Reviews */}
-        <p className="text-xs text-gray-500 mb-3">{reviewCount} reviews</p>
-
-        {/* CTAs */}
-        <div className="grid grid-cols-2 gap-2 mt-auto">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              // Handle hire guide
-            }}
-            className="bg-blue-600 text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-            Hire Guide
-          </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              // Handle plan visit
-            }}
-            className="border-2 border-blue-600 text-blue-600 text-sm font-semibold px-3 py-2 rounded-lg hover:bg-blue-50 transition"
-          >
-            Plan Visit
-          </button>
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
+    </motion.div>
   );
 };
 
