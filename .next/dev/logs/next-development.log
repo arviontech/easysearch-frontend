@@ -1,127 +1,264 @@
-[00:00:00.565] Server  LOG      ✓ Ready in 470ms
-[00:00:05.755] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+[00:00:00.741] Server  LOG      ✓ Ready in 585ms
+[00:00:07.178] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:06.204] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+[00:00:07.525] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:00:07.525] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:07.856] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:06.347] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:16.946] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+[00:00:07.856] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:00:07.856] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:07.856] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:07.856] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:26.629] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:20.603] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-        <LoadingBoundary name="admin/" loading={null}>
-          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
-            <RedirectBoundary>
-              <RedirectErrorBoundary router={{...}}>
-                <InnerLayoutRouter url="/admin" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
-                  <SegmentViewNode type="page" pagePath="/Arvion Te...">
-                    <SegmentTrieNode>
-                    <ClientPageRoot Component={function AdminHomePage} serverProvidedParams={{...}}>
-                      <AdminHomePage params={Promise} searchParams={Promise}>
-                        <div className="space-y-6">
-                          <div className="flex items...">
-                            <div>
-                            <div className="text-sm te...">
-+                             10:42:31 AM
--                             10:42:30 AM
-                          ...
-                  ...
-                ...
-      ...
-
-[00:04:28.768] Server  LOG      ✓ Compiled in 84ms
-[00:04:39.283] Server  LOG      ✓ Compiled in 45ms
-[00:05:28.970] Server  LOG      ✓ Compiled in 103ms
-[00:05:49.166] Server  LOG      ✓ Compiled in 69ms
-[00:06:26.540] Server  LOG      ✓ Compiled in 101ms
-[00:08:23.683] Server  LOG      ✓ Compiled in 57ms
-[00:08:23.840] Server  LOG      ✓ Compiled in 37ms
-[00:11:50.150] Server  LOG      ✓ Compiled in 63ms
-[00:12:40.605] Server  LOG      ✓ Compiled in 135ms
-[00:13:08.633] Server  LOG      ✓ Compiled in 44ms
-[00:13:08.713] Server  LOG      ✓ Compiled in 31ms
-[00:13:08.829] Server  LOG      ✓ Compiled in 53ms
-[00:13:08.925] Server  LOG      ✓ Compiled in 35ms
-[00:13:09.063] Server  LOG      ✓ Compiled in 31ms
-[00:13:09.211] Server  LOG      ✓ Compiled in 33ms
-[00:15:04.754] Server  LOG      ✓ Compiled in 41ms
-[00:15:04.839] Server  LOG      ✓ Compiled in 43ms
-[00:16:48.026] Server  LOG      ✓ Compiled in 55ms
-[00:16:48.154] Server  LOG      ✓ Compiled in 85ms
-[00:17:04.480] Server  LOG      ✓ Compiled in 74ms
-[00:17:21.493] Server  LOG      ✓ Compiled in 44ms
-[00:17:21.575] Server  LOG      ✓ Compiled in 29ms
-[00:17:21.703] Server  LOG      ✓ Compiled in 39ms
-[00:17:21.822] Server  LOG      ✓ Compiled in 37ms
-[00:17:35.823] Server  LOG      ✓ Compiled in 24ms
-[00:18:07.348] Server  LOG      ✓ Compiled in 78ms
-[00:18:39.112] Server  LOG      ✓ Compiled in 64ms
-[00:18:47.486] Server  LOG      ✓ Compiled in 43ms
-[00:19:36.597] Server  LOG      ✓ Compiled in 34ms
-[00:27:10.354] Server  LOG      ✓ Compiled in 49ms
-[00:29:24.482] Server  LOG      ✓ Compiled in 45ms
-[00:30:28.775] Server  LOG      ✓ Compiled in 42ms
-[00:30:28.924] Server  LOG      ✓ Compiled in 53ms
-[00:30:38.789] Server  LOG      ✓ Compiled in 40ms
-[00:46:12.872] Server  LOG      ✓ Compiled in 36ms
-[00:46:19.154] Server  LOG      ✓ Compiled in 52ms
-[00:51:05.808] Server  LOG      ✓ Compiled in 66ms
-[00:51:05.900] Browser ERROR   Global error: {}
-[00:51:05.900] Browser ERROR   Global error: {}
-[00:51:11.803] Server  LOG      ✓ Compiled in 45ms
-[00:51:11.865] Browser ERROR   Global error: {}
-[00:51:47.646] Server  LOG      ✓ Compiled in 91ms
-[00:51:47.712] Server  ERROR    ⨯ ReferenceError: User is not defined
-[00:51:47.719] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[00:51:47.719] Browser ERROR   Global error: {}
-[00:51:47.737] Server  ERROR    ⨯ ReferenceError: User is not defined
-[00:51:48.763] Browser ERROR   Global error: {}
-[00:51:54.906] Server  LOG      ✓ Compiled in 50ms
-[00:52:02.149] Server  LOG      ✓ Compiled in 66ms
-[01:02:38.158] Server  LOG        Reload env: .env.local
-[01:04:45.615] Server  LOG      ✓ Compiled in 62ms
-[01:09:32.584] Server  LOG      ✓ Compiled in 27ms
-[01:10:06.450] Server  LOG      ✓ Compiled in 43ms
-[01:10:20.889] Server  LOG      ✓ Compiled in 47ms
-[01:10:27.292] Server  LOG      ✓ Compiled in 179ms
-[01:10:39.690] Server  LOG      ✓ Compiled in 35ms
-[01:10:59.226] Server  LOG      ✓ Compiled in 68ms
-[01:11:16.197] Server  LOG      ✓ Compiled in 25ms
-[01:11:22.051] Server  LOG      ✓ Compiled in 147ms
-[01:11:49.877] Server  LOG      ✓ Compiled in 70ms
-[01:12:11.624] Server  LOG      ✓ Compiled in 80ms
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:17.402] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
-[01:16:18.413] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 75].
+[00:00:26.629] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:00:26.629] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:26.629] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:38.719] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:00:38.719] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:00:46.380] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:00:46.380] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:05:27.182] Server  LOG      ✓ Compiled in 145ms
+[00:05:27.303] Server  LOG      ✓ Compiled in 0ms
+[00:05:27.776] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:05:27.776] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:06:16.926] Server  LOG      ✓ Compiled in 181ms
+[00:07:25.120] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:07:25.120] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:09:00.188] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:09:00.189] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:09:06.488] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:09:06.488] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:10:50.925] Server  LOG      ✓ Compiled in 106ms
+[00:10:50.999] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/properties. Falling back to browser navigation. {}
+[00:10:51.040] Server  LOG      ✓ Compiled in 0ms
+[00:10:51.506] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:10:51.506] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:12:02.898] Server  LOG      ✓ Compiled in 67ms
+[00:12:04.239] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:12:04.239] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:15:18.166] Browser ERROR   Global error: {}
+[00:15:18.166] Browser ERROR   Global error: {}
+[00:15:18.248] Server  LOG      ✓ Compiled in 86ms
+[00:15:18.515] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:15:18.515] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:15:26.404] Server  LOG      ✓ Compiled in 75ms
+[00:16:10.988] Server  LOG      ✓ Compiled in 47ms
+[00:16:39.166] Server  LOG      ✓ Compiled in 21ms
+[00:18:16.275] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:18:16.275] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:18:44.934] Server  LOG      ✓ Compiled in 26ms
+[00:19:07.621] Server  LOG      ✓ Compiled in 25ms
+[00:19:30.407] Server  LOG      ✓ Compiled in 58ms
+[00:20:32.579] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:20:32.579] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[00:20:41.824] Browser ERROR   Global error: {}
+[00:20:41.824] Browser ERROR   Global error: {}
+[00:20:42.156] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[00:20:42.156] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:20:39.114] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:20:39.114] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:31:12.959] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[01:16:18.565] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:18:31.391] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
-[01:18:31.391] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
-[01:18:31.391] Browser LOG     🔑 Login - JWT Decoded User: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
-[01:18:31.391] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:31:13.469] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:31:13.469] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:31:13.469] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:31:13.469] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:31:13.469] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:35:36.958] Server  LOG      ✓ Compiled in 145ms
+[02:35:36.962] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[02:35:36.962] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/properties. Falling back to browser navigation. {}
+[02:35:37.091] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:35:37.230] Server  LOG      ✓ Compiled in 0ms
+[02:35:37.726] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[02:35:37.726] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:35:37.726] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:35:37.726] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:35:37.726] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[02:35:38.600] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:35:38.600] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:36:37.927] Server  LOG      ✓ Compiled in 69ms
+[02:39:01.534] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:39:01.534] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[02:40:19.270] Server  LOG      ✓ Compiled in 45ms
+[02:42:11.935] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[02:42:11.935] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[03:00:25.447] Server  LOG      ✓ Compiled in 170ms
+[03:01:21.425] Server  LOG      ✓ Compiled in 68ms
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   unhandledRejection: undefined
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.295] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/users. Falling back to browser navigation. {}
+[03:03:37.693] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[03:03:37.693] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[03:03:51.999] Server  ERROR    ⨯ "upstream image response failed for" "https://example.com/apartment.jpg" 404
+[03:06:12.879] Server  LOG      ✓ Compiled in 66ms
+[03:07:17.302] Server  LOG      ✓ Compiled in 58ms
+[03:08:00.717] Server  LOG      ✓ Compiled in 184ms
+[03:08:08.089] Server  LOG      ✓ Compiled in 208ms
+[03:08:15.063] Server  LOG      ✓ Compiled in 159ms
+[03:08:28.309] Server  LOG      ✓ Compiled in 325ms
+[03:09:43.771] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[03:09:43.772] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[03:53:59.784] Server  LOG      ✓ Compiled in 403ms
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   unhandledRejection: undefined
+[03:55:43.971] Browser ERROR   unhandledRejection: undefined
+[03:55:43.971] Browser ERROR   unhandledRejection: undefined
+[03:55:43.971] Browser ERROR   unhandledRejection: undefined
+[03:55:43.971] Browser ERROR   unhandledRejection: undefined
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:43.971] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin/hostels. Falling back to browser navigation. {}
+[03:55:45.110] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[03:55:45.110] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[03:59:47.147] Server  LOG      ✓ Compiled in 159ms
+[03:59:56.823] Server  LOG      ✓ Compiled in 264ms
+[04:00:06.282] Server  LOG      ✓ Compiled in 194ms
+[04:00:14.844] Server  LOG      ✓ Compiled in 233ms
+[04:00:29.333] Server  LOG      ✓ Compiled in 231ms
+[04:00:43.456] Server  LOG      ✓ Compiled in 255ms
+[04:01:12.839] Server  LOG      ✓ Compiled in 402ms
+[04:01:30.354] Server  LOG      ✓ Compiled in 257ms
+[04:14:28.802] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:14:28.912] Browser ERROR   unhandledRejection: undefined
+[04:14:28.912] Browser ERROR   unhandledRejection: undefined
+[04:14:28.912] Browser ERROR   unhandledRejection: undefined
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:28.912] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[04:14:30.089] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 75]. Please update your config to [100, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[04:14:30.336] Browser LOG     🔍 JWT Payload (ALL FIELDS): {"exp":1762840841,"iat":1762754441,"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","role":"ADMIN"}
+[04:14:30.336] Browser LOG     📊 Extracted User Data: {"id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[04:14:30.336] Browser LOG     🔍 Navbar - User Data: {"email":"","id":"40805a87-2b4b-4987-b2c1-cb4a4e0f2929","name":"","role":"ADMIN"}
+[04:14:30.336] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes

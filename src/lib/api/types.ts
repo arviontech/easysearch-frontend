@@ -51,6 +51,16 @@ export interface RegisterRequest {
   role: "HOST" | "CUSTOMER";
 }
 
+export interface UpdateUserRequest {
+  name?: string;
+  email?: string;
+  contactNumber?: string;
+  profilePhoto?: string;
+  role?: UserRole;
+  isActive?: boolean;
+  isBanned?: boolean;
+}
+
 export interface LoginRequest {
   email?: string;
   contactNumber?: string;
@@ -141,6 +151,24 @@ export interface CreateHouseRentRequest {
   lng: number;
   categoryId: string;
   ownerId: string;
+  // Extended fields (may not be supported by backend yet)
+  images?: string[];
+  securityDeposit?: number;
+  advanceRent?: number;
+  features?: string[];
+  amenities?: string[];
+  rules?: string[];
+  utilities?: {
+    gas?: boolean;
+    electricity?: boolean;
+    water?: boolean;
+    internet?: boolean;
+    generator?: boolean;
+  };
+  parking?: {
+    available: boolean;
+    type?: string;
+  };
 }
 
 export interface UpdateHouseRentRequest {

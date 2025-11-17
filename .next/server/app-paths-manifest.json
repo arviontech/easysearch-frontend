@@ -1,5 +1,8 @@
 {
+  "/(dashboard)/admin/approvals/page": "app/(dashboard)/admin/approvals/page.js",
   "/(dashboard)/admin/page": "app/(dashboard)/admin/page.js",
+  "/(dashboard)/admin/properties/page": "app/(dashboard)/admin/properties/page.js",
+  "/(dashboard)/admin/users/page": "app/(dashboard)/admin/users/page.js",
   "/(public)/catering/[id]/page": "app/(public)/catering/[id]/page.js",
   "/(public)/catering/page": "app/(public)/catering/page.js",
   "/(public)/find/doctor/page": "app/(public)/find/doctor/page.js",

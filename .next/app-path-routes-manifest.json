@@ -1,5 +1,8 @@
 {
+  "/(dashboard)/admin/approvals/page": "/admin/approvals",
   "/(dashboard)/admin/page": "/admin",
+  "/(dashboard)/admin/properties/page": "/admin/properties",
+  "/(dashboard)/admin/users/page": "/admin/users",
   "/(public)/catering/[id]/page": "/catering/[id]",
   "/(public)/catering/page": "/catering",
   "/(public)/find/doctor/page": "/find/doctor",

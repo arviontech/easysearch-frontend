@@ -71,6 +71,24 @@
       "namedRegex": "^/admin(?:/)?$"
     },
     {
+      "page": "/admin/approvals",
+      "regex": "^/admin/approvals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/approvals(?:/)?$"
+    },
+    {
+      "page": "/admin/properties",
+      "regex": "^/admin/properties(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/properties(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
+    },
+    {
       "page": "/catering",
       "regex": "^/catering(?:/)?$",
       "routeKeys": {},

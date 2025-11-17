@@ -19,6 +19,7 @@ import {
   BarChart3,
   User,
   LogOut,
+  Tag,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
@@ -41,6 +42,7 @@ const navItems: NavItem[] = [
   { name: "Tourism", href: "/admin/tourism", icon: Palmtree },
   { name: "Foods", href: "/admin/foods", icon: Utensils },
   { name: "Users", href: "/admin/users", icon: Users, badge: 12 },
+  { name: "Categories", href: "/admin/categories", icon: Tag },
   { name: "Posts", href: "/admin/posts", icon: FileText },
   { name: "Reviews", href: "/admin/reviews", icon: MessageSquare, badge: 5 },
   { name: "Approvals", href: "/admin/approvals", icon: CheckCircle, badge: 8 },
