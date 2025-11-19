@@ -131,7 +131,7 @@ export default function CateringDetailsPage({ params }: PageProps) {
           url: window.location.href,
         });
       } catch (error) {
-        console.log("Error sharing:", error);
+        console.error("Error sharing:", error);
       }
     } else {
       navigator.clipboard.writeText(window.location.href);
@@ -186,11 +186,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentImageIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
                     ? "bg-white w-6"
                     : "bg-white/60 hover:bg-white/80"
-                }`}
+                  }`}
               />
             ))}
           </div>
@@ -202,9 +201,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
               className="bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
             >
               <Heart
-                className={`w-5 h-5 ${
-                  isFavorite ? "fill-red-500 text-red-500" : "text-gray-700"
-                }`}
+                className={`w-5 h-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700"
+                  }`}
               />
             </button>
             <button
@@ -327,11 +325,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                 {caterer.pricing.monthlyPackage.lunch > 0 && (
                   <button
                     onClick={() => setSelectedMeal("lunch")}
-                    className={`p-4 rounded-xl border-2 transition ${
-                      selectedMeal === "lunch"
+                    className={`p-4 rounded-xl border-2 transition ${selectedMeal === "lunch"
                         ? "border-cyan-600 bg-cyan-50"
                         : "border-gray-200 hover:border-cyan-300"
-                    }`}
+                      }`}
                   >
                     <div className="text-lg font-bold text-gray-900 mb-1">Lunch Only</div>
                     <div className="text-2xl font-bold text-cyan-600 mb-2">
@@ -345,11 +342,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                 {caterer.pricing.monthlyPackage.lunchDinner > 0 && (
                   <button
                     onClick={() => setSelectedMeal("both")}
-                    className={`p-4 rounded-xl border-2 transition ${
-                      selectedMeal === "both"
+                    className={`p-4 rounded-xl border-2 transition ${selectedMeal === "both"
                         ? "border-cyan-600 bg-cyan-50"
                         : "border-gray-200 hover:border-cyan-300"
-                    }`}
+                      }`}
                   >
                     <div className="text-lg font-bold text-gray-900 mb-1">Lunch + Dinner</div>
                     <div className="text-2xl font-bold text-cyan-600 mb-2">
@@ -587,11 +583,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 ${
-                          i < Math.floor(caterer.rating)
+                        className={`w-5 h-5 ${i < Math.floor(caterer.rating)
                             ? "text-yellow-500 fill-yellow-500"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -606,21 +601,19 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <span className="text-sm text-gray-600 font-medium">Sort:</span>
                   <button
                     onClick={() => setReviewSort("recent")}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
-                      reviewSort === "recent"
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${reviewSort === "recent"
                         ? "bg-cyan-600 text-white"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
+                      }`}
                   >
                     Most Recent
                   </button>
                   <button
                     onClick={() => setReviewSort("rating")}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
-                      reviewSort === "rating"
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${reviewSort === "rating"
                         ? "bg-cyan-600 text-white"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
+                      }`}
                   >
                     Highest Rating
                   </button>
@@ -632,11 +625,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <span className="text-sm text-gray-600 font-medium">Filter:</span>
                   <button
                     onClick={() => setRatingFilter(null)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
-                      ratingFilter === null
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${ratingFilter === null
                         ? "bg-cyan-600 text-white"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
+                      }`}
                   >
                     All
                   </button>
@@ -644,11 +636,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                     <button
                       key={rating}
                       onClick={() => setRatingFilter(rating)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center gap-1 ${
-                        ratingFilter === rating
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center gap-1 ${ratingFilter === rating
                           ? "bg-cyan-600 text-white"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
+                        }`}
                     >
                       {rating} <Star className="w-3 h-3" />
                     </button>
@@ -689,11 +680,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`w-4 h-4 ${
-                                    i < review.rating
+                                  className={`w-4 h-4 ${i < review.rating
                                       ? "text-yellow-500 fill-yellow-500"
                                       : "text-gray-300"
-                                  }`}
+                                    }`}
                                 />
                               ))}
                             </div>
@@ -785,11 +775,10 @@ export default function CateringDetailsPage({ params }: PageProps) {
                             <button
                               key={page}
                               onClick={() => goToPage(page)}
-                              className={`min-w-[40px] h-10 rounded-lg font-medium transition ${
-                                currentReviewPage === page
+                              className={`min-w-[40px] h-10 rounded-lg font-medium transition ${currentReviewPage === page
                                   ? "bg-cyan-600 text-white"
                                   : "border border-cyan-200 text-gray-700 hover:bg-cyan-50"
-                              }`}
+                                }`}
                             >
                               {page}
                             </button>

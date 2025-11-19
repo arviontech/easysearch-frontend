@@ -20,6 +20,7 @@ import { closeModal, openModal, addNotification } from "@/lib/redux/slices/uiSli
 import { setUser, setToken } from "@/lib/redux/slices/authSlice";
 import { authAPI } from "@/lib/api/auth";
 import { getUserFromToken } from "@/lib/utils/jwt";
+import { firebaseAuth } from "@/lib/firebase/auth";
 
 const SignupModal = () => {
   const dispatch = useAppDispatch();
@@ -91,7 +92,7 @@ const SignupModal = () => {
 
         // Extract user info from JWT token
         const userFromToken = getUserFromToken(response.data.accessToken);
-        console.log("🔑 Signup - JWT Decoded User:", userFromToken);
+
 
         if (userFromToken) {
           dispatch(setUser(userFromToken as any));
@@ -129,9 +130,35 @@ const SignupModal = () => {
     }
   };
 
-  const handleSocialSignup = (provider: string) => {
-    console.log(`Sign up with ${provider}`);
-    // TODO: Implement social signup
+  const handleSocialSignup = async (provider: string) => {
+    if (provider === "Google") {
+      try {
+        setIsLoading(true);
+        const result = await firebaseAuth.loginWithGoogle();
+        const idToken = await result.user.getIdToken();
+
+        // TODO: Backend Integration Required
+        // 1. Send `idToken` to your backend endpoint (e.g., POST /api/v1/auth/google)
+        // 2. Verify the token using Firebase Admin SDK
+        // 3. Create or update the user in your database
+        // 4. Return a session token (accessToken) to the client
+
+        dispatch(addNotification({
+          type: "success",
+          message: `Signed up with Google as ${result.user.displayName}`,
+        }));
+        dispatch(closeModal("signupOpen"));
+
+      } catch (error) {
+        console.error("Firebase Signup Error:", error);
+        dispatch(addNotification({
+          type: "error",
+          message: "Failed to sign up with Google",
+        }));
+      } finally {
+        setIsLoading(false);
+      }
+    }
   };
 
   const handleClose = () => {
@@ -196,11 +223,10 @@ const SignupModal = () => {
                       <motion.button
                         type="button"
                         onClick={() => setFormData({ ...formData, userType: "seeker" })}
-                        className={`relative p-4 rounded-xl border-2 transition-all ${
-                          formData.userType === "seeker"
-                            ? "border-cyan-600 bg-cyan-50"
-                            : "border-cyan-200 bg-white hover:border-cyan-400"
-                        }`}
+                        className={`relative p-4 rounded-xl border-2 transition-all ${formData.userType === "seeker"
+                          ? "border-cyan-600 bg-cyan-50"
+                          : "border-cyan-200 bg-white hover:border-cyan-400"
+                          }`}
                         whileTap={{ scale: 0.98 }}
                       >
                         <div className="flex flex-col items-center gap-2">
@@ -223,11 +249,10 @@ const SignupModal = () => {
                       <motion.button
                         type="button"
                         onClick={() => setFormData({ ...formData, userType: "provider" })}
-                        className={`relative p-4 rounded-xl border-2 transition-all ${
-                          formData.userType === "provider"
-                            ? "border-cyan-600 bg-cyan-50"
-                            : "border-cyan-200 bg-white hover:border-cyan-400"
-                        }`}
+                        className={`relative p-4 rounded-xl border-2 transition-all ${formData.userType === "provider"
+                          ? "border-cyan-600 bg-cyan-50"
+                          : "border-cyan-200 bg-white hover:border-cyan-400"
+                          }`}
                         whileTap={{ scale: 0.98 }}
                       >
                         <div className="flex flex-col items-center gap-2">

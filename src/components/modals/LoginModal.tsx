@@ -10,6 +10,7 @@ import { setUser, setToken } from "@/lib/redux/slices/authSlice";
 import { useTranslation } from "@/hooks/useTranslation";
 import { authAPI } from "@/lib/api/auth";
 import { getUserFromToken } from "@/lib/utils/jwt";
+import { firebaseAuth } from "@/lib/firebase/auth";
 
 const LoginModal = () => {
   const router = useRouter();
@@ -49,7 +50,7 @@ const LoginModal = () => {
 
         // Extract user info from JWT token
         const userFromToken = getUserFromToken(response.data.accessToken);
-        console.log("🔑 Login - JWT Decoded User:", userFromToken);
+
 
         let userRole: "CUSTOMER" | "HOST" | "ADMIN" = "CUSTOMER";
 
@@ -96,9 +97,37 @@ const LoginModal = () => {
     }
   };
 
-  const handleSocialLogin = (provider: string) => {
-    console.log(`Login with ${provider}`);
-    // TODO: Implement social login
+  const handleSocialLogin = async (provider: string) => {
+    if (provider === "Google") {
+      try {
+        setIsLoading(true);
+        const result = await firebaseAuth.loginWithGoogle();
+        const idToken = await result.user.getIdToken();
+
+        // TODO: Backend Integration Required
+        // 1. Send `idToken` to your backend endpoint (e.g., POST /api/v1/auth/google)
+        // 2. Verify the token using Firebase Admin SDK
+        // 3. Return a session token (accessToken) to the client
+        // 4. Dispatch setToken(accessToken) and setUser(user)
+        //
+        // Current Behavior: Simulates successful login by using Firebase user data directly.
+
+        dispatch(addNotification({
+          type: "success",
+          message: `Logged in with Google as ${result.user.displayName}`,
+        }));
+        dispatch(closeModal("loginOpen"));
+
+      } catch (error) {
+        console.error("Firebase Login Error:", error);
+        dispatch(addNotification({
+          type: "error",
+          message: "Failed to login with Google",
+        }));
+      } finally {
+        setIsLoading(false);
+      }
+    }
   };
 
   const handleClose = () => {

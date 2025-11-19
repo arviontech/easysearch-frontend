@@ -77,6 +77,18 @@
       "namedRegex": "^/admin/approvals(?:/)?$"
     },
     {
+      "page": "/admin/categories",
+      "regex": "^/admin/categories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/categories(?:/)?$"
+    },
+    {
+      "page": "/admin/hostels",
+      "regex": "^/admin/hostels(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/hostels(?:/)?$"
+    },
+    {
       "page": "/admin/properties",
       "regex": "^/admin/properties(?:/)?$",
       "routeKeys": {},

@@ -69,7 +69,7 @@ export default function HostelDetailsPage({ params }: PageProps) {
           url: window.location.href,
         });
       } catch (error) {
-        console.log("Error sharing:", error);
+        console.error("Error sharing:", error);
       }
     } else {
       // Fallback - copy to clipboard
@@ -120,11 +120,10 @@ export default function HostelDetailsPage({ params }: PageProps) {
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentImageIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
                     ? "bg-white w-6"
                     : "bg-white/60 hover:bg-white/80"
-                }`}
+                  }`}
               />
             ))}
           </div>
@@ -136,9 +135,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
               className="bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
             >
               <Heart
-                className={`w-5 h-5 ${
-                  isFavorite ? "fill-red-500 text-red-500" : "text-gray-700"
-                }`}
+                className={`w-5 h-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-700"
+                  }`}
               />
             </button>
             <button
@@ -378,45 +376,40 @@ export default function HostelDetailsPage({ params }: PageProps) {
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div
-                  className={`flex items-center gap-2 ${
-                    hostel.utilities.electricity
+                  className={`flex items-center gap-2 ${hostel.utilities.electricity
                       ? "text-green-600"
                       : "text-gray-400"
-                  }`}
+                    }`}
                 >
                   <Zap className="w-5 h-5" />
                   <span>Electricity</span>
                 </div>
                 <div
-                  className={`flex items-center gap-2 ${
-                    hostel.utilities.water ? "text-green-600" : "text-gray-400"
-                  }`}
+                  className={`flex items-center gap-2 ${hostel.utilities.water ? "text-green-600" : "text-gray-400"
+                    }`}
                 >
                   <Droplet className="w-5 h-5" />
                   <span>Water Supply</span>
                 </div>
                 <div
-                  className={`flex items-center gap-2 ${
-                    hostel.utilities.gas ? "text-green-600" : "text-gray-400"
-                  }`}
+                  className={`flex items-center gap-2 ${hostel.utilities.gas ? "text-green-600" : "text-gray-400"
+                    }`}
                 >
                   <Wind className="w-5 h-5" />
                   <span>Gas</span>
                 </div>
                 <div
-                  className={`flex items-center gap-2 ${
-                    hostel.utilities.wifi ? "text-green-600" : "text-gray-400"
-                  }`}
+                  className={`flex items-center gap-2 ${hostel.utilities.wifi ? "text-green-600" : "text-gray-400"
+                    }`}
                 >
                   <Wifi className="w-5 h-5" />
                   <span>WiFi</span>
                 </div>
                 <div
-                  className={`flex items-center gap-2 ${
-                    hostel.utilities.generator
+                  className={`flex items-center gap-2 ${hostel.utilities.generator
                       ? "text-green-600"
                       : "text-gray-400"
-                  }`}
+                    }`}
                 >
                   <BatteryCharging className="w-5 h-5" />
                   <span>Generator</span>
@@ -521,11 +514,10 @@ export default function HostelDetailsPage({ params }: PageProps) {
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">Room Cleaning</span>
                   <span
-                    className={`font-semibold ${
-                      hostel.cleaning.roomCleaning
+                    className={`font-semibold ${hostel.cleaning.roomCleaning
                         ? "text-green-600"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   >
                     {hostel.cleaning.roomCleaning ? "Yes" : "No"}
                   </span>
@@ -539,11 +531,10 @@ export default function HostelDetailsPage({ params }: PageProps) {
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700">Bathroom Cleaning</span>
                   <span
-                    className={`font-semibold ${
-                      hostel.cleaning.bathroomCleaning
+                    className={`font-semibold ${hostel.cleaning.bathroomCleaning
                         ? "text-green-600"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   >
                     {hostel.cleaning.bathroomCleaning ? "Yes" : "No"}
                   </span>

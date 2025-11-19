@@ -53,7 +53,7 @@ export function getUserFromToken(token: string): Partial<User> | null {
   const payload = decodeJWT(token);
   if (!payload) return null;
 
-  console.log("🔍 JWT Payload (ALL FIELDS):", payload);
+
 
   // Try to extract ID from multiple possible field names
   const id = payload.userId || payload.id || payload._id || "";
@@ -67,14 +67,7 @@ export function getUserFromToken(token: string): Partial<User> | null {
   // Try to extract profile photo from multiple possible field names
   const profilePhoto = payload.profilePhoto || payload.avatar || payload.picture;
 
-  console.log("📊 Extracted User Data:", {
-    id,
-    email: payload.email,
-    name,
-    role: payload.role,
-    contactNumber,
-    profilePhoto,
-  });
+
 
   return {
     id,
