@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock, LogIn, X } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { closeModal, openModal, addNotification } from "@/lib/redux/slices/uiSlice";
-import { setUser, setToken } from "@/lib/redux/slices/authSlice";
+import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
 import { useTranslation } from "@/hooks/useTranslation";
 import { authAPI } from "@/lib/api/auth";
-import { getUserFromToken } from "@/lib/utils/jwt";
+import { getUserFromToken } from "@/utils/jwt";
 import { firebaseAuth } from "@/lib/firebase/auth";
 
 const LoginModal = () => {

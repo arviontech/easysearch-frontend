@@ -5,7 +5,7 @@ import { Bell, Search } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { logout } from "@/lib/redux/slices/authSlice";
+import { logout } from "@/lib/redux/features/auth/authSlice";
 
 export default function Header() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -69,9 +69,8 @@ export default function Header() {
                   {notifications.map((notification) => (
                     <div
                       key={notification.id}
-                      className={`px-4 py-3 hover:bg-cyan-100/50 cursor-pointer border-b border-cyan-100/50 transition-colors ${
-                        notification.unread ? "bg-blue-50/50" : ""
-                      }`}
+                      className={`px-4 py-3 hover:bg-cyan-100/50 cursor-pointer border-b border-cyan-100/50 transition-colors ${notification.unread ? "bg-blue-50/50" : ""
+                        }`}
                     >
                       <p className="text-sm text-gray-900 font-medium">{notification.text}</p>
                       <p className="text-xs text-gray-600 mt-1">{notification.time}</p>

@@ -4,12 +4,12 @@ import { useState } from "react";
 import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Eye, CheckCircle, XCircle, MapPin, Plus, Loader2 } from "lucide-react";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 import {
   useGetHouseRentsQuery,
   useUpdateHouseRentMutation,
   useDeleteHouseRentMutation,
-} from "@/lib/redux/api/houseRentApi";
+} from "@/lib/redux/features/api/houseRentApi";
 import type { HouseRent } from "@/lib/api/types";
 import PropertyCreateModal from "@/app/(public)/_component/shared/modals/PropertyCreateModal";
 

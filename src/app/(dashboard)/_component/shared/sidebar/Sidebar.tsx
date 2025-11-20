@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { logout } from "@/lib/redux/slices/authSlice";
+import { logout } from "@/lib/redux/features/auth/authSlice";
 import { useState } from "react";
 
 interface NavItem {
@@ -69,9 +69,8 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
 
   return (
     <div
-      className={`${
-        isCollapsed ? "w-20" : "w-48"
-      } bg-gradient-to-b from-cyan-50/60 to-blue-50/60 backdrop-blur-md border-r border-white min-h-screen fixed left-0 top-0 transition-all duration-300 ease-in-out z-40 flex flex-col shadow-[4px_0_16px_rgba(0,0,0,0.1)]`}
+      className={`${isCollapsed ? "w-20" : "w-48"
+        } bg-gradient-to-b from-cyan-50/60 to-blue-50/60 backdrop-blur-md border-r border-white min-h-screen fixed left-0 top-0 transition-all duration-300 ease-in-out z-40 flex flex-col shadow-[4px_0_16px_rgba(0,0,0,0.1)]`}
     >
       {/* Collapse/Expand Button Only */}
       <div className="h-14 flex items-center justify-center px-3 border-b border-cyan-200/50">
@@ -119,13 +118,11 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
                 <motion.div whileHover="hover" initial="initial" animate="initial">
                   <Link
                     href={item.href}
-                    className={`flex items-center ${
-                      isCollapsed ? "justify-center" : "justify-between"
-                    } px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden ${
-                      isActive
+                    className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"
+                      } px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden ${isActive
                         ? "bg-cyan-600 text-white shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)] border-2 border-cyan-700"
                         : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[0_4px_8px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(0,0,0,0.15)]"
-                    }`}
+                      }`}
                   >
                     {/* Hover animation background */}
                     {!isActive && (

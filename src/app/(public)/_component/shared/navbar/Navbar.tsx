@@ -23,8 +23,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { setLanguage, openModal, addNotification } from "@/lib/redux/slices/uiSlice";
-import { logout } from "@/lib/redux/slices/authSlice";
+import { setLanguage, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+import { logout } from "@/lib/redux/features/auth/authSlice";
 import Image from "next/image";
 
 const Navbar = () => {

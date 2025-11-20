@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { decodeJWT } from "@/lib/utils/jwt";
+import { decodeJWT } from "@/utils/jwt";
 
 export default function DebugJWTPage() {
   const [token, setToken] = useState("");

@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { setUser, setToken } from "@/lib/redux/slices/authSlice";
-import { getUserFromToken, isTokenExpired } from "@/lib/utils/jwt";
+import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+import { getUserFromToken, isTokenExpired } from "@/utils/jwt";
 
 /**
  * Hook to restore auth state from localStorage on app mount

@@ -8,9 +8,9 @@ import {
   useGetUsersQuery,
   useUpdateUserMutation,
   useDeleteUserMutation,
-} from "@/lib/redux/api/userApi";
+} from "@/lib/redux/features/api/userApi";
 import type { User } from "@/lib/api/types";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 
 // Display interface for the table
 interface UserDisplay {
@@ -132,10 +132,10 @@ const UsersPage = () => {
       render: (user: UserDisplay) => (
         <span
           className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${user.role === "admin"
-              ? "bg-red-100 text-red-700"
-              : user.role === "host"
-                ? "bg-blue-100 text-blue-700"
-                : "bg-gray-100 text-gray-700"
+            ? "bg-red-100 text-red-700"
+            : user.role === "host"
+              ? "bg-blue-100 text-blue-700"
+              : "bg-gray-100 text-gray-700"
             }`}
         >
           {user.role === "admin" && <Shield className="w-3 h-3 mr-1" />}
@@ -149,10 +149,10 @@ const UsersPage = () => {
       render: (user: UserDisplay) => (
         <span
           className={`px-2 py-1 text-xs font-medium rounded-full ${user.status === "active"
-              ? "bg-green-100 text-green-700"
-              : user.status === "inactive"
-                ? "bg-gray-100 text-gray-700"
-                : "bg-red-100 text-red-700"
+            ? "bg-green-100 text-green-700"
+            : user.status === "inactive"
+              ? "bg-gray-100 text-gray-700"
+              : "bg-red-100 text-red-700"
             }`}
         >
           {user.status}
@@ -322,8 +322,8 @@ const UsersPage = () => {
                       type="button"
                       onClick={() => setPage(p)}
                       className={`px-3 py-1 rounded-lg ${p === page
-                          ? "bg-blue-600 text-white"
-                          : "border border-gray-300 hover:bg-gray-50"
+                        ? "bg-blue-600 text-white"
+                        : "border border-gray-300 hover:bg-gray-50"
                         }`}
                     >
                       {p}

@@ -4,12 +4,12 @@ import { useState } from "react";
 import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Eye, CheckCircle, XCircle, MapPin, Plus, Loader2, Users } from "lucide-react";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 import {
   useGetHostelRentsQuery,
   useUpdateHostelRentMutation,
   useDeleteHostelRentMutation,
-} from "@/lib/redux/api/hostelRentApi";
+} from "@/lib/redux/features/api/hostelRentApi";
 import type { HostelRent } from "@/lib/api/types";
 
 interface HostelDisplay {
@@ -177,10 +177,10 @@ const HostelsPage = () => {
       render: (hostel: HostelDisplay) => (
         <span
           className={`px-2 py-1 text-xs font-medium rounded-full ${hostel.status === "approved"
-              ? "bg-green-100 text-green-700"
-              : hostel.status === "pending"
-                ? "bg-yellow-100 text-yellow-700"
-                : "bg-red-100 text-red-700"
+            ? "bg-green-100 text-green-700"
+            : hostel.status === "pending"
+              ? "bg-yellow-100 text-yellow-700"
+              : "bg-red-100 text-red-700"
             }`}
         >
           {hostel.status}
@@ -373,8 +373,8 @@ const HostelsPage = () => {
                       onClick={() => setPage(pageNum)}
                       disabled={isFetching}
                       className={`px-4 py-2 rounded-lg transition-colors disabled:opacity-50 ${page === pageNum
-                          ? "bg-purple-500 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        ? "bg-purple-500 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
                       {pageNum}

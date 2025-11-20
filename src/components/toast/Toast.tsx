@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, XCircle, AlertCircle, Info, X } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { removeNotification } from "@/lib/redux/slices/uiSlice";
+import { removeNotification } from "@/lib/redux/features/ui/uiSlice";
 
 const Toast = () => {
   const dispatch = useAppDispatch();

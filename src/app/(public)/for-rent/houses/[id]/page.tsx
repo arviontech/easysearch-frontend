@@ -30,7 +30,7 @@ import {
 import { getHouseById } from "@/data/mockHouses";
 import Map from "@/components/map/Map";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { openModal, addNotification } from "@/lib/redux/slices/uiSlice";
+import { openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
 
 export default function HouseDetailsPage() {
   const params = useParams();

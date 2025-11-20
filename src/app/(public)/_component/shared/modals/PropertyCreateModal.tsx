@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Modal from "./Modal";
-import { useCreateHouseRentMutation } from "@/lib/redux/api/houseRentApi";
-import { useGetCategoriesQuery } from "@/lib/redux/api/categoryApi";
+import { useCreateHouseRentMutation } from "@/lib/redux/features/api/houseRentApi";
+import { useGetCategoriesQuery } from "@/lib/redux/features/api/categoryApi";
 import type { CreateHouseRentRequest, PropertyType, Furnishing } from "@/lib/api/types";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 import {
   Loader2,
   Home,
@@ -91,12 +91,12 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
       ...prev,
       [name]:
         name === "price" ||
-        name === "bedrooms" ||
-        name === "bathrooms" ||
-        name === "size" ||
-        name === "totalFloors" ||
-        name === "lat" ||
-        name === "lng"
+          name === "bedrooms" ||
+          name === "bathrooms" ||
+          name === "size" ||
+          name === "totalFloors" ||
+          name === "lat" ||
+          name === "lng"
           ? Number(value)
           : value,
     }));
@@ -272,9 +272,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all ${
-                  errors.title ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all ${errors.title ? "border-red-400" : "border-gray-200"
+                  }`}
                 placeholder="e.g., Spacious 3 BHK Apartment in Shaheb Bazar"
               />
               {errors.title && <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.title}</p>}
@@ -290,9 +289,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 value={formData.description}
                 onChange={handleChange}
                 rows={4}
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all resize-none ${
-                  errors.description ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all resize-none ${errors.description ? "border-red-400" : "border-gray-200"
+                  }`}
                 placeholder="Describe the property features, amenities, and surrounding area..."
               />
               {errors.description && (
@@ -328,9 +326,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                   name="categoryId"
                   value={formData.categoryId}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all ${
-                    errors.categoryId ? "border-red-400" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all ${errors.categoryId ? "border-red-400" : "border-gray-200"
+                    }`}
                 >
                   <option value="">Select category</option>
                   {categoriesResponse?.data?.map((category) => (
@@ -412,9 +409,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 value={formData.price}
                 onChange={handleChange}
                 min="0"
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${
-                  errors.price ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${errors.price ? "border-red-400" : "border-gray-200"
+                  }`}
                 placeholder="10000"
               />
               {errors.price && <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.price}</p>}
@@ -432,9 +428,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 value={formData.bedrooms}
                 onChange={handleChange}
                 min="1"
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${
-                  errors.bedrooms ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${errors.bedrooms ? "border-red-400" : "border-gray-200"
+                  }`}
               />
               {errors.bedrooms && (
                 <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.bedrooms}</p>
@@ -453,9 +448,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 value={formData.bathrooms}
                 onChange={handleChange}
                 min="1"
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${
-                  errors.bathrooms ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${errors.bathrooms ? "border-red-400" : "border-gray-200"
+                  }`}
               />
               {errors.bathrooms && (
                 <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.bathrooms}</p>
@@ -474,9 +468,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 value={formData.size}
                 onChange={handleChange}
                 min="0"
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${
-                  errors.size ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all ${errors.size ? "border-red-400" : "border-gray-200"
+                  }`}
                 placeholder="1200"
               />
               {errors.size && <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.size}</p>}
@@ -610,9 +603,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${
-                  errors.address ? "border-red-400" : "border-gray-200"
-                }`}
+                className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${errors.address ? "border-red-400" : "border-gray-200"
+                  }`}
                 placeholder="House 123, Road 456"
               />
               {errors.address && (
@@ -631,9 +623,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                   name="area"
                   value={formData.area}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${
-                    errors.area ? "border-red-400" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${errors.area ? "border-red-400" : "border-gray-200"
+                    }`}
                   placeholder="Shaheb Bazar"
                 />
                 {errors.area && <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.area}</p>}
@@ -648,9 +639,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${
-                    errors.city ? "border-red-400" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${errors.city ? "border-red-400" : "border-gray-200"
+                    }`}
                   placeholder="Rajshahi"
                 />
                 {errors.city && <p className="text-red-500 text-xs mt-1.5 ml-1">{errors.city}</p>}
@@ -665,9 +655,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                   name="division"
                   value={formData.division}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${
-                    errors.division ? "border-red-400" : "border-gray-200"
-                  }`}
+                  className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all ${errors.division ? "border-red-400" : "border-gray-200"
+                    }`}
                   placeholder="Rajshahi"
                 />
                 {errors.division && (
@@ -785,7 +774,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                       type="checkbox"
                       checked={
                         formData.utilities?.[
-                          utility as keyof NonNullable<CreateHouseRentRequest["utilities"]>
+                        utility as keyof NonNullable<CreateHouseRentRequest["utilities"]>
                         ] || false
                       }
                       onChange={() =>
@@ -897,9 +886,8 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
               name="ownerId"
               value={formData.ownerId}
               onChange={handleChange}
-              className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all ${
-                errors.ownerId ? "border-red-400" : "border-gray-200"
-              }`}
+              className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all ${errors.ownerId ? "border-red-400" : "border-gray-200"
+                }`}
               placeholder="Enter owner user ID"
             />
             {errors.ownerId && (

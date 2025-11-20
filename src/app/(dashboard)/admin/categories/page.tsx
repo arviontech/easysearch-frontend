@@ -8,9 +8,9 @@ import {
   useGetCategoriesQuery,
   useUpdateCategoryMutation,
   useDeleteCategoryMutation,
-} from "@/lib/redux/api/categoryApi";
+} from "@/lib/redux/features/api/categoryApi";
 import type { Category } from "@/lib/api/types";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 import Image from "next/image";
 
 // Display interface for the table
@@ -255,8 +255,8 @@ const CategoriesPage = () => {
                         type="button"
                         onClick={() => setPage(p)}
                         className={`px-3 py-1 rounded-lg ${p === page
-                            ? "bg-green-600 text-white"
-                            : "border border-gray-300 hover:bg-gray-50"
+                          ? "bg-green-600 text-white"
+                          : "border border-gray-300 hover:bg-gray-50"
                           }`}
                       >
                         {p}

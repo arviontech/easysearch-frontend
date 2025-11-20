@@ -1,4 +1,4 @@
-import type { User } from "@/lib/redux/slices/authSlice";
+import type { User } from "@/lib/redux/features/auth/authSlice";
 
 interface JWTPayload {
   userId?: string;

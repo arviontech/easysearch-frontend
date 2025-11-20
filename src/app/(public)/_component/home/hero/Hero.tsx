@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useAppDispatch } from "@/lib/redux/hooks";
-import { addNotification } from "@/lib/redux/slices/uiSlice";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 
 const Hero = () => {
   const [selectedCategory, setSelectedCategory] = useState("House");

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-import StoreProvider from "@/lib/redux/StoreProvider";
-import AuthInitializer from "@/components/auth/AuthInitializer";
-import LoginModal from "@/app/(public)/_component/shared/modals/LoginModal";
-import SignupModal from "@/app/(public)/_component/shared/modals/SignupModal";
-import Toast from "@/components/toast/Toast";
+import Providers from "@/lib/provider/Providers";
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -13,9 +10,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rajshahi Services - Local Services Platform",
+  title: "EasySearch - Search Services",
   description:
-    "Find houses, hostels, doctors, catering, tourism and more in Rajshahi",
+    "Find houses, hostels, doctors, catering, tourism and more in your city",
 };
 
 export default function RootLayout({
@@ -26,13 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} font-sans antialiased`}>
-        <StoreProvider>
-          <AuthInitializer />
+        <Providers>
           {children}
-          <LoginModal />
-          <SignupModal />
-          <Toast />
-        </StoreProvider>
+        </Providers>
       </body>
     </html>
   );

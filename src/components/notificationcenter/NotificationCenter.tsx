@@ -3,7 +3,7 @@
 import { AlertTriangle, CheckCircle, Info, X, XCircle } from "lucide-react";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { removeNotification } from "@/lib/redux/slices/uiSlice";
+import { removeNotification } from "@/lib/redux/features/ui/uiSlice";
 
 const NotificationCenter = () => {
   const dispatch = useAppDispatch();
