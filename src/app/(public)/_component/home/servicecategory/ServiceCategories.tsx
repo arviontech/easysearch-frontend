@@ -10,8 +10,8 @@ import {
   Briefcase,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import Container from "@/components/Container";
-import ServiceCategoryCard from "@/components/ServiceCategoryCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import ServiceCategoryCard from "@/app/(public)/_component/servicecategorycard/ServiceCategoryCard";
 
 const ServiceCategories = () => {
   const categories = [
@@ -49,7 +49,7 @@ const ServiceCategories = () => {
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         <motion.h2
           className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ const ServiceCategories = () => {
             </motion.div>
           ))}
         </motion.div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };

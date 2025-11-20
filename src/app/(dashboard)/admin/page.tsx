@@ -1,6 +1,6 @@
 "use client";
 
-import StatsCard from "@/components/dashboard/StatsCard";
+import StatsCard from "@/app/(dashboard)/_component/statcards/StatsCard";
 import {
   Building2,
   Users,
@@ -130,9 +130,8 @@ const AdminHomePage = () => {
               <a
                 key={action.name}
                 href={action.href}
-                className={`bg-gradient-to-br ${
-                  colorClasses[action.color as keyof typeof colorClasses]
-                } text-white rounded-lg p-6 flex flex-col items-center justify-center space-y-2 hover:shadow-lg transition-all`}
+                className={`bg-gradient-to-br ${colorClasses[action.color as keyof typeof colorClasses]
+                  } text-white rounded-lg p-6 flex flex-col items-center justify-center space-y-2 hover:shadow-lg transition-all`}
               >
                 <Icon className="w-8 h-8" />
                 <span className="font-medium text-center">{action.name}</span>
@@ -173,13 +172,12 @@ const AdminHomePage = () => {
                 className="flex items-start space-x-3 pb-4 border-b border-gray-100 last:border-b-0"
               >
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    activity.status === "approved"
+                  className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${activity.status === "approved"
                       ? "bg-green-100"
                       : activity.status === "pending"
                         ? "bg-yellow-100"
                         : "bg-red-100"
-                  }`}
+                    }`}
                 >
                   {activity.status === "approved" ? (
                     <CheckCircle className="w-5 h-5 text-green-600" />
@@ -197,13 +195,12 @@ const AdminHomePage = () => {
                   </div>
                 </div>
                 <span
-                  className={`px-2 py-1 text-xs font-medium rounded-full ${
-                    activity.status === "approved"
+                  className={`px-2 py-1 text-xs font-medium rounded-full ${activity.status === "approved"
                       ? "bg-green-100 text-green-700"
                       : activity.status === "pending"
                         ? "bg-yellow-100 text-yellow-700"
                         : "bg-red-100 text-red-700"
-                  }`}
+                    }`}
                 >
                   {activity.status}
                 </span>

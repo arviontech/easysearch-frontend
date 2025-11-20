@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, Stethoscope, SlidersHorizontal, X, Clock, Calendar } from "lucide-react";
-import Container from "@/components/Container";
-import DoctorCard from "@/components/cards/DoctorCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import DoctorCard from "@/app/(public)/_component/cards/DoctorCard";
 
 // Department categories based on requirements
 const departments = [
@@ -152,7 +152,7 @@ const DoctorPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50 pt-24 pb-16">
-      <Container>
+      <PublicContainer>
         {/* Header Section */}
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
@@ -280,11 +280,10 @@ const DoctorPage = () => {
                               : [...filters.days, day];
                             setFilters({ ...filters, days: newDays });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {day.substring(0, 3)}
                         </button>
@@ -436,11 +435,10 @@ const DoctorPage = () => {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 rounded-lg transition ${
-                    currentPage === page
-                      ? "bg-cyan-600 text-white"
-                      : "border border-cyan-200 hover:bg-cyan-50"
-                  }`}
+                  className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                    ? "bg-cyan-600 text-white"
+                    : "border border-cyan-200 hover:bg-cyan-50"
+                    }`}
                 >
                   {page}
                 </button>
@@ -456,7 +454,7 @@ const DoctorPage = () => {
             </div>
           </div>
         )}
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

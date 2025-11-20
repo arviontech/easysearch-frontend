@@ -1,7 +1,7 @@
 import type React from "react";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import NotificationCenter from "@/components/NotificationCenter";
+import Footer from "@/app/(public)/_component/shared/footer/Footer";
+import Navbar from "@/app/(public)/_component/shared/navbar/Navbar";
+import NotificationCenter from "@/components/notificationcenter/NotificationCenter";
 
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   return (

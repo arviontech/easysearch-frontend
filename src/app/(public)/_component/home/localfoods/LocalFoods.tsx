@@ -4,9 +4,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAd from "@/components/ads/CardAd";
-import Container from "@/components/Container";
-import FoodCard from "@/components/cards/FoodCard";
+import CardAd from "@/app/(public)/_component/ads/CardAd";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import FoodCard from "@/app/(public)/_component/cards/FoodCard";
 
 const LocalFoods = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -74,7 +74,7 @@ const LocalFoods = () => {
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -189,7 +189,7 @@ const LocalFoods = () => {
             />
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };

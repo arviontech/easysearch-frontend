@@ -28,7 +28,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { getHouseById } from "@/data/mockHouses";
-import Map from "@/components/Map";
+import Map from "@/components/map/Map";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { openModal, addNotification } from "@/lib/redux/slices/uiSlice";
 
@@ -133,9 +133,8 @@ export default function HouseDetailsPage() {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition ${
-                      index === currentImageIndex ? "bg-white w-8" : "bg-white/50"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition ${index === currentImageIndex ? "bg-white w-8" : "bg-white/50"
+                      }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
@@ -151,9 +150,8 @@ export default function HouseDetailsPage() {
               aria-label="Add to favorites"
             >
               <Heart
-                className={`w-5 h-5 ${
-                  isFavorite ? "fill-red-500 text-red-500" : "text-gray-800"
-                }`}
+                className={`w-5 h-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-800"
+                  }`}
               />
             </button>
             <button

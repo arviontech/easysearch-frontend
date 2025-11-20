@@ -4,67 +4,66 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAd from "@/components/ads/CardAd";
-import Container from "@/components/Container";
-import PropertyCard from "@/components/cards/PropertyCard";
+import CardAd from "@/app/(public)/_component/ads/CardAd";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import PropertyCard from "@/app/(public)/_component/cards/PropertyCard";
 
-const FeaturedHouses = () => {
+const PopularHostels = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const _cardsPerPage = 4;
+  const cardsToShow = 3;
 
-  const houses = [
+  const hostels = [
     {
       id: "1",
-      title: "2 Bedroom Family House",
-      category: "Family",
-      price: 15000,
-      location: "Kazla, Rajshahi",
-      features: ["2 Beds", "1 Bath", "Furnished"],
-      rating: 4.8,
-      reviewCount: 24,
+      title: "Green Valley Hostel",
+      category: "Male",
+      price: 8000,
+      location: "Shaheb Bazar, Rajshahi",
+      features: ["Meals Included", "AC", "Wi-Fi"],
+      rating: 4.6,
+      reviewCount: 45,
       imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/houses/1",
+      href: "/for-rent/hostels/1",
     },
     {
       id: "2",
-      title: "Bachelor Apartment",
-      category: "Bachelor",
-      price: 8000,
-      location: "Shaheb Bazar, Rajshahi",
-      features: ["1 Bed", "1 Bath", "Wi-Fi"],
-      rating: 4.6,
-      reviewCount: 18,
+      title: "Student Haven Hostel",
+      category: "Female",
+      price: 7500,
+      location: "Kazla, Rajshahi",
+      features: ["3 Meals", "Study Room", "Locker"],
+      rating: 4.8,
+      reviewCount: 52,
       imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/houses/2",
+      href: "/for-rent/hostels/2",
     },
     {
       id: "3",
-      title: "3 Bedroom Family House",
-      category: "Family",
-      price: 20000,
-      location: "Uposhohor, Rajshahi",
-      features: ["3 Beds", "2 Baths", "Parking"],
-      rating: 4.9,
-      reviewCount: 32,
+      title: "City Hostel",
+      category: "Male",
+      price: 6500,
+      location: "Motihar, Rajshahi",
+      features: ["Shared Room", "Laundry", "Security"],
+      rating: 4.4,
+      reviewCount: 28,
       imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/houses/3",
+      href: "/for-rent/hostels/3",
     },
     {
       id: "4",
-      title: "Studio Apartment",
-      category: "Sublet",
-      price: 6000,
-      location: "Motihar, Rajshahi",
-      features: ["Studio", "1 Bath", "Balcony"],
-      rating: 4.5,
-      reviewCount: 12,
+      title: "Royal Hostel",
+      category: "Female",
+      price: 9000,
+      location: "Uposhohor, Rajshahi",
+      features: ["Single Room", "AC", "3 Meals"],
+      rating: 4.9,
+      reviewCount: 67,
       imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/houses/4",
+      href: "/for-rent/hostels/4",
     },
   ];
 
-  const cardsToShow = 3; // Show 3 cards at a time in the carousel
-  const totalPages = Math.ceil(houses.length / cardsToShow);
+  const totalPages = Math.ceil(hostels.length / cardsToShow);
 
   const nextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
@@ -75,11 +74,11 @@ const FeaturedHouses = () => {
   };
 
   const startIndex = currentPage * cardsToShow;
-  const visibleItems = houses.slice(startIndex, startIndex + cardsToShow);
+  const visibleItems = hostels.slice(startIndex, startIndex + cardsToShow);
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <motion.div
           className="flex items-center justify-between mb-8"
@@ -89,7 +88,7 @@ const FeaturedHouses = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Featured Houses in Rajshahi
+            Popular Hostels for Students
           </h2>
 
           <div className="flex items-center gap-3">
@@ -159,7 +158,7 @@ const FeaturedHouses = () => {
 
             {/* View All Link */}
             <Link
-              href="/for-rent/houses"
+              href="/for-rent/hostels"
               className="text-cyan-600 hover:text-cyan-700 font-semibold text-sm flex items-center gap-1 transition"
             >
               View All
@@ -174,15 +173,15 @@ const FeaturedHouses = () => {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden pl-3 pt-2 pb-2">
               <AnimatePresence>
-                {visibleItems.map((house, index) => (
+                {visibleItems.map((hostel, index) => (
                   <motion.div
-                    key={`${currentPage}-${house.id}`}
+                    key={`${currentPage}-${hostel.id}`}
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <PropertyCard {...house} />
+                    <PropertyCard {...hostel} />
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -192,17 +191,17 @@ const FeaturedHouses = () => {
           {/* Right: Fixed Ad Card */}
           <div className="lg:col-span-1 h-full min-h-[380px]">
             <CardAd
-              title="Discover great deals on houses"
-              subtitle="Find your perfect home today"
+              title="Find the perfect hostel for students"
+              subtitle="Safe, affordable, and convenient"
               imageUrl="/assets/hero-image.jpg"
-              ctaText="Explore Now"
-              ctaLink="/for-rent/houses"
+              ctaText="View All Hostels"
+              ctaLink="/for-rent/hostels"
             />
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };
 
-export default FeaturedHouses;
+export default PopularHostels;

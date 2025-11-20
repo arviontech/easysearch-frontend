@@ -32,7 +32,7 @@ import dynamic from "next/dynamic";
 import { getHostelById } from "@/data/mockHostels";
 
 // Dynamically import Map to avoid SSR issues
-const Map = dynamic(() => import("@/components/Map"), { ssr: false });
+const Map = dynamic(() => import("@/components/map/Map"), { ssr: false });
 
 interface PageProps {
   params: Promise<{
@@ -121,8 +121,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
-                    ? "bg-white w-6"
-                    : "bg-white/60 hover:bg-white/80"
+                  ? "bg-white w-6"
+                  : "bg-white/60 hover:bg-white/80"
                   }`}
               />
             ))}
@@ -377,8 +377,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div
                   className={`flex items-center gap-2 ${hostel.utilities.electricity
-                      ? "text-green-600"
-                      : "text-gray-400"
+                    ? "text-green-600"
+                    : "text-gray-400"
                     }`}
                 >
                   <Zap className="w-5 h-5" />
@@ -407,8 +407,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
                 </div>
                 <div
                   className={`flex items-center gap-2 ${hostel.utilities.generator
-                      ? "text-green-600"
-                      : "text-gray-400"
+                    ? "text-green-600"
+                    : "text-gray-400"
                     }`}
                 >
                   <BatteryCharging className="w-5 h-5" />
@@ -515,8 +515,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
                   <span className="text-gray-700">Room Cleaning</span>
                   <span
                     className={`font-semibold ${hostel.cleaning.roomCleaning
-                        ? "text-green-600"
-                        : "text-gray-500"
+                      ? "text-green-600"
+                      : "text-gray-500"
                       }`}
                   >
                     {hostel.cleaning.roomCleaning ? "Yes" : "No"}
@@ -532,8 +532,8 @@ export default function HostelDetailsPage({ params }: PageProps) {
                   <span className="text-gray-700">Bathroom Cleaning</span>
                   <span
                     className={`font-semibold ${hostel.cleaning.bathroomCleaning
-                        ? "text-green-600"
-                        : "text-gray-500"
+                      ? "text-green-600"
+                      : "text-gray-500"
                       }`}
                   >
                     {hostel.cleaning.bathroomCleaning ? "Yes" : "No"}

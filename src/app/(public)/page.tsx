@@ -1,15 +1,15 @@
-import AdSection from "@/components/ads/AdSection";
-import ImageAdBanner from "@/components/ads/ImageAdBanner";
-import Hero from "@/components/Hero";
-import CateringServices from "@/components/sections/CateringServices";
-import FeaturedHouses from "@/components/sections/FeaturedHouses";
-import FeaturedJobs from "@/components/sections/FeaturedJobs";
-import LocalFoods from "@/components/sections/LocalFoods";
-import PopularAreas from "@/components/sections/PopularAreas";
-import PopularHostels from "@/components/sections/PopularHostels";
-import ServiceCategories from "@/components/sections/ServiceCategories";
-import TopDoctors from "@/components/sections/TopDoctors";
-import TourismDestinations from "@/components/sections/TourismDestinations";
+import AdSection from "@/app/(public)/_component/ads/AdSection";
+import ImageAdBanner from "@/app/(public)/_component/ads/ImageAdBanner";
+import Hero from "@/app/(public)/_component/home/hero/Hero";
+import CateringServices from "@/app/(public)/_component/home/cateringservice/CateringServices";
+import FeaturedHouses from "@/app/(public)/_component/home/featureshouse/FeaturedHouses";
+import FeaturedJobs from "@/app/(public)/_component/home/featuresjobs/FeaturedJobs";
+import LocalFoods from "@/app/(public)/_component/home/localfoods/LocalFoods";
+import PopularAreas from "@/app/(public)/_component/home/populararea/PopularAreas";
+import PopularHostels from "@/app/(public)/_component/home/popularhostels/PopularHostels";
+import ServiceCategories from "@/app/(public)/_component/home/servicecategory/ServiceCategories";
+import TopDoctors from "@/app/(public)/_component/home/topdoctors/TopDoctors";
+import TourismDestinations from "@/app/(public)/_component/home/tourismdestination/TourismDestinations";
 
 const Home = () => {
   return (

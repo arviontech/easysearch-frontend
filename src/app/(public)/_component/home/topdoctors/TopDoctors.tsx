@@ -4,9 +4,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAd from "@/components/ads/CardAd";
-import Container from "@/components/Container";
-import DoctorCard from "@/components/cards/DoctorCard";
+import CardAd from "@/app/(public)/_component/ads/CardAd";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import DoctorCard from "@/app/(public)/_component/cards/DoctorCard";
 
 const TopDoctors = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -141,7 +141,7 @@ const TopDoctors = () => {
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <motion.div
           className="flex items-center justify-between mb-6"
@@ -246,11 +246,10 @@ const TopDoctors = () => {
                 setSelectedDepartment(dept);
                 setCurrentPage(0); // Reset to first page when changing department
               }}
-              className={`px-6 py-2.5 rounded-full font-medium text-sm whitespace-nowrap relative overflow-hidden border shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] ${
-                selectedDepartment === dept
-                  ? "bg-cyan-600 text-white border-cyan-600"
-                  : "bg-cyan-100 text-cyan-700 border-cyan-600"
-              }`}
+              className={`px-6 py-2.5 rounded-full font-medium text-sm whitespace-nowrap relative overflow-hidden border shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] ${selectedDepartment === dept
+                ? "bg-cyan-600 text-white border-cyan-600"
+                : "bg-cyan-100 text-cyan-700 border-cyan-600"
+                }`}
               whileHover={selectedDepartment !== dept ? "hover" : undefined}
               whileTap={{ scale: 0.95 }}
               initial="initial"
@@ -315,7 +314,7 @@ const TopDoctors = () => {
             />
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };

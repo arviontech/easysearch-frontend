@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Ban, CheckCircle, Shield, AlertCircle } from "lucide-react";
 import {
   useGetUsersQuery,
@@ -38,16 +38,16 @@ const UsersPage = () => {
   // Transform API data to display format
   const users: UserDisplay[] = response?.data
     ? response.data.map((user: User) => ({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role.toLowerCase(),
-        status: "active", // Default - backend should provide this
-        registeredAt: new Date(user.createdAt).toLocaleDateString(),
-        lastActive: "N/A", // Backend should provide this
-        postsCount: 0, // Backend should provide this
-        contactNumber: user.contactNumber,
-      }))
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role.toLowerCase(),
+      status: "active", // Default - backend should provide this
+      registeredAt: new Date(user.createdAt).toLocaleDateString(),
+      lastActive: "N/A", // Backend should provide this
+      postsCount: 0, // Backend should provide this
+      contactNumber: user.contactNumber,
+    }))
     : [];
 
   // Calculate statistics
@@ -131,13 +131,12 @@ const UsersPage = () => {
       label: "Role",
       render: (user: UserDisplay) => (
         <span
-          className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
-            user.role === "admin"
+          className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${user.role === "admin"
               ? "bg-red-100 text-red-700"
               : user.role === "host"
                 ? "bg-blue-100 text-blue-700"
                 : "bg-gray-100 text-gray-700"
-          }`}
+            }`}
         >
           {user.role === "admin" && <Shield className="w-3 h-3 mr-1" />}
           {user.role.toUpperCase()}
@@ -149,13 +148,12 @@ const UsersPage = () => {
       label: "Status",
       render: (user: UserDisplay) => (
         <span
-          className={`px-2 py-1 text-xs font-medium rounded-full ${
-            user.status === "active"
+          className={`px-2 py-1 text-xs font-medium rounded-full ${user.status === "active"
               ? "bg-green-100 text-green-700"
               : user.status === "inactive"
                 ? "bg-gray-100 text-gray-700"
                 : "bg-red-100 text-red-700"
-          }`}
+            }`}
         >
           {user.status}
         </span>
@@ -323,11 +321,10 @@ const UsersPage = () => {
                     <button
                       type="button"
                       onClick={() => setPage(p)}
-                      className={`px-3 py-1 rounded-lg ${
-                        p === page
+                      className={`px-3 py-1 rounded-lg ${p === page
                           ? "bg-blue-600 text-white"
                           : "border border-gray-300 hover:bg-gray-50"
-                      }`}
+                        }`}
                     >
                       {p}
                     </button>

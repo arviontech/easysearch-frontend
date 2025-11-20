@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Eye, AlertCircle, Tag } from "lucide-react";
 import {
   useGetCategoriesQuery,
@@ -35,12 +35,12 @@ const CategoriesPage = () => {
   // Transform API data to display format
   const categories: CategoryDisplay[] = response?.data
     ? response.data.map((category: Category) => ({
-        id: category.id,
-        categoryName: category.categoryName,
-        categoryImage: category.categoryImage,
-        createdAt: new Date(category.createdAt).toLocaleDateString(),
-        updatedAt: new Date(category.updatedAt).toLocaleDateString(),
-      }))
+      id: category.id,
+      categoryName: category.categoryName,
+      categoryImage: category.categoryImage,
+      createdAt: new Date(category.createdAt).toLocaleDateString(),
+      updatedAt: new Date(category.updatedAt).toLocaleDateString(),
+    }))
     : [];
 
   // Calculate statistics
@@ -254,11 +254,10 @@ const CategoriesPage = () => {
                       <button
                         type="button"
                         onClick={() => setPage(p)}
-                        className={`px-3 py-1 rounded-lg ${
-                          p === page
+                        className={`px-3 py-1 rounded-lg ${p === page
                             ? "bg-green-600 text-white"
                             : "border border-gray-300 hover:bg-gray-50"
-                        }`}
+                          }`}
                       >
                         {p}
                       </button>

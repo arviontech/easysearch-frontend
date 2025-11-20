@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import {
   CheckCircle,
   XCircle,
@@ -150,13 +150,12 @@ const ApprovalsPage = () => {
       label: "Status",
       render: (item: ApprovalItem) => (
         <span
-          className={`px-2 py-1 text-xs font-medium rounded-full ${
-            item.status === "approved"
+          className={`px-2 py-1 text-xs font-medium rounded-full ${item.status === "approved"
               ? "bg-green-100 text-green-700"
               : item.status === "rejected"
                 ? "bg-red-100 text-red-700"
                 : "bg-yellow-100 text-yellow-700"
-          }`}
+            }`}
         >
           {item.status}
         </span>
@@ -182,11 +181,10 @@ const ApprovalsPage = () => {
               key={tab.key}
               type="button"
               onClick={() => setSelectedTab(tab.key)}
-              className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                selectedTab === tab.key
+              className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${selectedTab === tab.key
                   ? "bg-yellow-500 text-white shadow-md"
                   : "text-gray-600 hover:bg-gray-100"
-              }`}
+                }`}
             >
               {tab.label}
               {tab.count > 0 && (

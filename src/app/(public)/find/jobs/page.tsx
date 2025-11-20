@@ -3,8 +3,8 @@
 import { Search, SlidersHorizontal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Container from "@/components/Container";
-import JobCard from "@/components/cards/JobCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import JobCard from "@/app/(public)/_component/cards/JobCard";
 
 const JobsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -226,7 +226,7 @@ const JobsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50">
-      <Container>
+      <PublicContainer>
         <div className="py-8">
           {/* Header */}
           <motion.div
@@ -420,11 +420,10 @@ const JobsPage = () => {
                   key={page}
                   type="button"
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 rounded-lg transition ${
-                    currentPage === page
-                      ? "bg-cyan-600 text-white"
-                      : "border border-cyan-200 hover:bg-cyan-50"
-                  }`}
+                  className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                    ? "bg-cyan-600 text-white"
+                    : "border border-cyan-200 hover:bg-cyan-50"
+                    }`}
                 >
                   {page}
                 </button>
@@ -443,7 +442,7 @@ const JobsPage = () => {
             </div>
           )}
         </div>
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

@@ -4,74 +4,62 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAd from "@/components/ads/CardAd";
-import Container from "@/components/Container";
-import CatererCard from "@/components/cards/CatererCard";
+import CardAd from "@/app/(public)/_component/ads/CardAd";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import TourismCard from "@/app/(public)/_component/cards/TourismCard";
 
-const CateringServices = () => {
+const TourismDestinations = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const cardsToShow = 3;
 
-  const caterers = [
+  const destinations = [
     {
       id: "1",
-      businessName: "Ghor Er Ranna Catering",
-      specialty: "Daily Tiffin Service",
-      serviceType: "Home-Based",
-      mealTypes: ["Lunch", "Dinner"] as ("Breakfast" | "Lunch" | "Dinner")[],
-      lunchPrice: 100,
-      location: "Shaheb Bazar",
-      cuisineStyle: "Bengali Home-style",
-      rating: 4.7,
-      reviewCount: 143,
-      imageUrl: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=800",
-      href: "/catering/1",
+      name: "Varendra Research Museum",
+      type: "Historical",
+      entryFee: 50,
+      bestTime: "Morning 9 AM - 5 PM",
+      rating: 4.5,
+      reviewCount: 234,
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/tourism/1",
     },
     {
       id: "2",
-      businessName: "Corporate Meals BD",
-      specialty: "Corporate Lunch",
-      serviceType: "Restaurant-Based",
-      mealTypes: ["Breakfast", "Lunch", "Dinner"] as ("Breakfast" | "Lunch" | "Dinner")[],
-      lunchPrice: 120,
-      location: "Kazla",
-      cuisineStyle: "Multi-cuisine",
+      name: "Puthia Rajbari",
+      type: "Heritage",
+      entryFee: 30,
+      bestTime: "Winter Season, 8 AM - 6 PM",
       rating: 4.8,
-      reviewCount: 89,
-      imageUrl: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
-      href: "/catering/2",
+      reviewCount: 412,
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/tourism/2",
     },
     {
       id: "3",
-      businessName: "Student Tiffin Service",
-      specialty: "Budget Tiffin",
-      serviceType: "Cloud Kitchen",
-      mealTypes: ["Lunch", "Dinner"] as ("Breakfast" | "Lunch" | "Dinner")[],
-      lunchPrice: 70,
-      location: "Binodpur",
-      cuisineStyle: "Bengali",
-      rating: 4.5,
-      reviewCount: 178,
-      imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800",
-      href: "/catering/3",
+      name: "Padma River Bank",
+      type: "Natural",
+      entryFee: 0,
+      bestTime: "Sunset Time, 5 PM - 7 PM",
+      rating: 4.6,
+      reviewCount: 189,
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/tourism/3",
     },
     {
       id: "4",
-      businessName: "Spice Route Kitchen",
-      specialty: "Premium Meals",
-      serviceType: "Restaurant-Based",
-      mealTypes: ["Breakfast", "Lunch", "Dinner"] as ("Breakfast" | "Lunch" | "Dinner")[],
-      lunchPrice: 180,
-      location: "Motihar",
-      cuisineStyle: "Indian",
-      rating: 4.9,
-      reviewCount: 94,
-      imageUrl: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
-      href: "/catering/4",
+      name: "Bagha Mosque",
+      type: "Religious",
+      entryFee: 20,
+      bestTime: "Early Morning, 6 AM - 12 PM",
+      rating: 4.7,
+      reviewCount: 156,
+      imageUrl: "/assets/hero-image.jpg",
+      href: "/tourism/4",
     },
   ];
 
-  const totalPages = Math.ceil(caterers.length / cardsToShow);
+  const totalPages = Math.ceil(destinations.length / cardsToShow);
 
   const nextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
@@ -82,15 +70,15 @@ const CateringServices = () => {
   };
 
   const startIndex = currentPage * cardsToShow;
-  const visibleItems = caterers.slice(startIndex, startIndex + cardsToShow);
+  const visibleItems = destinations.slice(startIndex, startIndex + cardsToShow);
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Best Catering Services
+            Explore Rajshahi Tourism
           </h2>
 
           <div className="flex items-center gap-3">
@@ -160,7 +148,7 @@ const CateringServices = () => {
 
             {/* View All Link */}
             <Link
-              href="/catering"
+              href="/tourism"
               className="text-cyan-600 hover:text-cyan-700 font-semibold text-sm flex items-center gap-1 transition"
             >
               View All
@@ -175,15 +163,15 @@ const CateringServices = () => {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden pl-3 pt-2 pb-2">
               <AnimatePresence>
-                {visibleItems.map((caterer, index) => (
+                {visibleItems.map((destination, index) => (
                   <motion.div
-                    key={`${currentPage}-${caterer.id}`}
+                    key={`${currentPage}-${destination.id}`}
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <CatererCard {...caterer} />
+                    <TourismCard {...destination} />
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -193,17 +181,17 @@ const CateringServices = () => {
           {/* Right: Fixed Ad Card */}
           <div className="lg:col-span-1 h-full min-h-[380px]">
             <CardAd
-              title="Find the best caterers"
-              subtitle="Quality service for all events"
+              title="Discover Rajshahi's heritage"
+              subtitle="Experience history and natural beauty"
               imageUrl="/assets/hero-image.jpg"
-              ctaText="Explore Caterers"
-              ctaLink="/catering"
+              ctaText="Explore Destinations"
+              ctaLink="/tourism"
             />
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };
 
-export default CateringServices;
+export default TourismDestinations;

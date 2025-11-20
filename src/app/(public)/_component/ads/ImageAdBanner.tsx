@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Container from "@/components/Container";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 
 interface CarouselAd {
   imageUrl: string;
@@ -39,7 +39,7 @@ const ImageAdBanner = ({
 
   return (
     <div className="w-full py-6 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Left Image Ad - Takes 2/3 width */}
           <div className="md:col-span-2">
@@ -67,11 +67,10 @@ const ImageAdBanner = ({
                 <Link
                   key={`${ad.link}-${index}`}
                   href={ad.link}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentIndex
-                      ? "opacity-100 z-10"
-                      : "opacity-0 z-0"
-                  }`}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex
+                    ? "opacity-100 z-10"
+                    : "opacity-0 z-0"
+                    }`}
                 >
                   <div className="relative w-full h-full">
                     <Image
@@ -91,9 +90,8 @@ const ImageAdBanner = ({
                     type="button"
                     key={`indicator-${ad.link}-${index}`}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? "bg-white w-6" : "bg-white/60"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? "bg-white w-6" : "bg-white/60"
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -101,7 +99,7 @@ const ImageAdBanner = ({
             </div>
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

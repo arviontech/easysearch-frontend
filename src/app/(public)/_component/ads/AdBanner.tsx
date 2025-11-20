@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/Container";
+import PublicContainer from "../shared/publicContainer/PublicContainer";
+
 
 interface AdBannerProps {
   title: string;
@@ -25,7 +26,7 @@ const AdBanner = ({
 }: AdBannerProps) => {
   return (
     <div className="w-full py-8">
-      <Container>
+      <PublicContainer>
         <div
           className={`relative rounded-2xl overflow-hidden shadow-xl ${backgroundColor}`}
         >
@@ -56,7 +57,7 @@ const AdBanner = ({
             </div>
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

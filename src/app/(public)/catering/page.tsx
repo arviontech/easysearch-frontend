@@ -10,8 +10,8 @@ import {
   Users,
   X,
 } from "lucide-react";
-import Container from "@/components/Container";
-import CatererCard from "@/components/cards/CatererCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import CatererCard from "@/app/(public)/_component/cards/CatererCard";
 import { mockCaterers } from "@/data/mockCaterers";
 
 const CateringPage = () => {
@@ -158,7 +158,7 @@ const CateringPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50 pt-24 pb-16">
-      <Container>
+      <PublicContainer>
         {/* Header Section */}
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
@@ -225,14 +225,14 @@ const CateringPage = () => {
               filters.serviceType.length > 0 ||
               filters.targetCustomer.length > 0 ||
               filters.location) && (
-              <span className="bg-cyan-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
-                {filters.cuisineStyle.length +
-                  filters.mealType.length +
-                  filters.serviceType.length +
-                  filters.targetCustomer.length +
-                  (filters.location ? 1 : 0)}
-              </span>
-            )}
+                <span className="bg-cyan-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+                  {filters.cuisineStyle.length +
+                    filters.mealType.length +
+                    filters.serviceType.length +
+                    filters.targetCustomer.length +
+                    (filters.location ? 1 : 0)}
+                </span>
+              )}
           </button>
         </div>
 
@@ -303,11 +303,10 @@ const CateringPage = () => {
                               : [...filters.cuisineStyle, cuisine];
                             setFilters({ ...filters, cuisineStyle: newCuisines });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {cuisine}
                         </button>
@@ -333,11 +332,10 @@ const CateringPage = () => {
                               : [...filters.mealType, meal];
                             setFilters({ ...filters, mealType: newMeals });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {meal}
                         </button>
@@ -395,11 +393,10 @@ const CateringPage = () => {
                               : [...filters.serviceType, type];
                             setFilters({ ...filters, serviceType: newTypes });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {type}
                         </button>
@@ -425,11 +422,10 @@ const CateringPage = () => {
                               : [...filters.targetCustomer, customer];
                             setFilters({ ...filters, targetCustomer: newCustomers });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {customer}
                         </button>
@@ -448,82 +444,82 @@ const CateringPage = () => {
           filters.mealType.length > 0 ||
           filters.serviceType.length > 0 ||
           filters.targetCustomer.length > 0) && (
-          <div className="flex flex-wrap items-center gap-2 mb-6">
-            <span className="text-sm text-gray-600 font-medium">
-              Active Filters:
-            </span>
-            {filters.location && (
-              <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
-                <MapPin className="w-3.5 h-3.5" />
-                {filters.location}
-                <button
-                  onClick={() => clearFilter("location")}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
-                >
-                  <X className="w-3 h-3" />
-                </button>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="text-sm text-gray-600 font-medium">
+                Active Filters:
               </span>
-            )}
-            {filters.cuisineStyle.map((cuisine) => (
-              <span
-                key={cuisine}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                <UtensilsCrossed className="w-3.5 h-3.5" />
-                {cuisine}
-                <button
-                  onClick={() => clearFilter("cuisineStyle", cuisine)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+              {filters.location && (
+                <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
+                  <MapPin className="w-3.5 h-3.5" />
+                  {filters.location}
+                  <button
+                    onClick={() => clearFilter("location")}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+              {filters.cuisineStyle.map((cuisine) => (
+                <span
+                  key={cuisine}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-            {filters.mealType.map((meal) => (
-              <span
-                key={meal}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                {meal}
-                <button
-                  onClick={() => clearFilter("mealType", meal)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  <UtensilsCrossed className="w-3.5 h-3.5" />
+                  {cuisine}
+                  <button
+                    onClick={() => clearFilter("cuisineStyle", cuisine)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+              {filters.mealType.map((meal) => (
+                <span
+                  key={meal}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-            {filters.serviceType.map((type) => (
-              <span
-                key={type}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                {type}
-                <button
-                  onClick={() => clearFilter("serviceType", type)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  {meal}
+                  <button
+                    onClick={() => clearFilter("mealType", meal)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+              {filters.serviceType.map((type) => (
+                <span
+                  key={type}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-            {filters.targetCustomer.map((customer) => (
-              <span
-                key={customer}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                <Users className="w-3.5 h-3.5" />
-                {customer}
-                <button
-                  onClick={() => clearFilter("targetCustomer", customer)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  {type}
+                  <button
+                    onClick={() => clearFilter("serviceType", type)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+              {filters.targetCustomer.map((customer) => (
+                <span
+                  key={customer}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-          </div>
-        )}
+                  <Users className="w-3.5 h-3.5" />
+                  {customer}
+                  <button
+                    onClick={() => clearFilter("targetCustomer", customer)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+            </div>
+          )}
 
         {/* Results Count */}
         <div className="mb-6">
@@ -582,11 +578,10 @@ const CateringPage = () => {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 rounded-lg transition ${
-                    currentPage === page
-                      ? "bg-cyan-600 text-white"
-                      : "border border-cyan-200 hover:bg-cyan-50"
-                  }`}
+                  className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                    ? "bg-cyan-600 text-white"
+                    : "border border-cyan-200 hover:bg-cyan-50"
+                    }`}
                 >
                   {page}
                 </button>
@@ -602,7 +597,7 @@ const CateringPage = () => {
             </div>
           </div>
         )}
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

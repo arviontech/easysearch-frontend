@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Eye, CheckCircle, XCircle, MapPin, Plus, Loader2 } from "lucide-react";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { addNotification } from "@/lib/redux/slices/uiSlice";
@@ -11,7 +11,7 @@ import {
   useDeleteHouseRentMutation,
 } from "@/lib/redux/api/houseRentApi";
 import type { HouseRent } from "@/lib/api/types";
-import PropertyCreateModal from "@/components/modals/PropertyCreateModal";
+import PropertyCreateModal from "@/app/(public)/_component/shared/modals/PropertyCreateModal";
 
 interface PropertyDisplay {
   id: string;
@@ -50,19 +50,19 @@ const PropertiesPage = () => {
   // Transform API data to display format
   const properties: PropertyDisplay[] = response?.data
     ? response.data.map((house: HouseRent) => ({
-        id: house.id,
-        title: house.title,
-        type: house.propertyType.toLowerCase(),
-        location: `${house.area}, ${house.city}`,
-        price: house.price,
-        owner: house.ownerId,
-        status: house.isAvailable ? "approved" : "rejected",
-        postedAt: new Date(house.createdAt).toLocaleDateString(),
-        views: 0,
-        bedrooms: house.bedrooms,
-        bathrooms: house.bathrooms,
-        size: house.size,
-      }))
+      id: house.id,
+      title: house.title,
+      type: house.propertyType.toLowerCase(),
+      location: `${house.area}, ${house.city}`,
+      price: house.price,
+      owner: house.ownerId,
+      status: house.isAvailable ? "approved" : "rejected",
+      postedAt: new Date(house.createdAt).toLocaleDateString(),
+      views: 0,
+      bedrooms: house.bedrooms,
+      bathrooms: house.bathrooms,
+      size: house.size,
+    }))
     : [];
 
   const total = response?.meta?.total || 0;
@@ -156,13 +156,12 @@ const PropertiesPage = () => {
       label: "Status",
       render: (property: PropertyDisplay) => (
         <span
-          className={`px-2 py-1 text-xs font-medium rounded-full ${
-            property.status === "approved"
-              ? "bg-green-100 text-green-700"
-              : property.status === "pending"
-                ? "bg-yellow-100 text-yellow-700"
-                : "bg-red-100 text-red-700"
-          }`}
+          className={`px-2 py-1 text-xs font-medium rounded-full ${property.status === "approved"
+            ? "bg-green-100 text-green-700"
+            : property.status === "pending"
+              ? "bg-yellow-100 text-yellow-700"
+              : "bg-red-100 text-red-700"
+            }`}
         >
           {property.status}
         </span>
@@ -360,11 +359,10 @@ const PropertiesPage = () => {
                       type="button"
                       onClick={() => setPage(pageNum)}
                       disabled={isFetching}
-                      className={`px-4 py-2 rounded-lg transition-colors disabled:opacity-50 ${
-                        page === pageNum
-                          ? "bg-yellow-500 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
+                      className={`px-4 py-2 rounded-lg transition-colors disabled:opacity-50 ${page === pageNum
+                        ? "bg-yellow-500 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        }`}
                     >
                       {pageNum}
                     </button>

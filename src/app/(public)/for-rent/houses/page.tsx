@@ -14,8 +14,8 @@ import {
   User,
   UserCircle,
 } from "lucide-react";
-import Container from "@/components/Container";
-import PropertyCard from "@/components/cards/PropertyCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import PropertyCard from "@/app/(public)/_component/cards/PropertyCard";
 import { useTranslation } from "@/hooks/useTranslation";
 
 // Mock data - Replace with API call
@@ -128,7 +128,7 @@ const HousesPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50 pt-24 pb-16">
-      <Container>
+      <PublicContainer>
         {/* Header Section */}
         <div className="mb-6">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
@@ -267,11 +267,10 @@ const HousesPage = () => {
                               : [...filters.categories, category.value];
                             setFilters({ ...filters, categories: newCategories });
                           }}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           <Icon className="w-3.5 h-3.5" />
                           <span>{category.value}</span>
@@ -296,11 +295,10 @@ const HousesPage = () => {
                             bedrooms: filters.bedrooms === bed ? "" : bed,
                           })
                         }
-                        className={`py-1.5 rounded-lg text-sm font-medium transition ${
-                          filters.bedrooms === bed
-                            ? "bg-cyan-600 text-white"
-                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                        }`}
+                        className={`py-1.5 rounded-lg text-sm font-medium transition ${filters.bedrooms === bed
+                          ? "bg-cyan-600 text-white"
+                          : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                          }`}
                       >
                         {bed}
                       </button>
@@ -354,11 +352,10 @@ const HousesPage = () => {
                             bathrooms: filters.bathrooms === bath ? "" : bath,
                           })
                         }
-                        className={`py-1.5 rounded-lg text-sm font-medium transition ${
-                          filters.bathrooms === bath
-                            ? "bg-cyan-600 text-white"
-                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                        }`}
+                        className={`py-1.5 rounded-lg text-sm font-medium transition ${filters.bathrooms === bath
+                          ? "bg-cyan-600 text-white"
+                          : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                          }`}
                       >
                         {bath}
                       </button>
@@ -390,12 +387,12 @@ const HousesPage = () => {
 
         {/* Main Content - Property Grid/List */}
         <div className="w-full">
-            {/* Active Filters Pills */}
-            {(filters.location ||
-              filters.bedrooms ||
-              filters.bathrooms ||
-              filters.categories.length > 0 ||
-              filters.furnishing) && (
+          {/* Active Filters Pills */}
+          {(filters.location ||
+            filters.bedrooms ||
+            filters.bathrooms ||
+            filters.categories.length > 0 ||
+            filters.furnishing) && (
               <div className="flex flex-wrap items-center gap-2 mb-6">
                 <span className="text-sm text-gray-600 font-medium">
                   Active Filters:
@@ -499,11 +496,10 @@ const HousesPage = () => {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`px-4 py-2 rounded-lg transition ${
-                      currentPage === page
-                        ? "bg-cyan-600 text-white"
-                        : "border border-cyan-200 hover:bg-cyan-50"
-                    }`}
+                    className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                      ? "bg-cyan-600 text-white"
+                      : "border border-cyan-200 hover:bg-cyan-50"
+                      }`}
                   >
                     {page}
                   </button>
@@ -520,7 +516,7 @@ const HousesPage = () => {
             </div>
           )}
         </div>
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

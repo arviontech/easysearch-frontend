@@ -2,8 +2,8 @@
 
 import type React from "react";
 import { useState } from "react";
-import Sidebar from "@/components/dashboard/Sidebar";
-import Header from "@/components/dashboard/Header";
+import Sidebar from "@/app/(dashboard)/_component/shared/sidebar/Sidebar";
+import Header from "@/app/(dashboard)/_component/shared/header/Header";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -19,9 +19,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         />
 
         {/* Main Content */}
-        <div className={`flex-1 flex flex-col transition-all duration-300 ${
-          isSidebarCollapsed ? "ml-20" : "ml-48"
-        }`}>
+        <div className={`flex-1 flex flex-col transition-all duration-300 ${isSidebarCollapsed ? "ml-20" : "ml-48"
+          }`}>
           {/* Header */}
           <Header />
 

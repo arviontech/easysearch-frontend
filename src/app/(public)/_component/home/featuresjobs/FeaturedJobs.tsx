@@ -4,66 +4,77 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAd from "@/components/ads/CardAd";
-import Container from "@/components/Container";
-import PropertyCard from "@/components/cards/PropertyCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import JobCard from "@/app/(public)/_component/cards/JobCard";
 
-const PopularHostels = () => {
+const FeaturedJobs = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const cardsToShow = 3;
+  const cardsToShow = 4;
 
-  const hostels = [
+  const jobs = [
     {
       id: "1",
-      title: "Green Valley Hostel",
-      category: "Male",
-      price: 8000,
-      location: "Shaheb Bazar, Rajshahi",
-      features: ["Meals Included", "AC", "Wi-Fi"],
-      rating: 4.6,
-      reviewCount: 45,
-      imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/hostels/1",
+      title: "Software Engineer",
+      company: "TechBD Limited",
+      location: "Rajshahi City",
+      jobType: "Full-time",
+      salary: "৳35,000 - 45,000",
+      experience: "2-3 years",
+      education: "B.Sc in CSE",
+      postedDate: "2 days ago",
+      deadline: "March 15, 2025",
+      vacancies: 3,
+      category: "IT & Software",
+      companyLogo: "/assets/hero-image.jpg",
     },
     {
       id: "2",
-      title: "Student Haven Hostel",
-      category: "Female",
-      price: 7500,
-      location: "Kazla, Rajshahi",
-      features: ["3 Meals", "Study Room", "Locker"],
-      rating: 4.8,
-      reviewCount: 52,
-      imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/hostels/2",
+      title: "Marketing Executive",
+      company: "Creative Solutions",
+      location: "Shaheb Bazar",
+      jobType: "Full-time",
+      salary: "৳25,000 - 35,000",
+      experience: "1-2 years",
+      education: "BBA/MBA",
+      postedDate: "5 days ago",
+      deadline: "March 20, 2025",
+      vacancies: 2,
+      category: "Sales & Marketing",
+      companyLogo: "/assets/hero-image.jpg",
     },
     {
       id: "3",
-      title: "City Hostel",
-      category: "Male",
-      price: 6500,
-      location: "Motihar, Rajshahi",
-      features: ["Shared Room", "Laundry", "Security"],
-      rating: 4.4,
-      reviewCount: 28,
-      imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/hostels/3",
+      title: "Civil Engineer",
+      company: "BuildTech Engineers",
+      location: "Uposhohor",
+      jobType: "Full-time",
+      salary: "৳40,000 - 60,000",
+      experience: "3-5 years",
+      education: "B.Sc in Civil Engineering",
+      postedDate: "1 week ago",
+      deadline: "March 10, 2025",
+      vacancies: 1,
+      category: "Engineering",
+      companyLogo: "/assets/hero-image.jpg",
     },
     {
       id: "4",
-      title: "Royal Hostel",
-      category: "Female",
-      price: 9000,
-      location: "Uposhohor, Rajshahi",
-      features: ["Single Room", "AC", "3 Meals"],
-      rating: 4.9,
-      reviewCount: 67,
-      imageUrl: "/assets/hero-image.jpg",
-      href: "/for-rent/hostels/4",
+      title: "Teacher (English)",
+      company: "Rajshahi College",
+      location: "Boalia",
+      jobType: "Full-time",
+      salary: "৳25,000 - 35,000",
+      experience: "1-3 years",
+      education: "M.A in English",
+      postedDate: "4 days ago",
+      deadline: "March 12, 2025",
+      vacancies: 1,
+      category: "Education",
+      companyLogo: "/assets/hero-image.jpg",
     },
   ];
 
-  const totalPages = Math.ceil(hostels.length / cardsToShow);
+  const totalPages = Math.ceil(jobs.length / cardsToShow);
 
   const nextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
@@ -74,11 +85,11 @@ const PopularHostels = () => {
   };
 
   const startIndex = currentPage * cardsToShow;
-  const visibleItems = hostels.slice(startIndex, startIndex + cardsToShow);
+  const visibleItems = jobs.slice(startIndex, startIndex + cardsToShow);
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <motion.div
           className="flex items-center justify-between mb-8"
@@ -88,7 +99,7 @@ const PopularHostels = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Popular Hostels for Students
+            Latest Job Opportunities
           </h2>
 
           <div className="flex items-center gap-3">
@@ -158,7 +169,7 @@ const PopularHostels = () => {
 
             {/* View All Link */}
             <Link
-              href="/for-rent/hostels"
+              href="/find/jobs"
               className="text-cyan-600 hover:text-cyan-700 font-semibold text-sm flex items-center gap-1 transition"
             >
               View All
@@ -167,41 +178,25 @@ const PopularHostels = () => {
           </div>
         </motion.div>
 
-        {/* Main Layout: Carousel (Left) + Fixed Ad (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
-          {/* Left: Paginated Carousel - 3 cards */}
-          <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative overflow-hidden pl-3 pt-2 pb-2">
-              <AnimatePresence>
-                {visibleItems.map((hostel, index) => (
-                  <motion.div
-                    key={`${currentPage}-${hostel.id}`}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <PropertyCard {...hostel} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Right: Fixed Ad Card */}
-          <div className="lg:col-span-1 h-full min-h-[380px]">
-            <CardAd
-              title="Find the perfect hostel for students"
-              subtitle="Safe, affordable, and convenient"
-              imageUrl="/assets/hero-image.jpg"
-              ctaText="View All Hostels"
-              ctaLink="/for-rent/hostels"
-            />
-          </div>
+        {/* Jobs Grid - 4 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative overflow-hidden pl-3 pt-2 pb-2">
+          <AnimatePresence>
+            {visibleItems.map((job, index) => (
+              <motion.div
+                key={`${currentPage}-${job.id}`}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <JobCard {...job} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };
 
-export default PopularHostels;
+export default FeaturedJobs;

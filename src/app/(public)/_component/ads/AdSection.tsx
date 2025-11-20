@@ -1,12 +1,12 @@
 "use client";
 
-import Container from "@/components/Container";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 import InlineAd from "./InlineAd";
 
 const AdSection = () => {
   return (
     <section className="py-8 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         <div className="grid md:grid-cols-5 gap-6 h-[200px]">
           {/* Ad 1 - Smaller (2 columns) */}
           <div className="md:col-span-2">
@@ -26,7 +26,7 @@ const AdSection = () => {
             />
           </div>
         </div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };

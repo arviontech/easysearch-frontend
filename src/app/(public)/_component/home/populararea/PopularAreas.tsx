@@ -3,8 +3,8 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import AreaCard from "@/components/AreaCard";
-import Container from "@/components/Container";
+import AreaCard from "@/app/(public)/_component/areacard/AreaCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 
 const PopularAreas = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ const PopularAreas = () => {
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
-      <Container>
+      <PublicContainer>
         {/* Header */}
         <motion.div
           className="flex items-center justify-between mb-8"
@@ -199,7 +199,7 @@ const PopularAreas = () => {
             </motion.div>
           ))}
         </motion.div>
-      </Container>
+      </PublicContainer>
     </section>
   );
 };

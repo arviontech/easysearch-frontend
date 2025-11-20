@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable from "@/app/(dashboard)/_component/table/DataTable";
 import { Edit, Trash2, Eye, CheckCircle, XCircle, MapPin, Plus, Loader2, Users } from "lucide-react";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { addNotification } from "@/lib/redux/slices/uiSlice";
@@ -48,19 +48,19 @@ const HostelsPage = () => {
   // Transform API data to display format
   const hostels: HostelDisplay[] = response?.data
     ? response.data.map((hostel: HostelRent) => ({
-        id: hostel.id,
-        title: hostel.title,
-        type: hostel.type.toLowerCase(),
-        location: `${hostel.area}, ${hostel.city}`,
-        price: hostel.price,
-        owner: hostel.ownerId,
-        status: hostel.isAvailable ? "approved" : "rejected",
-        postedAt: new Date(hostel.createdAt).toLocaleDateString(),
-        views: 0,
-        gender: hostel.gender,
-        roomType: hostel.roomType.replace(/_/g, " "),
-        mealOptions: hostel.mealOptions.replace(/_/g, " "),
-      }))
+      id: hostel.id,
+      title: hostel.title,
+      type: hostel.type.toLowerCase(),
+      location: `${hostel.area}, ${hostel.city}`,
+      price: hostel.price,
+      owner: hostel.ownerId,
+      status: hostel.isAvailable ? "approved" : "rejected",
+      postedAt: new Date(hostel.createdAt).toLocaleDateString(),
+      views: 0,
+      gender: hostel.gender,
+      roomType: hostel.roomType.replace(/_/g, " "),
+      mealOptions: hostel.mealOptions.replace(/_/g, " "),
+    }))
     : [];
 
   const total = response?.meta?.total || 0;
@@ -176,13 +176,12 @@ const HostelsPage = () => {
       label: "Status",
       render: (hostel: HostelDisplay) => (
         <span
-          className={`px-2 py-1 text-xs font-medium rounded-full ${
-            hostel.status === "approved"
+          className={`px-2 py-1 text-xs font-medium rounded-full ${hostel.status === "approved"
               ? "bg-green-100 text-green-700"
               : hostel.status === "pending"
                 ? "bg-yellow-100 text-yellow-700"
                 : "bg-red-100 text-red-700"
-          }`}
+            }`}
         >
           {hostel.status}
         </span>
@@ -373,11 +372,10 @@ const HostelsPage = () => {
                       type="button"
                       onClick={() => setPage(pageNum)}
                       disabled={isFetching}
-                      className={`px-4 py-2 rounded-lg transition-colors disabled:opacity-50 ${
-                        page === pageNum
+                      className={`px-4 py-2 rounded-lg transition-colors disabled:opacity-50 ${page === pageNum
                           ? "bg-purple-500 text-white"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
+                        }`}
                     >
                       {pageNum}
                     </button>

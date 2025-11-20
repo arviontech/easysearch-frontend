@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/lib/redux/StoreProvider";
-import AuthInitializer from "@/components/AuthInitializer";
-import LoginModal from "@/components/modals/LoginModal";
-import SignupModal from "@/components/modals/SignupModal";
-import Toast from "@/components/Toast";
+import AuthInitializer from "@/components/auth/AuthInitializer";
+import LoginModal from "@/app/(public)/_component/shared/modals/LoginModal";
+import SignupModal from "@/app/(public)/_component/shared/modals/SignupModal";
+import Toast from "@/components/toast/Toast";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",

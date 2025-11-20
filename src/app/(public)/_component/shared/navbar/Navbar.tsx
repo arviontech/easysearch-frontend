@@ -21,7 +21,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Container from "@/components/Container";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { setLanguage, openModal, addNotification } from "@/lib/redux/slices/uiSlice";
 import { logout } from "@/lib/redux/slices/authSlice";
@@ -75,7 +75,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-md border-b border-white shadow-lg">
       {/* Top Navigation Bar */}
       <div className="py-4">
-        <Container>
+        <PublicContainer>
           <div className="flex items-center justify-between">
             {/* Left: Mobile Hamburger & Logo */}
             <div className="flex items-center gap-3">
@@ -115,8 +115,8 @@ const Navbar = () => {
               <Link
                 href="/for-rent/houses"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/for-rent/houses")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <Home className="w-4 h-4" />
@@ -125,8 +125,8 @@ const Navbar = () => {
               <Link
                 href="/for-rent/hostels"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/for-rent/hostels")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <Building2 className="w-4 h-4" />
@@ -135,8 +135,8 @@ const Navbar = () => {
               <Link
                 href="/find/doctor"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/find/doctor")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <Stethoscope className="w-4 h-4" />
@@ -145,8 +145,8 @@ const Navbar = () => {
               <Link
                 href="/find/jobs"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/find/jobs")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <Briefcase className="w-4 h-4" />
@@ -155,8 +155,8 @@ const Navbar = () => {
               <Link
                 href="/catering"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/catering")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <UtensilsCrossed className="w-4 h-4" />
@@ -165,8 +165,8 @@ const Navbar = () => {
               <Link
                 href="/foods"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/foods")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <UtensilsCrossed className="w-4 h-4" />
@@ -175,8 +175,8 @@ const Navbar = () => {
               <Link
                 href="/tourism"
                 className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2 ${pathname?.startsWith("/tourism")
-                    ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
-                    : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                  ? "bg-cyan-600 text-white border-2 border-cyan-700 shadow-[0_4px_8px_rgba(6,182,212,0.3),inset_0_2px_8px_rgba(0,0,0,0.2)]"
+                  : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                   }`}
               >
                 <MapPin className="w-4 h-4" />
@@ -509,20 +509,20 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </Container>
+        </PublicContainer>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-white bg-white/40 backdrop-blur-md">
-          <Container>
+          <PublicContainer>
             <div className="py-4 space-y-1">
               <Link
                 href="/for-rent/houses"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/for-rent/houses")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <Home className="w-4 h-4" />
@@ -532,8 +532,8 @@ const Navbar = () => {
                 href="/for-rent/hostels"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/for-rent/hostels")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <Building2 className="w-4 h-4" />
@@ -543,8 +543,8 @@ const Navbar = () => {
                 href="/find/doctor"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/find/doctor")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <Stethoscope className="w-4 h-4" />
@@ -554,8 +554,8 @@ const Navbar = () => {
                 href="/find/jobs"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/find/jobs")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <Briefcase className="w-4 h-4" />
@@ -565,8 +565,8 @@ const Navbar = () => {
                 href="/catering"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/catering")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <UtensilsCrossed className="w-4 h-4" />
@@ -576,8 +576,8 @@ const Navbar = () => {
                 href="/foods"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/foods")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <UtensilsCrossed className="w-4 h-4" />
@@ -587,8 +587,8 @@ const Navbar = () => {
                 href="/tourism"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition ${pathname?.startsWith("/tourism")
-                    ? "bg-cyan-600 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 <MapPin className="w-4 h-4" />
@@ -604,7 +604,7 @@ const Navbar = () => {
                 Language: {language === "en" ? "English" : "বাংলা"}
               </button>
             </div>
-          </Container>
+          </PublicContainer>
         </div>
       )}
     </nav>

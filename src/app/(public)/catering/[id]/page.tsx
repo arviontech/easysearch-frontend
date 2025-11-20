@@ -36,7 +36,7 @@ import dynamic from "next/dynamic";
 import { getCatererById } from "@/data/mockCaterers";
 
 // Dynamically import Map to avoid SSR issues
-const Map = dynamic(() => import("@/components/Map"), { ssr: false });
+const Map = dynamic(() => import("@/components/map/Map"), { ssr: false });
 
 interface PageProps {
   params: Promise<{
@@ -187,8 +187,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
-                    ? "bg-white w-6"
-                    : "bg-white/60 hover:bg-white/80"
+                  ? "bg-white w-6"
+                  : "bg-white/60 hover:bg-white/80"
                   }`}
               />
             ))}
@@ -326,8 +326,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <button
                     onClick={() => setSelectedMeal("lunch")}
                     className={`p-4 rounded-xl border-2 transition ${selectedMeal === "lunch"
-                        ? "border-cyan-600 bg-cyan-50"
-                        : "border-gray-200 hover:border-cyan-300"
+                      ? "border-cyan-600 bg-cyan-50"
+                      : "border-gray-200 hover:border-cyan-300"
                       }`}
                   >
                     <div className="text-lg font-bold text-gray-900 mb-1">Lunch Only</div>
@@ -343,8 +343,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <button
                     onClick={() => setSelectedMeal("both")}
                     className={`p-4 rounded-xl border-2 transition ${selectedMeal === "both"
-                        ? "border-cyan-600 bg-cyan-50"
-                        : "border-gray-200 hover:border-cyan-300"
+                      ? "border-cyan-600 bg-cyan-50"
+                      : "border-gray-200 hover:border-cyan-300"
                       }`}
                   >
                     <div className="text-lg font-bold text-gray-900 mb-1">Lunch + Dinner</div>
@@ -584,8 +584,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                       <Star
                         key={i}
                         className={`w-5 h-5 ${i < Math.floor(caterer.rating)
-                            ? "text-yellow-500 fill-yellow-500"
-                            : "text-gray-300"
+                          ? "text-yellow-500 fill-yellow-500"
+                          : "text-gray-300"
                           }`}
                       />
                     ))}
@@ -602,8 +602,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <button
                     onClick={() => setReviewSort("recent")}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${reviewSort === "recent"
-                        ? "bg-cyan-600 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-cyan-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                   >
                     Most Recent
@@ -611,8 +611,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <button
                     onClick={() => setReviewSort("rating")}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${reviewSort === "rating"
-                        ? "bg-cyan-600 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-cyan-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                   >
                     Highest Rating
@@ -626,8 +626,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                   <button
                     onClick={() => setRatingFilter(null)}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${ratingFilter === null
-                        ? "bg-cyan-600 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-cyan-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       }`}
                   >
                     All
@@ -637,8 +637,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                       key={rating}
                       onClick={() => setRatingFilter(rating)}
                       className={`px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center gap-1 ${ratingFilter === rating
-                          ? "bg-cyan-600 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        ? "bg-cyan-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
                       {rating} <Star className="w-3 h-3" />
@@ -681,8 +681,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                                 <Star
                                   key={i}
                                   className={`w-4 h-4 ${i < review.rating
-                                      ? "text-yellow-500 fill-yellow-500"
-                                      : "text-gray-300"
+                                    ? "text-yellow-500 fill-yellow-500"
+                                    : "text-gray-300"
                                     }`}
                                 />
                               ))}
@@ -776,8 +776,8 @@ export default function CateringDetailsPage({ params }: PageProps) {
                               key={page}
                               onClick={() => goToPage(page)}
                               className={`min-w-[40px] h-10 rounded-lg font-medium transition ${currentReviewPage === page
-                                  ? "bg-cyan-600 text-white"
-                                  : "border border-cyan-200 text-gray-700 hover:bg-cyan-50"
+                                ? "bg-cyan-600 text-white"
+                                : "border border-cyan-200 text-gray-700 hover:bg-cyan-50"
                                 }`}
                             >
                               {page}

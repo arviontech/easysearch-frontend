@@ -13,8 +13,8 @@ import {
   UtensilsCrossed,
   Bed,
 } from "lucide-react";
-import Container from "@/components/Container";
-import PropertyCard from "@/components/cards/PropertyCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import PropertyCard from "@/app/(public)/_component/cards/PropertyCard";
 import { mockHostels } from "@/data/mockHostels";
 
 const HostelsPage = () => {
@@ -131,7 +131,7 @@ const HostelsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50 pt-24 pb-16">
-      <Container>
+      <PublicContainer>
         {/* Header Section */}
         <div className="mb-6">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
@@ -270,11 +270,10 @@ const HostelsPage = () => {
                               : [...filters.gender, gender.value];
                             setFilters({ ...filters, gender: newGender });
                           }}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           <Icon className="w-3.5 h-3.5" />
                           <span>{gender.value}</span>
@@ -301,11 +300,10 @@ const HostelsPage = () => {
                               : [...filters.tenantType, type];
                             setFilters({ ...filters, tenantType: newTypes });
                           }}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           <Users className="w-3.5 h-3.5" />
                           <span>{type}</span>
@@ -364,11 +362,10 @@ const HostelsPage = () => {
                               : [...filters.mealOptions, meal];
                             setFilters({ ...filters, mealOptions: newMeals });
                           }}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           <UtensilsCrossed className="w-3.5 h-3.5" />
                           <span>{meal}</span>
@@ -397,11 +394,10 @@ const HostelsPage = () => {
                                 : [...filters.roomType, fullRoom];
                               setFilters({ ...filters, roomType: newRooms });
                             }}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                              isSelected
-                                ? "bg-cyan-600 text-white"
-                                : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                            }`}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                              ? "bg-cyan-600 text-white"
+                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                              }`}
                           >
                             <Bed className="w-3.5 h-3.5" />
                             <span>{room}</span>
@@ -429,11 +425,10 @@ const HostelsPage = () => {
                               : [...filters.facilities, facility];
                             setFilters({ ...filters, facilities: newFacilities });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {facility}
                         </button>
@@ -448,13 +443,13 @@ const HostelsPage = () => {
 
         {/* Main Content - Hostel Grid */}
         <div className="w-full">
-            {/* Active Filters Pills */}
-            {(filters.location ||
-              filters.gender.length > 0 ||
-              filters.tenantType.length > 0 ||
-              filters.mealOptions.length > 0 ||
-              filters.roomType.length > 0 ||
-              filters.facilities.length > 0) && (
+          {/* Active Filters Pills */}
+          {(filters.location ||
+            filters.gender.length > 0 ||
+            filters.tenantType.length > 0 ||
+            filters.mealOptions.length > 0 ||
+            filters.roomType.length > 0 ||
+            filters.facilities.length > 0) && (
               <div className="flex flex-wrap items-center gap-2 mb-6">
                 <span className="text-sm text-gray-600 font-medium">
                   Active Filters:
@@ -592,11 +587,10 @@ const HostelsPage = () => {
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`px-4 py-2 rounded-lg transition ${
-                      currentPage === page
-                        ? "bg-cyan-600 text-white"
-                        : "border border-cyan-200 hover:bg-cyan-50"
-                    }`}
+                    className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                      ? "bg-cyan-600 text-white"
+                      : "border border-cyan-200 hover:bg-cyan-50"
+                      }`}
                   >
                     {page}
                   </button>
@@ -613,7 +607,7 @@ const HostelsPage = () => {
             </div>
           )}
         </div>
-      </Container>
+      </PublicContainer>
     </div>
   );
 };

@@ -12,8 +12,8 @@ import {
   Clock,
   X,
 } from "lucide-react";
-import Container from "@/components/Container";
-import TourismCard from "@/components/cards/TourismCard";
+import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
+import TourismCard from "@/app/(public)/_component/cards/TourismCard";
 
 // Mock data - Replace with API call
 const mockPlaces = [
@@ -177,7 +177,7 @@ const TourismPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50 pt-24 pb-16">
-      <Container>
+      <PublicContainer>
         {/* Header Section */}
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
@@ -243,13 +243,13 @@ const TourismPage = () => {
               filters.location ||
               filters.entryFee !== "all" ||
               filters.bestTime.length > 0) && (
-              <span className="bg-cyan-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
-                {filters.placeType.length +
-                  (filters.location ? 1 : 0) +
-                  (filters.entryFee !== "all" ? 1 : 0) +
-                  filters.bestTime.length}
-              </span>
-            )}
+                <span className="bg-cyan-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+                  {filters.placeType.length +
+                    (filters.location ? 1 : 0) +
+                    (filters.entryFee !== "all" ? 1 : 0) +
+                    filters.bestTime.length}
+                </span>
+              )}
           </button>
         </div>
 
@@ -318,11 +318,10 @@ const TourismPage = () => {
                               : [...filters.placeType, type];
                             setFilters({ ...filters, placeType: newTypes });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {type}
                         </button>
@@ -367,11 +366,10 @@ const TourismPage = () => {
                               : [...filters.bestTime, time];
                             setFilters({ ...filters, bestTime: newTimes });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                           title={time}
                         >
                           {displayTime}
@@ -400,11 +398,10 @@ const TourismPage = () => {
                               : [...filters.placeType, type];
                             setFilters({ ...filters, placeType: newTypes });
                           }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
-                            isSelected
-                              ? "bg-cyan-600 text-white"
-                              : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${isSelected
+                            ? "bg-cyan-600 text-white"
+                            : "bg-cyan-50 border border-cyan-200 text-cyan-700 hover:bg-cyan-100"
+                            }`}
                         >
                           {type}
                         </button>
@@ -422,66 +419,66 @@ const TourismPage = () => {
           filters.placeType.length > 0 ||
           filters.entryFee !== "all" ||
           filters.bestTime.length > 0) && (
-          <div className="flex flex-wrap items-center gap-2 mb-6">
-            <span className="text-sm text-gray-600 font-medium">
-              Active Filters:
-            </span>
-            {filters.location && (
-              <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
-                <MapPin className="w-3.5 h-3.5" />
-                {filters.location}
-                <button
-                  onClick={() => clearFilter("location")}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
-                >
-                  <X className="w-3 h-3" />
-                </button>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="text-sm text-gray-600 font-medium">
+                Active Filters:
               </span>
-            )}
-            {filters.placeType.map((type) => (
-              <span
-                key={type}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                <Compass className="w-3.5 h-3.5" />
-                {type}
-                <button
-                  onClick={() => clearFilter("placeType", type)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+              {filters.location && (
+                <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
+                  <MapPin className="w-3.5 h-3.5" />
+                  {filters.location}
+                  <button
+                    onClick={() => clearFilter("location")}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+              {filters.placeType.map((type) => (
+                <span
+                  key={type}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-            {filters.entryFee !== "all" && (
-              <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
-                <Tag className="w-3.5 h-3.5" />
-                {filters.entryFee === "free" ? "Free Entry" : "Paid Entry"}
-                <button
-                  onClick={() => setFilters({ ...filters, entryFee: "all" })}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  <Compass className="w-3.5 h-3.5" />
+                  {type}
+                  <button
+                    onClick={() => clearFilter("placeType", type)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+              {filters.entryFee !== "all" && (
+                <span className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
+                  <Tag className="w-3.5 h-3.5" />
+                  {filters.entryFee === "free" ? "Free Entry" : "Paid Entry"}
+                  <button
+                    onClick={() => setFilters({ ...filters, entryFee: "all" })}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
+              {filters.bestTime.map((time) => (
+                <span
+                  key={time}
+                  className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
                 >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-            {filters.bestTime.map((time) => (
-              <span
-                key={time}
-                className="flex items-center gap-1 px-3 py-1.5 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium"
-              >
-                <Clock className="w-3.5 h-3.5" />
-                {time}
-                <button
-                  onClick={() => clearFilter("bestTime", time)}
-                  className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-          </div>
-        )}
+                  <Clock className="w-3.5 h-3.5" />
+                  {time}
+                  <button
+                    onClick={() => clearFilter("bestTime", time)}
+                    className="ml-1 hover:bg-cyan-200 rounded-full p-0.5"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+            </div>
+          )}
 
         {/* Results Count */}
         <div className="mb-6">
@@ -526,11 +523,10 @@ const TourismPage = () => {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 rounded-lg transition ${
-                    currentPage === page
-                      ? "bg-cyan-600 text-white"
-                      : "border border-cyan-200 hover:bg-cyan-50"
-                  }`}
+                  className={`px-4 py-2 rounded-lg transition ${currentPage === page
+                    ? "bg-cyan-600 text-white"
+                    : "border border-cyan-200 hover:bg-cyan-50"
+                    }`}
                 >
                   {page}
                 </button>
@@ -546,7 +542,7 @@ const TourismPage = () => {
             </div>
           </div>
         )}
-      </Container>
+      </PublicContainer>
     </div>
   );
 };
