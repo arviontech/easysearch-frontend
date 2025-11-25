@@ -1,16 +1,470 @@
-[00:00:01.512] Server  LOG      ✓ Ready in 1113ms
-[00:00:12.182] Server  LOG      ○ Compiling / ...
-[00:00:22.151] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+[00:00:00.892] Server  LOG      ✓ Ready in 680ms
+[00:00:07.531] Server  LOG      ○ Compiling / ...
+[00:00:10.715] Server  ERROR    ⨯ ./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:11.948] Browser ERROR   uncaughtError: Error: ./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:12.250] Browser ERROR   ./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:12.251] Browser ERROR   ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:12.251] Browser ERROR   ./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:12.251] Browser ERROR   ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:12.484] Browser ERROR   ./src/app/(public)/_component/shared/modals/LoginModal.tsx:11:1
+Module not found: Can't resolve '@/lib/api/auth'
+   9 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+  10 | import { useTranslation } from "@/hooks/useTranslation";
+> 11 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | import { getUserFromToken } from "@/utils/jwt";
+  13 | import { firebaseAuth } from "@/lib/firebase/auth";
+  14 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/LoginModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:12.484] Browser ERROR   ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:39.791] Server  ERROR    ⨯ ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:39.801] Server  ERROR    ⨯ ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:39.805] Server  ERROR    ⨯ ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:39.813] Server  ERROR    ⨯ ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:39.925] Browser ERROR   ./src/app/(public)/_component/shared/modals/SignupModal.tsx:21:1
+Module not found: Can't resolve '@/lib/api/auth'
+  19 | import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
+  20 | import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+> 21 | import { authAPI } from "@/lib/api/auth";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  22 | import { getUserFromToken } from "@/utils/jwt";
+  23 | import { firebaseAuth } from "@/lib/firebase/auth";
+  24 |
+
+Import map: aliased to relative './src/lib/api/auth' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/app/(public)/_component/shared/modals/SignupModal.tsx
+    ./src/app/(public)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:27.117] Server  LOG      ✓ Compiled in 705ms
+[00:03:28.630] Server  ERROR    ⨯ TypeError: Cannot read properties of undefined (reading 'language')
+[00:03:29.283] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:29.541] Browser ERROR   Global error: {}
+[00:18:27.752] Server  LOG      ✓ Compiled in 1301ms
+[00:18:28.918] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:23.398] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:23.784] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+[00:18:29.814] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:30.724] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:24.327] Browser WARN    Image with src "/assets/hero-image.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:00:24.553] Browser ERROR   Firebase initialization error: {"code":"auth/invalid-api-key","customData":{"appName":"[DEFAULT]"},"name":"FirebaseError"}
-[00:00:26.416] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:34.358] Browser WARN    Image with src "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:34.358] Browser WARN    Image with src "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:34.358] Browser WARN    Image with src "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:52.708] Browser ERROR   Firebase Login Error: {}
-[00:02:04.207] Browser ERROR   Firebase Signup Error: {}
+[00:18:31.703] Browser ERROR   Firebase initialization error: {"code":"auth/invalid-api-key","customData":{"appName":"[DEFAULT]"},"name":"FirebaseError"}
+[00:18:31.703] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_mono_8d43a2aa-module__8Li5zG__variable font-sans antialiased"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:20:39.773] Server  LOG      ✓ Compiled in 1055ms
+[00:20:40.224] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:20:41.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:41.776] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:20:42.703] Browser ERROR   Firebase initialization error: {"code":"auth/invalid-api-key","customData":{"appName":"[DEFAULT]"},"name":"FirebaseError"}
+[00:20:42.703] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_mono_8d43a2aa-module__8Li5zG__variable font-sans antialiased"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:20:49.585] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:20:49.872] Browser WARN    Image with src "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:20:50.164] Browser WARN    Image with src "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:20:50.164] Browser WARN    Image with src "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:25:34.427] Server  LOG      ✓ Compiled in 1308ms
+[00:27:20.705] Server  LOG      ✓ Compiled in 494ms
+[00:28:27.160] Server  LOG      ✓ Compiled in 272ms
+[00:28:27.275] Browser ERROR   called `injectEndpoints` to override already-existing endpointName registration without specifying `overrideExisting: true`
+[00:28:58.432] Server  WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:28:59.901] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:00.885] Browser WARN    Image with src "/assets/hero-image.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:29:01.276] Browser ERROR   Firebase initialization error: {"code":"auth/invalid-api-key","customData":{"appName":"[DEFAULT]"},"name":"FirebaseError"}
+[00:29:01.276] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_mono_8d43a2aa-module__8Li5zG__variable font-sans antialiased"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:29:01.276] Browser WARN    Image with src "/assets/hero-image.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:31:08.056] Server  LOG      ✓ Compiled in 724ms
+[00:35:22.275] Server  LOG      ✓ Compiled in 672ms
+[00:44:49.335] Browser ERROR   Error encountered handling the endpoint registration.
+                  The object returned by `baseQuery` has the unknown property status.
+                  It needs to return an object with either the shape `{ data: <value> }` or `{ error: <value> }` that may contain an optional `meta` property.
+                  Object returned was: {"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"data":"{\"name\":\"Abdul Karim\",\"email\":\"mdhasan.alikhan67@gmail.com\",\"contactNumber\":\"+8801303121447\",\"password\":\"123456\",\"type\":\"HOST\"}","env":{},"headers":{"Accept":"application/json","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":60000,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"http://localhost:8000/api/v1/auth/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":{"data":{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmZWZkMzE3LTEzOGYtNDc3Yy05MTMwLWZiMTE4MDlmMDc0NyIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc2NDA5MDg4MiwiZXhwIjoxNzY0MTc3MjgyfQ.soU_85OcjdHpAzFTMsDbMSlg3k4Lgm9YcC7N4sCFY5I","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmZWZkMzE3LTEzOGYtNDc3Yy05MTMwLWZiMTE4MDlmMDc0NyIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc2NDA5MDg4MiwiZXhwIjoxNzY0Njk1NjgyfQ.WbmBzVTf5QgjubiL1O5KGeClzaCJse--e8VflDFTsCM"},"message":"Account created successfully","statusCode":200,"success":true},"headers":{"content-length":"540","content-type":"application/json; charset=utf-8"},"request":{},"status":201,"statusText":"Created"}

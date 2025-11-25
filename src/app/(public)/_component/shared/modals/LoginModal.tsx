@@ -8,14 +8,13 @@ import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
 import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
 import { useTranslation } from "@/hooks/useTranslation";
-import { authAPI } from "@/lib/api/auth";
 import { getUserFromToken } from "@/utils/jwt";
 import { firebaseAuth } from "@/lib/firebase/auth";
 
 const LoginModal = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const isOpen = useAppSelector((state) => state.ui.modals.loginOpen);
+  const isOpen = false;
   const t = useTranslation();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -42,51 +41,51 @@ const LoginModal = () => {
         password: formData.password,
       };
 
-      const response = await authAPI.login(loginData);
+      // const response = await authAPI.login(loginData);
 
-      if (response.success && response.data?.accessToken) {
-        // Store token
-        dispatch(setToken(response.data.accessToken));
+      // if (response.success && response.data?.accessToken) {
+      //   // Store token
+      //   dispatch(setToken(response.data.accessToken));
 
-        // Extract user info from JWT token
-        const userFromToken = getUserFromToken(response.data.accessToken);
+      //   // Extract user info from JWT token
+      //   const userFromToken = getUserFromToken(response.data.accessToken);
 
 
-        let userRole: "CUSTOMER" | "HOST" | "ADMIN" = "CUSTOMER";
+      //   let userRole: "CUSTOMER" | "HOST" | "ADMIN" = "CUSTOMER";
 
-        if (userFromToken) {
-          dispatch(setUser(userFromToken as any));
-          userRole = userFromToken.role || "CUSTOMER";
-        } else {
-          // Fallback if JWT decoding fails
-          dispatch(setUser({
-            id: "",
-            name: "",
-            email: isEmail ? formData.emailOrPhone : "",
-            role: "CUSTOMER",
-            contactNumber: !isEmail ? formData.emailOrPhone : undefined,
-          }));
-        }
+      //   if (userFromToken) {
+      //     dispatch(setUser(userFromToken as any));
+      //     userRole = userFromToken.role || "CUSTOMER";
+      //   } else {
+      //     // Fallback if JWT decoding fails
+      //     dispatch(setUser({
+      //       id: "",
+      //       name: "",
+      //       email: isEmail ? formData.emailOrPhone : "",
+      //       role: "CUSTOMER",
+      //       contactNumber: !isEmail ? formData.emailOrPhone : undefined,
+      //     }));
+      //   }
 
-        dispatch(addNotification({
-          type: "success",
-          message: "Login successful! Welcome back!",
-        }));
-        dispatch(closeModal("loginOpen"));
+      //   dispatch(addNotification({
+      //     type: "success",
+      //     message: "Login successful! Welcome back!",
+      //   }));
+      //   dispatch(closeModal("loginOpen"));
 
-        // Redirect based on user role
-        if (userRole === "ADMIN") {
-          router.push("/admin");
-        }
-        // HOST and CUSTOMER stay on current page or can be redirected elsewhere
-      } else {
-        // Handle error
-        const errorMsg = response.errorMessages?.map(e => e.message).join(", ") || response.message;
-        dispatch(addNotification({
-          type: "error",
-          message: `Login failed: ${errorMsg}`,
-        }));
-      }
+      //   // Redirect based on user role
+      //   if (userRole === "ADMIN") {
+      //     router.push("/admin");
+      //   }
+      //   // HOST and CUSTOMER stay on current page or can be redirected elsewhere
+      // } else {
+      //   // Handle error
+      //   const errorMsg = response.errorMessages?.map(e => e.message).join(", ") || response.message;
+      //   dispatch(addNotification({
+      //     type: "error",
+      //     message: `Login failed: ${errorMsg}`,
+      //   }));
+      // }
     } catch (error) {
       dispatch(addNotification({
         type: "error",

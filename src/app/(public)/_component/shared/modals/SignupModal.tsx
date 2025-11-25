@@ -18,9 +18,9 @@ import {
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
 import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
-import { authAPI } from "@/lib/api/auth";
 import { getUserFromToken } from "@/utils/jwt";
 import { firebaseAuth } from "@/lib/firebase/auth";
+import { useRegistrationMutation } from "@/lib/redux/features/auth/authApi";
 
 const SignupModal = () => {
   const dispatch = useAppDispatch();
@@ -39,6 +39,7 @@ const SignupModal = () => {
     agreeToTerms: false,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [registration] = useRegistrationMutation()
 
   const getPasswordStrength = (password: string) => {
     if (password.length === 0) return { strength: 0, label: "", color: "" };
@@ -78,13 +79,13 @@ const SignupModal = () => {
       // Combine country code and phone number
       const contactNumber = `${formData.countryCode}${formData.phone}`;
 
-      const response = await authAPI.register({
+      const response = await registration({
         name: formData.fullName,
         email: formData.email,
         contactNumber,
         password: formData.password,
-        role,
-      });
+        type: role,
+      }).unwrap();
 
       if (response.success && response.data?.accessToken) {
         // Store token
@@ -114,7 +115,7 @@ const SignupModal = () => {
         dispatch(closeModal("signupOpen"));
       } else {
         // Handle error
-        const errorMsg = response.errorMessages?.map(e => e.message).join(", ") || response.message;
+        const errorMsg = response.errorMessages?.map((e: any) => e.message).join(", ") || response.message;
         dispatch(addNotification({
           type: "error",
           message: `Registration failed: ${errorMsg}`,
@@ -136,12 +137,6 @@ const SignupModal = () => {
         setIsLoading(true);
         const result = await firebaseAuth.loginWithGoogle();
         const idToken = await result.user.getIdToken();
-
-        // TODO: Backend Integration Required
-        // 1. Send `idToken` to your backend endpoint (e.g., POST /api/v1/auth/google)
-        // 2. Verify the token using Firebase Admin SDK
-        // 3. Create or update the user in your database
-        // 4. Return a session token (accessToken) to the client
 
         dispatch(addNotification({
           type: "success",
