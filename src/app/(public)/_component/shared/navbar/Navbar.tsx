@@ -25,6 +25,7 @@ import PublicContainer from "@/app/(public)/_component/shared/publicContainer/Pu
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { setLanguage, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
 import { logout } from "@/lib/redux/features/auth/authSlice";
+import { clearAuthCookies } from "@/lib/actions/auth";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -62,7 +63,8 @@ const Navbar = () => {
     dispatch(setLanguage(language === "en" ? "bn" : "en"));
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await clearAuthCookies();
     dispatch(logout());
     dispatch(addNotification({
       type: "success",

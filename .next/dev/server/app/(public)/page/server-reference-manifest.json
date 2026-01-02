@@ -1,4 +1,50 @@
 {
-  "node": {},
+  "node": {
+    "7fb862b2d8f8af0b2089e887b36cfdd6df3510f625": {
+      "workers": {
+        "app/(public)/page": {
+          "moduleId": "[project]/.next-internal/server/app/(public)/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions/auth.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getUser",
+          "filename": "src/lib/actions/auth.ts"
+        }
+      },
+      "layer": {
+        "app/(public)/page": "action-browser"
+      },
+      "exportedName": "getUser",
+      "filename": "src/lib/actions/auth.ts"
+    },
+    "7fb89e37a14092b2d8ae932bc3ca94a9a685e14cf0": {
+      "workers": {
+        "app/(public)/page": {
+          "moduleId": "[project]/.next-internal/server/app/(public)/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions/auth.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getAccessToken",
+          "filename": "src/lib/actions/auth.ts"
+        }
+      },
+      "layer": {
+        "app/(public)/page": "action-browser"
+      },
+      "exportedName": "getAccessToken",
+      "filename": "src/lib/actions/auth.ts"
+    },
+    "7fdec31f47293cebb138116b4eeb16ecfb5a73def2": {
+      "workers": {
+        "app/(public)/page": {
+          "moduleId": "[project]/.next-internal/server/app/(public)/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/lib/actions/auth.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "clearAuthCookies",
+          "filename": "src/lib/actions/auth.ts"
+        }
+      },
+      "layer": {
+        "app/(public)/page": "action-browser"
+      },
+      "exportedName": "clearAuthCookies",
+      "filename": "src/lib/actions/auth.ts"
+    }
+  },
   "edge": {}
 }

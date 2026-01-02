@@ -4,7 +4,7 @@ import axiosBaseQuery from '../../../helper/axios/axiosBaseQuery'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
-  baseQuery: axiosBaseQuery({ baseUrl: 'http://localhost:8000/api/v1' }),
+  baseQuery: axiosBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
   endpoints: (build) => ({}),
   tagTypes: ["auth"]
 })

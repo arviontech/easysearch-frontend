@@ -36,10 +36,6 @@ const authSlice = createSlice({
     },
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
-      // Persist token to localStorage
-      if (typeof window !== "undefined") {
-        localStorage.setItem("accessToken", action.payload);
-      }
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
@@ -53,10 +49,6 @@ const authSlice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
       state.error = null;
-      // Clear token from localStorage
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("accessToken");
-      }
     },
     clearError: (state) => {
       state.error = null;
