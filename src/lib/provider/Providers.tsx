@@ -1,15 +1,15 @@
 "use client"
 
+import { Toaster } from "sonner"
 import { Provider } from "react-redux"
 import { store } from "../redux/store"
-import SessionManager from "./SessionManager"
+
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (
         <Provider store={store}>
-            <SessionManager>
-                {children}
-            </SessionManager>
+            {children}
+            <Toaster position="top-right" richColors />
         </Provider>
     )
 }

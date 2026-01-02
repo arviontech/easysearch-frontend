@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useLoginMutation } from "@/lib/redux/features/auth/authApi";
@@ -11,20 +11,31 @@ import { setAuthCookies } from "@/lib/actions/auth";
 import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema, type LoginFormValues } from "@/lib/validations/auth";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = React.useState(false);
     const router = useRouter();
     const dispatch = useAppDispatch();
     const [login, { isLoading }] = useLoginMutation();
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<LoginFormValues>({
+        resolver: zodResolver(loginSchema),
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    });
 
+    const onSubmit = async (data: LoginFormValues) => {
         try {
-            const res = await login({ email, password }).unwrap();
+            const res = await login(data).unwrap();
 
             if (res?.data?.accessToken && res?.data?.refreshToken) {
                 const token = res.data.accessToken;
@@ -67,7 +78,7 @@ const LoginPage = () => {
                         <p className="text-gray-400">Please enter your details to sign in</p>
                     </div>
 
-                    <form onSubmit={handleLogin} className="space-y-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-300 ml-1">Email</label>
                             <div className="relative group">
@@ -75,14 +86,15 @@ const LoginPage = () => {
                                     <Mail size={18} />
                                 </div>
                                 <input
+                                    {...register("email")}
                                     type="email"
-                                    required
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Enter your email"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
+                                    className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-4 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all`}
                                 />
                             </div>
+                            {errors.email && (
+                                <p className="text-xs text-red-500 ml-1">{errors.email.message}</p>
+                            )}
                         </div>
 
                         <div className="space-y-2">
@@ -97,12 +109,10 @@ const LoginPage = () => {
                                     <Lock size={18} />
                                 </div>
                                 <input
+                                    {...register("password")}
                                     type={showPassword ? "text" : "password"}
-                                    required
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Enter your password"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-12 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
+                                    className={`w-full bg-white/5 border ${errors.password ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-12 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all`}
                                 />
                                 <button
                                     type="button"
@@ -112,6 +122,9 @@ const LoginPage = () => {
                                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                 </button>
                             </div>
+                            {errors.password && (
+                                <p className="text-xs text-red-500 ml-1">{errors.password.message}</p>
+                            )}
                         </div>
 
                         <button

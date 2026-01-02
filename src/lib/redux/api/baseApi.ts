@@ -4,8 +4,8 @@ import axiosBaseQuery from '../../../helper/axios/axiosBaseQuery'
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
-  baseQuery: axiosBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
+  baseQuery: axiosBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api' }),
   endpoints: (build) => ({}),
-  tagTypes: ["auth"]
+  tagTypes: ["auth", "categories"]
 })
 

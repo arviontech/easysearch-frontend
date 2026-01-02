@@ -3,7 +3,7 @@ import { TMeta } from '@/types'
 import type { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosError } from 'axios'
-import axiosInstance from './axiosIntance'
+import axiosInstance from './axiosInstance'
 
 
 const axiosBaseQuery =
