@@ -1,4 +1,20 @@
 {
-  "node": {},
+  "node": {
+    "7ffa84935b0844686a1963355dd164b9cd326c9b24": {
+      "workers": {
+        "app/_not-found/page": {
+          "moduleId": 79709,
+          "async": false,
+          "exportedName": "getAccessToken",
+          "filename": "src/lib/actions/auth.ts"
+        }
+      },
+      "layer": {
+        "app/_not-found/page": "action-browser"
+      },
+      "exportedName": "getAccessToken",
+      "filename": "src/lib/actions/auth.ts"
+    }
+  },
   "edge": {}
 }

@@ -104,7 +104,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/mursalin",
+    "outputFileTracingRoot": "/home/hasan/My Project/Arvion/easy-search/first-version/easysearch-frontend",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -154,7 +154,6 @@
       "serverSourceMaps": false,
       "linkNoTouchStart": false,
       "caseSensitiveRoutes": false,
-      "clientSegmentCache": true,
       "dynamicOnHover": false,
       "preloadEntriesOnStart": true,
       "clientRouterFilter": true,
@@ -163,7 +162,7 @@
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 9,
+      "cpus": 7,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -296,12 +295,12 @@
     "configFileName": "next.config.ts",
     "reactCompiler": true,
     "turbopack": {
-      "root": "/Users/mursalin"
+      "root": "/home/hasan/My Project/Arvion/easy-search/first-version/easysearch-frontend"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "/Users/mursalin/Arvion Tech/arvion-rent",
-  "relativeAppDir": "Arvion Tech/arvion-rent",
+  "appDir": "/home/hasan/My Project/Arvion/easy-search/first-version/easysearch-frontend",
+  "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",
     ".next/server/pages-manifest.json",

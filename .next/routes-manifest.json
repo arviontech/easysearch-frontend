@@ -107,12 +107,6 @@
       "namedRegex": "^/catering(?:/)?$"
     },
     {
-      "page": "/debug-jwt",
-      "regex": "^/debug\\-jwt(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/debug\\-jwt(?:/)?$"
-    },
-    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
@@ -147,6 +141,18 @@
       "regex": "^/for\\-rent/houses(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/for\\-rent/houses(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/register",
+      "regex": "^/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register(?:/)?$"
     },
     {
       "page": "/sitemap.xml",

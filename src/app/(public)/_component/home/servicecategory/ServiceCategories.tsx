@@ -8,44 +8,28 @@ import {
   Stethoscope,
   UtensilsCrossed,
   Briefcase,
+  Layers,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import PublicContainer from "@/app/(public)/_component/shared/publicContainer/PublicContainer";
 import ServiceCategoryCard from "@/app/(public)/_component/servicecategorycard/ServiceCategoryCard";
+import { useGetAllCategoriesQuery } from "@/lib/redux/features/category/categoryApi";
 
 const ServiceCategories = () => {
-  const categories = [
-    {
-      icon: Home,
-      title: "Houses",
-      href: "/for-rent/houses",
-    },
-    {
-      icon: Building2,
-      title: "Hostels",
-      href: "/for-rent/hostels",
-    },
-    {
-      icon: Stethoscope,
-      title: "Doctors",
-      href: "/find/doctor",
-    },
-    {
-      icon: Briefcase,
-      title: "Jobs",
-      href: "/find/jobs",
-    },
-    {
-      icon: UtensilsCrossed,
-      title: "Catering",
-      href: "/catering",
-    },
-    {
-      icon: MapPin,
-      title: "Tourism",
-      href: "/tourism",
-    },
-  ];
+  const { data: categoriesData, isLoading } = useGetAllCategoriesQuery(undefined);
+  const categories = categoriesData?.data || [];
+
+  if (isLoading) {
+    return (
+      <section className="py-12 bg-white/40 backdrop-blur-sm">
+        <PublicContainer>
+          <div className="flex justify-center items-center h-40">
+            <div className="w-10 h-10 border-4 border-[#008ca1] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </PublicContainer>
+      </section>
+    )
+  }
 
   return (
     <section className="py-12 bg-white/40 backdrop-blur-sm">
@@ -74,9 +58,9 @@ const ServiceCategories = () => {
             }
           }}
         >
-          {categories.map((category) => (
+          {categories.map((category: any) => (
             <motion.div
-              key={category.title}
+              key={category.id}
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
@@ -84,9 +68,10 @@ const ServiceCategories = () => {
               transition={{ duration: 0.4 }}
             >
               <ServiceCategoryCard
-                icon={category.icon}
-                title={category.title}
-                href={category.href}
+                icon={Layers} // Fallback icon
+                imageUrl={category.categoryImage}
+                title={category.categoryName}
+                href={`/services/${category.id}`} // Assuming dynamic route or mapping
               />
             </motion.div>
           ))}

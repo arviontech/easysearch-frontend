@@ -20,6 +20,7 @@ import {
   User,
   LogOut,
   Tag,
+  Search,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
@@ -69,41 +70,57 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
 
   return (
     <div
-      className={`${isCollapsed ? "w-20" : "w-48"
+      className={`${isCollapsed ? "w-20" : "w-64"
         } bg-gradient-to-b from-cyan-50/60 to-blue-50/60 backdrop-blur-md border-r border-white min-h-screen fixed left-0 top-0 transition-all duration-300 ease-in-out z-40 flex flex-col shadow-[4px_0_16px_rgba(0,0,0,0.1)]`}
     >
-      {/* Collapse/Expand Button Only */}
-      <div className="h-14 flex items-center justify-center px-3 border-b border-cyan-200/50">
-        <motion.div whileHover="hover" initial="initial" animate="initial">
-          <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/40 transition-all text-gray-700 relative overflow-hidden"
-            type="button"
+      {/* Branding & Collapse/Expand Button */}
+      <div className="h-16 flex items-center justify-between px-4 border-b border-white/50 bg-white/10 backdrop-blur-sm">
+        {!isCollapsed && (
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2"
           >
-            <motion.div
-              className="absolute inset-0 bg-cyan-600 rounded-full"
-              variants={{
-                initial: { scale: 0 },
-                hover: { scale: 1 },
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="relative z-10 flex items-center justify-center"
-              variants={{
-                initial: { color: "#374151" },
-                hover: { color: "#ffffff" },
-              }}
-              transition={{ duration: 0.3 }}
+            <div className="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-600/20">
+              <Search className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-700 to-blue-700">
+              easysearch
+            </span>
+          </motion.div>
+        )}
+        <div className={`flex items-center transition-all duration-300 ${isCollapsed ? "w-full justify-center" : "justify-center"}`}>
+          <motion.div whileHover="hover" initial="initial" animate="initial">
+            <button
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/40 transition-all text-gray-700 relative overflow-hidden"
+              type="button"
             >
-              {isCollapsed ? (
-                <ChevronRight className="w-4 h-4" />
-              ) : (
-                <ChevronLeft className="w-4 h-4" />
-              )}
-            </motion.div>
-          </button>
-        </motion.div>
+              <motion.div
+                className="absolute inset-0 bg-cyan-600 rounded-full"
+                variants={{
+                  initial: { scale: 0 },
+                  hover: { scale: 1 },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="relative z-10 flex items-center justify-center"
+                variants={{
+                  initial: { color: "#374151" },
+                  hover: { color: "#ffffff" },
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {isCollapsed ? (
+                  <ChevronRight className="w-4 h-4" />
+                ) : (
+                  <ChevronLeft className="w-4 h-4" />
+                )}
+              </motion.div>
+            </button>
+          </motion.div>
+        </div>
       </div>
 
       {/* Navigation */}

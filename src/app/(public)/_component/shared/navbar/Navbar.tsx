@@ -10,10 +10,24 @@ import { NavLink } from "./NavLink";
 import { UserMenu } from "./UserMenu";
 import { NAV_LINKS } from "./nav-data";
 
+import { useGetAllCategoriesQuery } from "@/lib/redux/features/category/categoryApi";
+import { Layers } from "lucide-react";
+
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const language = useAppSelector((state) => state.ui.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { data: categoriesData } = useGetAllCategoriesQuery(undefined);
+  const categories = categoriesData?.data || [];
+
+  const dynamicNavLinks = categories.map((category: any) => ({
+    href: `/services/${category.id}`,
+    label: category.categoryName,
+    mobileLabel: category.categoryName,
+    imageUrl: category.categoryImage,
+    icon: Layers // Fallback or generic icon since we can't easily map string images to Lucide components here without a custom component
+  }));
 
   const handleLanguageToggle = () => {
     dispatch(setLanguage(language === "en" ? "bn" : "en"));
@@ -35,19 +49,19 @@ const Navbar = () => {
               </button>
 
               <Link href="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">R</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-[#008ca1] to-[#007a8c] rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">E</span>
                 </div>
                 <div className="hidden md:flex flex-col">
-                  <span className="text-blue-700 text-base font-bold leading-none">Rajshahi</span>
-                  <span className="text-gray-600 text-xs leading-none">Services</span>
+                  <span className="text-[#008ca1] text-base font-bold leading-none">Easy</span>
+                  <span className="text-gray-600 text-xs leading-none">Search</span>
                 </div>
               </Link>
             </div>
 
             {/* Center: Desktop Navigation Links */}
             <div className="hidden lg:flex items-center gap-3 absolute left-1/2 transform -translate-x-1/2 overflow-x-auto no-scrollbar max-w-[50vw]">
-              {NAV_LINKS.map((link) => (
+              {dynamicNavLinks.map((link: any) => (
                 <NavLink key={link.href} {...link} />
               ))}
             </div>
@@ -85,7 +99,7 @@ const Navbar = () => {
         <div className="lg:hidden border-t border-white bg-white/40 backdrop-blur-md max-h-[70vh] overflow-y-auto">
           <PublicContainer>
             <div className="py-4 space-y-1">
-              {NAV_LINKS.map((link) => (
+              {dynamicNavLinks.map((link: any) => (
                 <NavLink
                   key={link.href}
                   href={link.href}

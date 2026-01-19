@@ -4,16 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/utils/utils";
+import Image from "next/image";
 
 interface NavLinkProps {
     href: string;
     label: string;
-    icon: LucideIcon;
+    icon?: LucideIcon;
     mobile?: boolean;
     onClick?: () => void;
+    imageUrl?: string;
 }
 
-export const NavLink = ({ href, label, icon: Icon, mobile, onClick }: NavLinkProps) => {
+// eslint-disable-next-line @next/next/no-img-element
+export const NavLink = ({ href, label, icon: Icon, mobile, onClick, imageUrl }: NavLinkProps & { imageUrl?: string }) => {
     const pathname = usePathname();
     const isActive = pathname?.startsWith(href);
 
@@ -27,7 +30,11 @@ export const NavLink = ({ href, label, icon: Icon, mobile, onClick }: NavLinkPro
                     isActive ? "bg-cyan-600 text-white" : "text-gray-700 hover:bg-gray-100"
                 )}
             >
-                <Icon className="w-4 h-4" />
+                {imageUrl ? (
+                    <Image src={imageUrl} alt={label} width={20} height={20} className="w-5 h-5  object-cover" />
+                ) : (
+                    Icon && <Icon className="w-4 h-4" />
+                )}
                 {label}
             </Link>
         );
@@ -43,7 +50,11 @@ export const NavLink = ({ href, label, icon: Icon, mobile, onClick }: NavLinkPro
                     : "bg-cyan-50/60 backdrop-blur-sm border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] text-gray-700 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
             )}
         >
-            <Icon className="w-4 h-4" />
+            {imageUrl ? (
+                <Image src={imageUrl} alt={label} width={20} height={20} className="w-5 h-5  object-cover" />
+            ) : (
+                Icon && <Icon className="w-4 h-4" />
+            )}
             {label}
         </Link>
     );

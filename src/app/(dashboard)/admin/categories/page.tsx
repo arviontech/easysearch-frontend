@@ -2,67 +2,57 @@
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import DataTable from "@/app/(dashboard)/_component/table/DataTable";
-import { Edit, Trash2, Eye, AlertCircle, Tag } from "lucide-react";
-import {
-  useGetCategoriesQuery,
-  useUpdateCategoryMutation,
-  useDeleteCategoryMutation,
-} from "@/lib/redux/features/api/categoryApi";
-import type { Category } from "@/lib/api/types";
+import { Edit, Trash2, Eye, Plus, Tag, Search, Building2, Home, Utensils } from "lucide-react";
 import { addNotification } from "@/lib/redux/features/ui/uiSlice";
 import Image from "next/image";
+import { useGetAllCategoriesQuery, useDeleteCategoryMutation } from "@/lib/redux/features/category/categoryApi";
+import DataTable from "../../_component/table/DataTable";
+import CreateCategoryModal from "./_components/CreateCategoryModal";
+import ConfirmationModal from "./_components/ConfirmationModal";
 
 // Display interface for the table
 interface CategoryDisplay {
   id: string;
   categoryName: string;
   categoryImage: string;
+  description?: string;
   createdAt: string;
   updatedAt: string;
 }
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
-  const [limit] = useState(10);
-
-  // RTK Query hooks
-  const { data: response, isLoading, isFetching, error } = useGetCategoriesQuery({ page, limit });
-  const [updateCategory, { isLoading: isUpdating }] = useUpdateCategoryMutation();
+  const { data: categoriesData, isLoading, isError } = useGetAllCategoriesQuery(undefined);
   const [deleteCategory, { isLoading: isDeleting }] = useDeleteCategoryMutation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [editCategory, setEditCategory] = useState<CategoryDisplay | null>(null);
+  const [categoryToDelete, setCategoryToDelete] = useState<string | null>(null);
 
-  // Transform API data to display format
-  const categories: CategoryDisplay[] = response?.data
-    ? response.data.map((category: Category) => ({
-      id: category.id,
-      categoryName: category.categoryName,
-      categoryImage: category.categoryImage,
-      createdAt: new Date(category.createdAt).toLocaleDateString(),
-      updatedAt: new Date(category.updatedAt).toLocaleDateString(),
-    }))
-    : [];
+  const categories = categoriesData?.data || [];
 
-  // Calculate statistics
-  const totalCategories = response?.meta?.total || 0;
+  const handleEdit = (category: CategoryDisplay) => {
+    setEditCategory(category);
+    setIsModalOpen(true);
+  };
 
-  const handleDeleteCategory = async (id: string) => {
-    if (window.confirm("Are you sure you want to delete this category?")) {
+  const handleDelete = (id: string) => {
+    setCategoryToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (categoryToDelete) {
       try {
-        await deleteCategory(id).unwrap();
-        dispatch(
-          addNotification({
-            type: "success",
-            message: "Category deleted successfully",
-          }),
-        );
-      } catch (err) {
-        dispatch(
-          addNotification({
-            type: "error",
-            message: "Failed to delete category",
-          }),
-        );
+        await deleteCategory(categoryToDelete).unwrap();
+        dispatch(addNotification({ message: "Category deleted successfully", type: "success" }));
+        setIsDeleteModalOpen(false);
+        setCategoryToDelete(null);
+      } catch (error: any) {
+        dispatch(addNotification({
+          message: error?.data?.message || "Failed to delete category",
+          type: "error"
+        }));
       }
     }
   };
@@ -72,18 +62,18 @@ const CategoriesPage = () => {
       key: "categoryImage",
       label: "Image",
       render: (category: CategoryDisplay) => (
-        <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
+        <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-cyan-50 border border-white shadow-[0_2px_4px_rgba(0,0,0,0.05),inset_0_2px_4px_rgba(255,255,255,0.5)]">
           {category.categoryImage ? (
             <Image
               src={category.categoryImage}
               alt={category.categoryName}
               fill
               className="object-cover"
-              sizes="64px"
+              sizes="48px"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <Tag className="w-6 h-6 text-gray-400" />
+              <Tag className="w-5 h-5 text-cyan-300" />
             </div>
           )}
         </div>
@@ -94,8 +84,8 @@ const CategoriesPage = () => {
       label: "Category Name",
       render: (category: CategoryDisplay) => (
         <div>
-          <p className="font-medium text-gray-900">{category.categoryName}</p>
-          <p className="text-xs text-gray-500">ID: {category.id}</p>
+          <p className="font-bold text-gray-900 text-base">{category.categoryName}</p>
+          <p className="text-[10px] text-gray-400 font-mono tracking-tighter">ID: {category.id}</p>
         </div>
       ),
     },
@@ -103,180 +93,136 @@ const CategoriesPage = () => {
       key: "createdAt",
       label: "Created",
       render: (category: CategoryDisplay) => (
-        <span className="text-sm text-gray-600">{category.createdAt}</span>
+        <span className="text-sm text-gray-600 font-medium italic">
+          {category.createdAt ? new Date(category.createdAt).toLocaleDateString() : "N/A"}
+        </span>
       ),
     },
     {
       key: "updatedAt",
       label: "Last Updated",
       render: (category: CategoryDisplay) => (
-        <span className="text-sm text-gray-600">{category.updatedAt}</span>
+        <span className="text-sm text-gray-500">
+          {category.updatedAt ? new Date(category.updatedAt).toLocaleDateString() : "N/A"}
+        </span>
       ),
     },
   ];
 
-  // Loading state
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading categories...</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Error state
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-center">
-          <AlertCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-          <p className="text-gray-900 font-semibold">Failed to load categories</p>
-          <p className="text-gray-600 mt-2">Please try again later</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 pb-10">
       {/* Page Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Categories Management</h1>
-          <p className="text-gray-600 mt-1">Manage all property categories</p>
+          <h1 className="text-4xl font-black text-gray-900 tracking-tight">
+            Categories <span className="text-cyan-600">Management</span>
+          </h1>
+          <p className="text-gray-500 mt-1 font-medium italic">Organize and manage property classifications</p>
         </div>
         <button
+          onClick={() => {
+            setEditCategory(null);
+            setIsModalOpen(true);
+          }}
           type="button"
-          className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg hover:from-green-600 hover:to-emerald-600 transition-colors shadow-md"
+          className="px-6 py-3.5 bg-[#008ca1] hover:bg-[#007a8c] text-white rounded-2xl font-bold transition-all shadow-lg shadow-[#008ca1]/20 active:scale-95 flex items-center justify-center gap-2"
         >
-          Add New Category
+          <Plus className="w-5 h-5" />
+          <span>Add New Category</span>
         </button>
       </div>
 
-      {/* Loading Indicator */}
-      {isFetching && !isLoading && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-3 flex items-center">
-          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600 mr-3"></div>
-          <span className="text-sm text-green-700">Updating categories...</span>
-        </div>
-      )}
-
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Total Categories</p>
-          <p className="text-2xl font-bold text-gray-900">{totalCategories}</p>
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Active</p>
-          <p className="text-2xl font-bold text-green-600">{categories.length}</p>
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Properties</p>
-          <p className="text-2xl font-bold text-blue-600">N/A</p>
-        </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <p className="text-sm text-gray-600">Hostels</p>
-          <p className="text-2xl font-bold text-purple-600">N/A</p>
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: "Total Categories", value: categories.length, icon: Tag, color: "cyan" },
+          { label: "Active Listings", value: "24", icon: Building2, color: "blue" },
+          { label: "Top Category", value: "Apartments", icon: Home, color: "indigo" },
+          { label: "Services", value: "12", icon: Utensils, color: "violet" },
+        ].map((stat, i) => (
+          <div key={i} className="bg-white/60 backdrop-blur-md rounded-3xl p-5 border border-white shadow-[0_8px_16px_rgba(0,0,0,0.05),inset_0_4px_8px_rgba(255,255,255,0.5)] group hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4">
+              <div className={`p-3 rounded-2xl bg-${stat.color}-50 text-${stat.color}-600 group-hover:scale-110 transition-transform`}>
+                <stat.icon className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{stat.label}</p>
+                <p className="text-2xl font-black text-gray-900 mt-0.5">{stat.value}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Data Table */}
-      <DataTable
-        data={categories}
-        columns={columns}
-        searchPlaceholder="Search categories..."
-        actions={(category) => (
-          <>
-            <button
-              type="button"
-              className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-              title="View Category"
-              disabled={isUpdating || isDeleting}
-            >
-              <Eye className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-              title="Edit Category"
-              disabled={isUpdating || isDeleting}
-            >
-              <Edit className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => handleDeleteCategory(category.id)}
-              className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
-              title="Delete Category"
-              disabled={isUpdating || isDeleting}
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
-          </>
+      <div className="relative">
+        <DataTable
+          data={categories}
+          columns={columns}
+          searchPlaceholder="Search categories by name..."
+          actions={(category: CategoryDisplay) => (
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                className="p-2 text-[#008ca1] hover:bg-cyan-50 rounded-xl transition-all active:scale-90"
+                title="View Category"
+              >
+                <Eye className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => handleEdit(category)}
+                type="button"
+                className="p-2 text-blue-600 hover:bg-blue-50 rounded-xl transition-all active:scale-90"
+                title="Edit Category"
+              >
+                <Edit className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => handleDelete(category.id)}
+                type="button"
+                className="p-2 text-rose-500 hover:bg-rose-50 rounded-xl transition-all active:scale-90"
+                title="Delete Category"
+              >
+                <Trash2 className="w-5 h-5" />
+              </button>
+            </div>
+          )}
+        />
+        {isLoading && (
+          <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] flex items-center justify-center rounded-2xl">
+            <div className="w-10 h-10 border-4 border-[#008ca1] border-t-transparent rounded-full animate-spin"></div>
+          </div>
         )}
+        {isError && (
+          <div className="p-12 text-center bg-red-50/50 backdrop-blur-md rounded-2xl border border-red-100">
+            <p className="text-red-500 font-bold">Failed to load categories. Please try again.</p>
+          </div>
+        )}
+      </div>
+
+      <CreateCategoryModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setEditCategory(null);
+        }}
+        editCategory={editCategory}
       />
 
-      {/* Pagination */}
-      {response?.meta && response.meta.total > limit && (
-        <div className="flex items-center justify-between bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-          <div className="text-sm text-gray-600">
-            Showing {(page - 1) * limit + 1} to {Math.min(page * limit, response.meta.total)} of{" "}
-            {response.meta.total} categories
-          </div>
-          <div className="flex space-x-2">
-            <button
-              type="button"
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Previous
-            </button>
-            <div className="flex items-center space-x-1">
-              {response.meta &&
-                Array.from({ length: Math.ceil(response.meta.total / limit) }, (_, i) => i + 1)
-                  .filter(
-                    (p) =>
-                      p === 1 ||
-                      p === page ||
-                      p === Math.ceil(response.meta!.total / limit) ||
-                      Math.abs(p - page) <= 1,
-                  )
-                  .map((p, i, arr) => (
-                    <div key={p} className="flex items-center">
-                      {i > 0 && arr[i - 1] !== p - 1 && (
-                        <span className="px-2 text-gray-400">...</span>
-                      )}
-                      <button
-                        type="button"
-                        onClick={() => setPage(p)}
-                        className={`px-3 py-1 rounded-lg ${p === page
-                          ? "bg-green-600 text-white"
-                          : "border border-gray-300 hover:bg-gray-50"
-                          }`}
-                      >
-                        {p}
-                      </button>
-                    </div>
-                  ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => setPage((p) => p + 1)}
-              disabled={!response.meta || page >= Math.ceil(response.meta.total / limit)}
-              className="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      )}
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+        title="Delete Category?"
+        message="Are you sure you want to delete this category? This action cannot be undone and will remove all associated data."
+        isLoading={isDeleting}
+        confirmText="Delete Category"
+        variant="danger"
+      />
     </div>
   );
 };
 
 export default CategoriesPage;
+
+

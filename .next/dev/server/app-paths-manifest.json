@@ -1,6 +1,0 @@
-{
-  "/(dashboard)/admin/categories/page": "app/(dashboard)/admin/categories/page.js",
-  "/(dashboard)/admin/page": "app/(dashboard)/admin/page.js",
-  "/(public)/for-rent/houses/page": "app/(public)/for-rent/houses/page.js",
-  "/(public)/page": "app/(public)/page.js"
-}
