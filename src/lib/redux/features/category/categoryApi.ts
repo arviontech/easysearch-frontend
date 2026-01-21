@@ -36,7 +36,8 @@ const categoryApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["categories"],
     }),
-  })
+  }),
+  overrideExisting: true,
 })
 
 

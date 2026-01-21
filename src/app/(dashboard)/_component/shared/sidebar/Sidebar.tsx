@@ -21,6 +21,7 @@ import {
   LogOut,
   Tag,
   Search,
+  Image,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
@@ -36,7 +37,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Properties", href: "/admin/properties", icon: Building2 },
+  { name: "House Rent", href: "/admin/properties", icon: Building2 },
   { name: "Hostels", href: "/admin/hostels", icon: Home },
   { name: "Doctors", href: "/admin/doctors", icon: Stethoscope },
   { name: "Catering", href: "/admin/catering", icon: Utensils },
@@ -47,6 +48,7 @@ const navItems: NavItem[] = [
   { name: "Posts", href: "/admin/posts", icon: FileText },
   { name: "Reviews", href: "/admin/reviews", icon: MessageSquare, badge: 5 },
   { name: "Approvals", href: "/admin/approvals", icon: CheckCircle, badge: 8 },
+  { name: "Banners", href: "/admin/banners", icon: Image },
   { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ];
