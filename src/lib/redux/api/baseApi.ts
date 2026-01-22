@@ -6,6 +6,6 @@ export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: axiosBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api' }),
   endpoints: (build) => ({}),
-  tagTypes: ["auth", "categories", "banners", "hostel-rents", "house-rents", "caterings", "tourisms", "food", 'users', "blogs"]
+  tagTypes: ["auth", "categories", "banners", "hostel-rents", "house-rents", "caterings", "tourisms", "food", 'users', "blogs", "pending", "settings"]
 })
 
