@@ -1,360 +1,301 @@
-// "use client";
+"use client";
 
-// import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import DataTable from "@/app/(dashboard)/_component/table/DataTable";
-// import { Edit, Trash2, Ban, CheckCircle, Shield, AlertCircle } from "lucide-react";
-// import {
-//   useGetUsersQuery,
-//   useUpdateUserMutation,
-//   useDeleteUserMutation,
-// } from "@/lib/redux/features/api/userApi";
-// import type { User } from "@/lib/api/types";
-// import { addNotification } from "@/lib/redux/features/ui/uiSlice";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Edit, Trash2, Shield, User as UserIcon, Mail, Phone, Calendar, Search, Filter, Ban, CheckCircle, ShieldCheck, ShieldAlert } from "lucide-react";
+import { addNotification } from "@/lib/redux/features/ui/uiSlice";
+import {
+  useGetUsersQuery,
+  useUpdateUserStatusMutation,
+  useDeleteUserMutation
+} from "@/lib/redux/features/user/userApi";
+import DataTable from "../../_component/table/DataTable";
+import ConfirmationModal from "../categories/_components/ConfirmationModal";
 
-// // Display interface for the table
-// interface UserDisplay {
-//   id: string;
-//   name: string;
-//   email: string;
-//   role: string;
-//   status: string;
-//   registeredAt: string;
-//   lastActive: string;
-//   postsCount: number;
-//   contactNumber: string;
-// }
+// User status enum matching backend
+enum UserStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  BANNED = "BANNED"
+}
 
-// const UsersPage = () => {
-//   const dispatch = useDispatch();
-//   const [page, setPage] = useState(1);
-//   const [limit] = useState(10);
+// User role enum matching backend
+enum UserRole {
+  SUPER_ADMIN = "SUPER_ADMIN",
+  ADMIN = "ADMIN",
+  HOST = "HOST",
+  CUSTOMER = "CUSTOMER"
+}
 
-//   // RTK Query hooks
-//   const { data: response, isLoading, isFetching, error } = useGetUsersQuery({ page, limit });
-//   const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
-//   const [deleteUser, { isLoading: isDeleting }] = useDeleteUserMutation();
-
-//   // Transform API data to display format
-//   const users: UserDisplay[] = response?.data
-//     ? response.data.map((user: User) => ({
-//       id: user.id,
-//       name: user.name,
-//       email: user.email,
-//       role: user.role.toLowerCase(),
-//       status: "active", // Default - backend should provide this
-//       registeredAt: new Date(user.createdAt).toLocaleDateString(),
-//       lastActive: "N/A", // Backend should provide this
-//       postsCount: 0, // Backend should provide this
-//       contactNumber: user.contactNumber,
-//     }))
-//     : [];
-
-//   // Calculate statistics
-//   const totalUsers = response?.meta?.total || 0;
-//   const activeUsers = users.filter((u) => u.status === "active").length;
-//   const inactiveUsers = users.filter((u) => u.status === "inactive").length;
-//   const bannedUsers = users.filter((u) => u.status === "banned").length;
-
-//   const handleBanUser = async (id: string) => {
-//     try {
-//       await updateUser({ id, data: { isBanned: true, isActive: false } }).unwrap();
-//       dispatch(
-//         addNotification({
-//           type: "success",
-//           message: "User banned successfully",
-//         }),
-//       );
-//     } catch (err) {
-//       dispatch(
-//         addNotification({
-//           type: "error",
-//           message: "Failed to ban user",
-//         }),
-//       );
-//     }
-//   };
-
-//   const handleActivateUser = async (id: string) => {
-//     try {
-//       await updateUser({ id, data: { isBanned: false, isActive: true } }).unwrap();
-//       dispatch(
-//         addNotification({
-//           type: "success",
-//           message: "User activated successfully",
-//         }),
-//       );
-//     } catch (err) {
-//       dispatch(
-//         addNotification({
-//           type: "error",
-//           message: "Failed to activate user",
-//         }),
-//       );
-//     }
-//   };
-
-//   const handleDeleteUser = async (id: string) => {
-//     if (window.confirm("Are you sure you want to delete this user?")) {
-//       try {
-//         await deleteUser(id).unwrap();
-//         dispatch(
-//           addNotification({
-//             type: "success",
-//             message: "User deleted successfully",
-//           }),
-//         );
-//       } catch (err) {
-//         dispatch(
-//           addNotification({
-//             type: "error",
-//             message: "Failed to delete user",
-//           }),
-//         );
-//       }
-//     }
-//   };
-
-//   const columns = [
-//     {
-//       key: "name",
-//       label: "User",
-//       render: (user: UserDisplay) => (
-//         <div>
-//           <p className="font-medium text-gray-900">{user.name}</p>
-//           <p className="text-xs text-gray-500">{user.email}</p>
-//         </div>
-//       ),
-//     },
-//     {
-//       key: "role",
-//       label: "Role",
-//       render: (user: UserDisplay) => (
-//         <span
-//           className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${user.role === "admin"
-//             ? "bg-red-100 text-red-700"
-//             : user.role === "host"
-//               ? "bg-blue-100 text-blue-700"
-//               : "bg-gray-100 text-gray-700"
-//             }`}
-//         >
-//           {user.role === "admin" && <Shield className="w-3 h-3 mr-1" />}
-//           {user.role.toUpperCase()}
-//         </span>
-//       ),
-//     },
-//     {
-//       key: "status",
-//       label: "Status",
-//       render: (user: UserDisplay) => (
-//         <span
-//           className={`px-2 py-1 text-xs font-medium rounded-full ${user.status === "active"
-//             ? "bg-green-100 text-green-700"
-//             : user.status === "inactive"
-//               ? "bg-gray-100 text-gray-700"
-//               : "bg-red-100 text-red-700"
-//             }`}
-//         >
-//           {user.status}
-//         </span>
-//       ),
-//     },
-//     {
-//       key: "postsCount",
-//       label: "Posts",
-//       render: (user: UserDisplay) => (
-//         <span className="font-medium text-gray-900">{user.postsCount}</span>
-//       ),
-//     },
-//     {
-//       key: "registeredAt",
-//       label: "Registered",
-//     },
-//     {
-//       key: "lastActive",
-//       label: "Last Active",
-//     },
-//   ];
-
-//   // Loading state
-//   if (isLoading) {
-//     return (
-//       <div className="flex items-center justify-center h-96">
-//         <div className="text-center">
-//           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-//           <p className="mt-4 text-gray-600">Loading users...</p>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   // Error state
-//   if (error) {
-//     return (
-//       <div className="flex items-center justify-center h-96">
-//         <div className="text-center">
-//           <AlertCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-//           <p className="text-gray-900 font-semibold">Failed to load users</p>
-//           <p className="text-gray-600 mt-2">Please try again later</p>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="space-y-6">
-//       {/* Page Header */}
-//       <div className="flex items-center justify-between">
-//         <div>
-//           <h1 className="text-3xl font-bold text-gray-900">Users Management</h1>
-//           <p className="text-gray-600 mt-1">Manage all users and their permissions</p>
-//         </div>
-//         <button
-//           type="button"
-//           className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-colors shadow-md"
-//         >
-//           Add New User
-//         </button>
-//       </div>
-
-//       {/* Loading Indicator */}
-//       {isFetching && !isLoading && (
-//         <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 flex items-center">
-//           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-3"></div>
-//           <span className="text-sm text-blue-700">Updating users...</span>
-//         </div>
-//       )}
-
-//       {/* Stats */}
-//       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-//         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-//           <p className="text-sm text-gray-600">Total Users</p>
-//           <p className="text-2xl font-bold text-gray-900">{totalUsers}</p>
-//         </div>
-//         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-//           <p className="text-sm text-gray-600">Active</p>
-//           <p className="text-2xl font-bold text-green-600">{activeUsers}</p>
-//         </div>
-//         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-//           <p className="text-sm text-gray-600">Inactive</p>
-//           <p className="text-2xl font-bold text-gray-600">{inactiveUsers}</p>
-//         </div>
-//         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-//           <p className="text-sm text-gray-600">Banned</p>
-//           <p className="text-2xl font-bold text-red-600">{bannedUsers}</p>
-//         </div>
-//       </div>
-
-//       {/* Data Table */}
-//       <DataTable
-//         data={users}
-//         columns={columns}
-//         searchPlaceholder="Search users by name or email..."
-//         actions={(user) => (
-//           <>
-//             <button
-//               type="button"
-//               className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-//               title="Edit User"
-//               disabled={isUpdating || isDeleting}
-//             >
-//               <Edit className="w-4 h-4" />
-//             </button>
-//             {user.status === "banned" ? (
-//               <button
-//                 type="button"
-//                 onClick={() => handleActivateUser(user.id)}
-//                 className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors disabled:opacity-50"
-//                 title="Activate User"
-//                 disabled={isUpdating || isDeleting}
-//               >
-//                 <CheckCircle className="w-4 h-4" />
-//               </button>
-//             ) : (
-//               <button
-//                 type="button"
-//                 onClick={() => handleBanUser(user.id)}
-//                 className="p-2 text-orange-600 hover:bg-orange-50 rounded-lg transition-colors disabled:opacity-50"
-//                 title="Ban User"
-//                 disabled={isUpdating || isDeleting}
-//               >
-//                 <Ban className="w-4 h-4" />
-//               </button>
-//             )}
-//             <button
-//               type="button"
-//               onClick={() => handleDeleteUser(user.id)}
-//               className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
-//               title="Delete User"
-//               disabled={isUpdating || isDeleting}
-//             >
-//               <Trash2 className="w-4 h-4" />
-//             </button>
-//           </>
-//         )}
-//       />
-
-//       {/* Pagination */}
-//       {response?.meta && response.meta.total > limit && (
-//         <div className="flex items-center justify-between bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-//           <div className="text-sm text-gray-600">
-//             Showing {(page - 1) * limit + 1} to {Math.min(page * limit, response.meta.total)} of{" "}
-//             {response.meta.total} users
-//           </div>
-//           <div className="flex space-x-2">
-//             <button
-//               type="button"
-//               onClick={() => setPage((p) => Math.max(1, p - 1))}
-//               disabled={page === 1}
-//               className="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-//             >
-//               Previous
-//             </button>
-//             <div className="flex items-center space-x-1">
-//               {response.meta && Array.from({ length: Math.ceil(response.meta.total / limit) }, (_, i) => i + 1)
-//                 .filter((p) => p === 1 || p === page || p === Math.ceil(response.meta!.total / limit) || Math.abs(p - page) <= 1)
-//                 .map((p, i, arr) => (
-//                   <div key={p} className="flex items-center">
-//                     {i > 0 && arr[i - 1] !== p - 1 && (
-//                       <span className="px-2 text-gray-400">...</span>
-//                     )}
-//                     <button
-//                       type="button"
-//                       onClick={() => setPage(p)}
-//                       className={`px-3 py-1 rounded-lg ${p === page
-//                         ? "bg-blue-600 text-white"
-//                         : "border border-gray-300 hover:bg-gray-50"
-//                         }`}
-//                     >
-//                       {p}
-//                     </button>
-//                   </div>
-//                 ))}
-//             </div>
-//             <button
-//               type="button"
-//               onClick={() => setPage((p) => p + 1)}
-//               disabled={!response.meta || page >= Math.ceil(response.meta.total / limit)}
-//               className="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-//             >
-//               Next
-//             </button>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default UsersPage;
+interface User {
+  id: string;
+  email: string;
+  contactNumber: string;
+  role: UserRole;
+  status: UserStatus;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const UsersPage = () => {
+  const dispatch = useDispatch();
+  const { data: usersData, isLoading, isError } = useGetUsersQuery({});
+  const [updateStatus, { isLoading: isUpdating }] = useUpdateUserStatusMutation();
+  const [deleteUser, { isLoading: isDeleting }] = useDeleteUserMutation();
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<string | null>(null);
+
+  const users = usersData?.data || [];
+
+  const handleDelete = (id: string) => {
+    setUserToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (userToDelete) {
+      try {
+        await deleteUser(userToDelete).unwrap();
+        dispatch(addNotification({ message: "User deleted successfully", type: "success" }));
+        setIsDeleteModalOpen(false);
+        setUserToDelete(null);
+      } catch (error: any) {
+        dispatch(addNotification({
+          message: error?.data?.message || "Failed to delete user",
+          type: "error"
+        }));
+      }
+    }
+  };
+
+  const handleStatusChange = async (id: string, newStatus: UserStatus) => {
+    try {
+      await updateStatus({ id, status: newStatus }).unwrap();
+      dispatch(addNotification({ message: `User status updated to ${newStatus}`, type: "success" }));
+    } catch (error: any) {
+      dispatch(addNotification({
+        message: error?.data?.message || "Failed to update user status",
+        type: "error"
+      }));
+    }
+  };
+
+  const getRoleBadge = (role: UserRole) => {
+    switch (role) {
+      case UserRole.SUPER_ADMIN:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 border border-purple-200 shadow-sm">
+            <ShieldCheck className="w-3 h-3 mr-1" />
+            SUPER ADMIN
+          </span>
+        );
+      case UserRole.ADMIN:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-200 shadow-sm">
+            <Shield className="w-3 h-3 mr-1" />
+            ADMIN
+          </span>
+        );
+      case UserRole.HOST:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 border border-blue-200 shadow-sm">
+            <UserIcon className="w-3 h-3 mr-1" />
+            HOST
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200 shadow-sm">
+            <UserIcon className="w-3 h-3 mr-1" />
+            CUSTOMER
+          </span>
+        );
+    }
+  };
+
+  const getStatusBadge = (status: UserStatus) => {
+    switch (status) {
+      case UserStatus.ACTIVE:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-200">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></div>
+            ACTIVE
+          </span>
+        );
+      case UserStatus.INACTIVE:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 border border-amber-200">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
+            INACTIVE
+          </span>
+        );
+      case UserStatus.BANNED:
+        return (
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
+            <ShieldAlert className="w-3 h-3 mr-1" />
+            BANNED
+          </span>
+        );
+    }
+  };
+
+  const columns = [
+    {
+      key: "email",
+      label: "User Detail",
+      render: (user: User) => (
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
+            <UserIcon className="w-5 h-5 text-cyan-600" />
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 text-base flex items-center gap-2">
+              {user.email}
+            </p>
+            <p className="text-[10px] text-gray-400 font-mono tracking-tighter">ID: {user.id}</p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      key: "contactNumber",
+      label: "Contact",
+      render: (user: User) => (
+        <div className="flex flex-col">
+          <span className="text-sm text-gray-700 font-semibold flex items-center gap-2">
+            <Phone className="w-3 h-3 text-cyan-500" />
+            {user.contactNumber}
+          </span>
+          <span className="text-xs text-gray-500 flex items-center gap-2">
+            <Mail className="w-3 h-3 text-gray-400" />
+            {user.email}
+          </span>
+        </div>
+      ),
+    },
+    {
+      key: "role",
+      label: "Role",
+      render: (user: User) => getRoleBadge(user.role),
+    },
+    {
+      key: "status",
+      label: "Status",
+      render: (user: User) => getStatusBadge(user.status),
+    },
+    {
+      key: "createdAt",
+      label: "Registered",
+      render: (user: User) => (
+        <span className="text-sm text-gray-600 font-medium italic flex items-center gap-2">
+          <Calendar className="w-3 h-3 text-cyan-400" />
+          {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}
+        </span>
+      ),
+    },
+  ];
+
   return (
-    <div>
-      <h1>Users Page</h1>
+    <div className="space-y-8 pb-10">
+      {/* Page Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-4xl font-black text-gray-900 tracking-tight">
+            Users <span className="text-cyan-600">Management</span>
+          </h1>
+          <p className="text-gray-500 mt-1 font-medium italic">Manage user accounts and permissions</p>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: "Total Users", value: users.length, icon: UserIcon, color: "cyan" },
+          { label: "Active", value: users.filter((u: any) => u.status === UserStatus.ACTIVE).length, icon: CheckCircle, color: "emerald" },
+          { label: "Banned", value: users.filter((u: any) => u.status === UserStatus.BANNED).length, icon: Ban, color: "rose" },
+          { label: "Admins", value: users.filter((u: any) => u.role === UserRole.ADMIN || u.role === UserRole.SUPER_ADMIN).length, icon: Shield, color: "purple" },
+        ].map((stat, i) => (
+          <div key={i} className="bg-white/60 backdrop-blur-md rounded-3xl p-5 border border-white shadow-[0_8px_16px_rgba(0,0,0,0.05),inset_0_4px_8px_rgba(255,255,255,0.5)] group hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4">
+              <div className={`p-3 rounded-2xl bg-${stat.color}-50 text-${stat.color}-600 group-hover:scale-110 transition-transform`}>
+                <stat.icon className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{stat.label}</p>
+                <p className="text-2xl font-black text-gray-900 mt-0.5">{stat.value}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Data Table */}
+      <div className="relative">
+        <DataTable
+          data={users}
+          columns={columns}
+          searchPlaceholder="Search users by email or contact..."
+          actions={(user: User) => (
+            <div className="flex items-center gap-1">
+              {user.status !== UserStatus.ACTIVE && (
+                <button
+                  onClick={() => handleStatusChange(user.id, UserStatus.ACTIVE)}
+                  type="button"
+                  className="p-2 text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all active:scale-90"
+                  title="Activate User"
+                  disabled={isUpdating}
+                >
+                  <CheckCircle className="w-5 h-5" />
+                </button>
+              )}
+              {user.status !== UserStatus.BANNED && (
+                <button
+                  onClick={() => handleStatusChange(user.id, UserStatus.BANNED)}
+                  type="button"
+                  className="p-2 text-amber-600 hover:bg-amber-50 rounded-xl transition-all active:scale-90"
+                  title="Ban User"
+                  disabled={isUpdating}
+                >
+                  <Ban className="w-5 h-5" />
+                </button>
+              )}
+              <button
+                onClick={() => handleDelete(user.id)}
+                type="button"
+                className="p-2 text-rose-500 hover:bg-rose-50 rounded-xl transition-all active:scale-90"
+                title="Delete User"
+                disabled={isDeleting}
+              >
+                <Trash2 className="w-5 h-5" />
+              </button>
+            </div>
+          )}
+        />
+        {isLoading && (
+          <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] flex items-center justify-center rounded-2xl">
+            <div className="w-10 h-10 border-4 border-[#008ca1] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+        {isError && (
+          <div className="p-12 text-center bg-red-50/50 backdrop-blur-md rounded-2xl border border-red-100">
+            <p className="text-red-500 font-bold">Failed to load users. Please try again.</p>
+          </div>
+        )}
+      </div>
+
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+        title="Delete User?"
+        message="Are you sure you want to delete this user? This action cannot be undone and will remove all associated data including their profile and activities."
+        isLoading={isDeleting}
+        confirmText="Delete User"
+        variant="danger"
+      />
     </div>
   );
 };
 
 export default UsersPage;
-

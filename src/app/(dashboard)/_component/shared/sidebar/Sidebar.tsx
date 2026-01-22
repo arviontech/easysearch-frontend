@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   { name: "House Rent", href: "/admin/properties", icon: Building2 },
   { name: "Hostels", href: "/admin/hostels", icon: Home },
   { name: "Doctors", href: "/admin/doctors", icon: Stethoscope },
-  { name: "Catering", href: "/admin/catering", icon: Utensils },
+  { name: "Catering", href: "/admin/caterings", icon: Utensils },
   { name: "Tourism", href: "/admin/tourism", icon: Palmtree },
   { name: "Foods", href: "/admin/foods", icon: Utensils },
   { name: "Users", href: "/admin/users", icon: Users, badge: 12 },
