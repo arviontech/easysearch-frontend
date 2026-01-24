@@ -87,6 +87,20 @@ export const UserMenu = () => {
                                     </span>
                                 </div>
 
+                                {/* Role-based Dashboard Link */}
+                                <MenuItem 
+                                    icon={User} 
+                                    label="Dashboard" 
+                                    href={
+                                        user.role === 'ADMIN' || user.role === 'SUPER_ADMIN' ? '/admin' :
+                                        user.role === 'HOST' ? '/host' :
+                                        user.role === 'DOCTOR' ? '/doctor' :
+                                        user.role === 'CATERING_SERVICE' ? '/catering' :
+                                        '/user'
+                                    } 
+                                    onClick={() => setShowUserMenu(false)} 
+                                />
+                                
                                 <MenuItem icon={User} label="My Profile" href="/profile" onClick={() => setShowUserMenu(false)} />
                                 <MenuItem icon={Settings} label="Settings" href="/settings" onClick={() => setShowUserMenu(false)} />
 

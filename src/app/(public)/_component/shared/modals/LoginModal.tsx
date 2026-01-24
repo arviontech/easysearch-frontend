@@ -5,14 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail, LogIn, X, Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { closeModal, openModal, addNotification } from "@/lib/redux/features/ui/uiSlice";
-import { setUser, setToken } from "@/lib/redux/features/auth/authSlice";
+import { setUser } from "@/lib/redux/features/auth/authSlice";
 import { useTranslation } from "@/hooks/useTranslation";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormValues } from "@/lib/validations/auth";
 import { useLoginMutation } from "@/lib/redux/features/auth/authApi";
-import { decodeToken } from "@/helper/jwtHelper/jwtHelper";
-import { setAuthCookies } from "@/lib/actions/auth";
 import { FormInput } from "@/components/ui/form-input";
 import { FormPasswordInput } from "@/components/ui/form-password-input";
 
@@ -36,21 +34,30 @@ const LoginModal = () => {
     try {
       const res = await login(data).unwrap();
 
-      if (res?.data?.accessToken && res?.data?.refreshToken) {
-        const token = res.data.accessToken;
-        const refreshToken = res.data.refreshToken;
-        const decodedUser: any = decodeToken(token);
-
-        await setAuthCookies(token, refreshToken);
-
-        dispatch(setToken(token));
-        dispatch(setUser(decodedUser));
+      if (res?.success && res?.data?.user) {
+        // Backend sets cookies automatically, get user data from response
+        const user = res.data.user;
+        
+        dispatch(setUser({
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          name: user.host?.name || user.customer?.name || user.admin?.name || user.doctor?.name || 'User',
+          contactNumber: user.contactNumber,
+        }));
 
         dispatch(addNotification({
           type: "success",
           message: "Login successful! Welcome back!",
         }));
         dispatch(closeModal("loginOpen"));
+        
+        // Role-based redirect
+        const redirectPath = user.role === "CUSTOMER" ? "/user" : 
+                           user.role === "HOST" ? "/host" : 
+                           user.role === "ADMIN" || user.role === "SUPER_ADMIN" ? "/admin" : 
+                           "/user";
+        router.push(redirectPath);
         router.refresh();
       } else {
         dispatch(addNotification({

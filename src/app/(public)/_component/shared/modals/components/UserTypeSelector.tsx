@@ -1,14 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { motion } from "framer-motion";
 import { Users, Briefcase, CheckCircle2 } from "lucide-react";
 import { cn } from "@/utils/utils";
 
 export const UserTypeSelector = () => {
-    const { watch, setValue } = useFormContext();
-    const userType = watch("userType");
+    const { watch, setValue, trigger } = useFormContext();
+    const formUserType = watch("userType");
+    const [localUserType, setLocalUserType] = useState<"seeker" | "provider">(formUserType || "seeker");
+
+    console.log("Form userType:", formUserType, "Local userType:", localUserType);
+
+    const handleUserTypeChange = (value: "seeker" | "provider") => {
+        console.log("Changing userType to:", value);
+        setLocalUserType(value);
+        setValue("userType", value, { shouldValidate: true });
+        trigger("userType");
+    };
+
+    const userType = localUserType;
 
     return (
         <div className="space-y-3">
@@ -18,7 +30,7 @@ export const UserTypeSelector = () => {
             <div className="grid grid-cols-2 gap-3">
                 <motion.button
                     type="button"
-                    onClick={() => setValue("userType", "seeker")}
+                    onClick={() => handleUserTypeChange("seeker")}
                     className={cn(
                         "relative p-4 rounded-xl border-2 transition-all",
                         userType === "seeker"
@@ -46,7 +58,7 @@ export const UserTypeSelector = () => {
 
                 <motion.button
                     type="button"
-                    onClick={() => setValue("userType", "provider")}
+                    onClick={() => handleUserTypeChange("provider")}
                     className={cn(
                         "relative p-4 rounded-xl border-2 transition-all",
                         userType === "provider"

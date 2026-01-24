@@ -2,14 +2,16 @@
 
 import { Toaster } from "sonner"
 import { Provider } from "react-redux"
-import { store } from "../redux/store"
-
+import { store, persistor } from "../redux/store"
+import { PersistGate } from "redux-persist/integration/react"
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (
         <Provider store={store}>
-            {children}
-            <Toaster position="top-right" richColors />
+            <PersistGate loading={null} persistor={persistor}>
+                {children}
+                <Toaster position="top-right" richColors />
+            </PersistGate>
         </Provider>
     )
 }

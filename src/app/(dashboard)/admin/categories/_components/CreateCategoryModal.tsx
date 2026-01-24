@@ -13,6 +13,7 @@ interface CategoryData {
     categoryName: string;
     categoryImage: string;
     description?: string;
+    categoryOrder: number;
 }
 
 interface CreateCategoryModalProps {
@@ -27,6 +28,7 @@ export default function CreateCategoryModal({ isOpen, onClose, editCategory }: C
     const [updateCategory, { isLoading: isUpdating }] = useUpdateCategoryMutation();
     const [categoryName, setCategoryName] = useState("");
     const [description, setDescription] = useState("");
+    const [categoryOrder, setCategoryOrder] = useState(0);
     const [image, setImage] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
 
@@ -36,11 +38,13 @@ export default function CreateCategoryModal({ isOpen, onClose, editCategory }: C
         if (editCategory) {
             setCategoryName(editCategory.categoryName);
             setDescription(editCategory.description || "");
+            setCategoryOrder(editCategory.categoryOrder);
             setImagePreview(editCategory.categoryImage);
             setImage(null);
         } else {
             setCategoryName("");
             setDescription("");
+            setCategoryOrder(0);
             setImagePreview(null);
             setImage(null);
         }
@@ -68,6 +72,7 @@ export default function CreateCategoryModal({ isOpen, onClose, editCategory }: C
         const formData = new FormData();
         formData.append("categoryName", categoryName);
         formData.append("description", description);
+        formData.append("categoryOrder", categoryOrder.toString());
         if (image) {
             formData.append("image", image);
         }
@@ -157,6 +162,23 @@ export default function CreateCategoryModal({ isOpen, onClose, editCategory }: C
                                         rows={3}
                                         className="w-full px-4 py-3 bg-white/50 border border-cyan-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#008ca1] focus:border-transparent transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] text-gray-900 placeholder:text-gray-400 font-medium resize-none"
                                     />
+                                </div>
+
+                                {/* Category Order */}
+                                <div className="space-y-2">
+                                    <label htmlFor="categoryOrder" className="block text-sm font-bold text-gray-700 ml-1">
+                                        Order Position
+                                    </label>
+                                    <input
+                                        type="number"
+                                        id="categoryOrder"
+                                        value={categoryOrder}
+                                        onChange={(e) => setCategoryOrder(parseInt(e.target.value) || 0)}
+                                        placeholder="Enter order position (e.g. 1)"
+                                        min="0"
+                                        className="w-full px-4 py-3 bg-white/50 border border-cyan-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#008ca1] focus:border-transparent transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] text-gray-900 placeholder:text-gray-400 font-medium"
+                                    />
+                                    <p className="text-xs text-gray-500 ml-1">Lower numbers appear first in the list</p>
                                 </div>
 
                                 {/* Image Upload */}

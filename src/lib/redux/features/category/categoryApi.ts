@@ -36,6 +36,21 @@ const categoryApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["categories"],
     }),
+    reorderCategories: builder.mutation({
+      query: (data) => ({
+        url: '/categories/reorder',
+        method: 'PATCH',
+        data,
+      }),
+      invalidatesTags: ["categories"],
+    }),
+    getCategoryStatistics: builder.query({
+      query: () => ({
+        url: '/categories/statistics',
+        method: 'GET',
+      }),
+      providesTags: ["categories"],
+    }),
   }),
   overrideExisting: true,
 })
@@ -45,5 +60,7 @@ export const {
   useGetAllCategoriesQuery,
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
-  useDeleteCategoryMutation
+  useDeleteCategoryMutation,
+  useReorderCategoriesMutation,
+  useGetCategoryStatisticsQuery
 } = categoryApi
