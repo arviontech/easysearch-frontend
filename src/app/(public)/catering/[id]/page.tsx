@@ -156,10 +156,12 @@ export default function CateringDetailsPage({ params }: PageProps) {
           animate={{ opacity: 1, y: 0 }}
           className="relative h-[500px] rounded-2xl overflow-hidden mb-6 group"
         >
-          <img
+          <Image
             src={caterer.images[currentImageIndex]}
             alt={caterer.businessName}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
 
           {/* Navigation Arrows */}

@@ -352,6 +352,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/login": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/login",
+      "dataRoute": "/login.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -377,6 +402,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/register": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/register",
+      "dataRoute": "/register.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/tourism": {
       "experimentalBypassFor": [
         {
@@ -392,31 +442,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/tourism",
       "dataRoute": "/tourism.rsc",
-      "prefetchDataRoute": null,
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/debug-jwt": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/debug-jwt",
-      "dataRoute": "/debug-jwt.rsc",
       "prefetchDataRoute": null,
       "allowHeader": [
         "host",
@@ -491,8 +516,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "87c4f29ddb1836eb4413fa0e80690744",
-    "previewModeSigningKey": "608ad0d9c64a24028ea632fb2efc1a48cd0261103afc8dacfbbd1fb561514d2f",
-    "previewModeEncryptionKey": "ac49087ab99d91a7f6782bf625eec300f01c6f362455996332af1aca21d570c9"
+    "previewModeId": "76114e064b3a55736d4a0110150d9c57",
+    "previewModeSigningKey": "eca34423085aee610b0d812470c7d7ad81c4cc8f8f6efdb20d232f4d4bed0ede",
+    "previewModeEncryptionKey": "7a0d13f10037c169037cabd65f471e2958a9e4607fa80960bab498ed07493a5f"
   }
 }

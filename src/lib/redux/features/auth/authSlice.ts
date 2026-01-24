@@ -4,7 +4,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  role: "CUSTOMER" | "HOST" | "ADMIN";
+  role: "SUPER_ADMIN" | "ADMIN" | "HOST" | "CUSTOMER" | "DOCTOR" | "CATERING_SERVICE";
   contactNumber?: string;
   profilePhoto?: string;
 }
@@ -33,13 +33,10 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = true;
       state.error = null;
+      state.isLoading = false;
     },
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
-      // Persist token to localStorage
-      if (typeof window !== "undefined") {
-        localStorage.setItem("accessToken", action.payload);
-      }
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
@@ -53,14 +50,27 @@ const authSlice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
       state.error = null;
-      // Clear token from localStorage
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("accessToken");
-      }
     },
     clearError: (state) => {
       state.error = null;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addMatcher(
+        (action): action is { type: 'persist/REHYDRATE'; payload: any } => 
+          action.type === 'persist/REHYDRATE',
+        (state, action) => {
+          // Handle rehydration - override state with persisted state
+          if (action.payload) {
+            return {
+              ...initialState,
+              ...action.payload,
+              isAuthenticated: !!action.payload.user,
+            };
+          }
+        }
+      );
   },
 });
 

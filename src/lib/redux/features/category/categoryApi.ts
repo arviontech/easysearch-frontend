@@ -1,45 +1,66 @@
-import type { Category, CreateCategoryRequest, UpdateCategoryRequest } from "@/lib/api/types";
-import { createCrudApi } from "./apiFactory";
+import { baseApi } from "../../api/baseApi";
 
-/**
- * Category API
- * Uses the CRUD API factory for automatic endpoints generation
- *
- * Provides:
- * - useGetCategoriesQuery({ page, limit })
- * - useGetCategoryByIdQuery(id)
- * - useCreateCategoryMutation()
- * - useUpdateCategoryMutation()
- * - useDeleteCategoryMutation()
- *
- * Features:
- * ✅ Automatic caching
- * ✅ Optimistic updates
- * ✅ Request deduplication
- * ✅ Background refetching
- * ✅ Cache invalidation
- */
-export const categoryApi = createCrudApi<Category, CreateCategoryRequest, UpdateCategoryRequest>({
-  reducerPath: "categoryApi",
-  entityName: "categories",
-  tagTypes: ["Category", "CategoryList"],
-  endpoints: {
-    getAll: "/categories/get-all-category",
-    getById: "/categories",
-    create: "/categories/create-category",
-    update: "/categories/update-category",
-    delete: "/categories/delete-category",
-  },
-});
 
-// Export hooks for usage in components
+
+const categoryApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    getAllCategories: builder.query({
+      query: () => ({
+        url: '/categories',
+        method: 'GET',
+      }),
+      providesTags: ["categories"],
+    }),
+    createCategory: builder.mutation({
+      query: (data) => ({
+        url: '/categories',
+        method: 'POST',
+        data,
+        contentType: "multipart/form-data",
+      }),
+      invalidatesTags: ["categories"],
+    }),
+    updateCategory: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/categories/${id}`,
+        method: 'PATCH',
+        data,
+        contentType: "multipart/form-data",
+      }),
+      invalidatesTags: ["categories"],
+    }),
+    deleteCategory: builder.mutation({
+      query: (id) => ({
+        url: `/categories/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ["categories"],
+    }),
+    reorderCategories: builder.mutation({
+      query: (data) => ({
+        url: '/categories/reorder',
+        method: 'PATCH',
+        data,
+      }),
+      invalidatesTags: ["categories"],
+    }),
+    getCategoryStatistics: builder.query({
+      query: () => ({
+        url: '/categories/statistics',
+        method: 'GET',
+      }),
+      providesTags: ["categories"],
+    }),
+  }),
+  overrideExisting: true,
+})
+
+
 export const {
-  useGetAllQuery: useGetCategoriesQuery,
-  useGetByIdQuery: useGetCategoryByIdQuery,
-  useCreateMutation: useCreateCategoryMutation,
-  useUpdateMutation: useUpdateCategoryMutation,
-  useDeleteMutation: useDeleteCategoryMutation,
-} = categoryApi;
-
-// Export for store configuration
-export const { endpoints, reducerPath, reducer, middleware } = categoryApi;
+  useGetAllCategoriesQuery,
+  useCreateCategoryMutation,
+  useUpdateCategoryMutation,
+  useDeleteCategoryMutation,
+  useReorderCategoriesMutation,
+  useGetCategoryStatisticsQuery
+} = categoryApi

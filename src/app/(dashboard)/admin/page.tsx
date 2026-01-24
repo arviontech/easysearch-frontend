@@ -11,34 +11,51 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
+import {
+  useGetAnalyticsSummaryQuery,
+  useGetListingsStatsQuery,
+  useGetUserStatsQuery,
+} from "@/lib/redux/features/analytics/analyticsApi";
 
 const AdminHomePage = () => {
+  const { data: summary, isLoading: isSummaryLoading } = useGetAnalyticsSummaryQuery(undefined);
+  const { data: listingsStats, isLoading: isListingsLoading } = useGetListingsStatsQuery(undefined);
+  const { data: userStats, isLoading: isUserLoading } = useGetUserStatsQuery(undefined);
+
+  const isLoading = isSummaryLoading || isListingsLoading || isUserLoading;
+
   // Mock data - replace with real data from API
   const stats = [
     {
       title: "Total Properties",
-      value: "1,234",
+      value: isLoading ? "..." : (summary?.listings?.houseRent + summary?.listings?.hostelRent || 0).toLocaleString(),
       icon: Building2,
       trend: { value: 12.5, isPositive: true },
       color: "blue" as const,
     },
     {
       title: "Active Users",
-      value: "5,678",
+      value: isLoading ? "..." : (userStats?.status?.active || 0).toLocaleString(),
       icon: Users,
       trend: { value: 8.2, isPositive: true },
       color: "green" as const,
     },
     {
       title: "Pending Approvals",
-      value: "25",
+      value: isLoading ? "..." : (
+        (listingsStats?.houseRent?.pending || 0) +
+        (listingsStats?.hostelRent?.pending || 0) +
+        (listingsStats?.food?.pending || 0) +
+        (listingsStats?.catering?.pending || 0) +
+        (listingsStats?.tourism?.pending || 0)
+      ).toLocaleString(),
       icon: Clock,
       trend: { value: 3.1, isPositive: false },
       color: "yellow" as const,
     },
     {
       title: "Monthly Revenue",
-      value: "$12,450",
+      value: "$12,450", // Placeholder
       icon: DollarSign,
       trend: { value: 15.3, isPositive: true },
       color: "purple" as const,
@@ -173,10 +190,10 @@ const AdminHomePage = () => {
               >
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${activity.status === "approved"
-                      ? "bg-green-100"
-                      : activity.status === "pending"
-                        ? "bg-yellow-100"
-                        : "bg-red-100"
+                    ? "bg-green-100"
+                    : activity.status === "pending"
+                      ? "bg-yellow-100"
+                      : "bg-red-100"
                     }`}
                 >
                   {activity.status === "approved" ? (
@@ -196,10 +213,10 @@ const AdminHomePage = () => {
                 </div>
                 <span
                   className={`px-2 py-1 text-xs font-medium rounded-full ${activity.status === "approved"
-                      ? "bg-green-100 text-green-700"
-                      : activity.status === "pending"
-                        ? "bg-yellow-100 text-yellow-700"
-                        : "bg-red-100 text-red-700"
+                    ? "bg-green-100 text-green-700"
+                    : activity.status === "pending"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : "bg-red-100 text-red-700"
                     }`}
                 >
                   {activity.status}
@@ -217,15 +234,21 @@ const AdminHomePage = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Houses</span>
-              <span className="font-semibold text-gray-900">456</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (listingsStats?.houseRent?.total || 0).toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Hostels</span>
-              <span className="font-semibold text-gray-900">234</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (listingsStats?.hostelRent?.total || 0).toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Apartments</span>
-              <span className="font-semibold text-gray-900">544</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : "0"}
+              </span>
             </div>
           </div>
         </div>
@@ -235,15 +258,21 @@ const AdminHomePage = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Doctors</span>
-              <span className="font-semibold text-gray-900">89</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (summary?.listings?.doctor || 0).toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Catering</span>
-              <span className="font-semibold text-gray-900">123</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (summary?.listings?.catering || 0).toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Tourism</span>
-              <span className="font-semibold text-gray-900">67</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (summary?.listings?.tourism || 0).toLocaleString()}
+              </span>
             </div>
           </div>
         </div>
@@ -253,15 +282,21 @@ const AdminHomePage = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Active Users</span>
-              <span className="font-semibold text-gray-900">4,321</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-600">New Today</span>
-              <span className="font-semibold text-green-600">+45</span>
+              <span className="font-semibold text-gray-900">
+                {isLoading ? "..." : (userStats?.status?.active || 0).toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Pending Approval</span>
-              <span className="font-semibold text-yellow-600">12</span>
+              <span className="font-semibold text-yellow-600">
+                {isLoading ? "..." : "0"}
+              </span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-600">Blocked</span>
+              <span className="font-semibold text-red-600">
+                {isLoading ? "..." : (userStats?.status?.blocked || 0).toLocaleString()}
+              </span>
             </div>
           </div>
         </div>

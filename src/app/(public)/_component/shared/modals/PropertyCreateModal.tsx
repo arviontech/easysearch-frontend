@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import Modal from "./Modal";
-import { useCreateHouseRentMutation } from "@/lib/redux/features/api/houseRentApi";
-import { useGetCategoriesQuery } from "@/lib/redux/features/api/categoryApi";
-import type { CreateHouseRentRequest, PropertyType, Furnishing } from "@/lib/api/types";
-import { addNotification } from "@/lib/redux/features/ui/uiSlice";
+import { useCreateHouseRentMutation } from "@/lib/redux/features/house-rent/houseRentApi";
+import { useGetAllCategoriesQuery } from "@/lib/redux/features/category/categoryApi";
+import { toast } from "sonner";
 import {
   Loader2,
   Home,
@@ -27,15 +25,56 @@ import {
 } from "lucide-react";
 import MapLocationPicker from "@/components/map/MapLocationPicker";
 
+export type PropertyType = "Apartment" | "House" | "Villa" | "Studio";
+export type Furnishing = "Furnished" | "Semi_Furnished" | "Unfurnished";
+
+export interface CreateHouseRentRequest {
+  title: string;
+  description: string;
+  price: number;
+  propertyType: PropertyType;
+  bedrooms: number;
+  bathrooms: number;
+  size: number;
+  floor: string;
+  totalFloors: number;
+  furnishing: Furnishing;
+  availableFrom: string;
+  address: string;
+  area: string;
+  city: string;
+  division: string;
+  lat: number;
+  lng: number;
+  categoryId: string;
+  ownerId: string;
+  images?: string[];
+  securityDeposit?: number;
+  advanceRent?: number;
+  features?: string[];
+  amenities?: string[];
+  rules?: string[];
+  utilities?: {
+    gas: boolean;
+    electricity: boolean;
+    water: boolean;
+    internet: boolean;
+    generator: boolean;
+  };
+  parking?: {
+    available: boolean;
+    type: string;
+  };
+}
+
 interface PropertyCreateModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
-  const dispatch = useDispatch();
   const [createProperty, { isLoading }] = useCreateHouseRentMutation();
-  const { data: categoriesResponse } = useGetCategoriesQuery({ page: 1, limit: 100 });
+  const { data: categoriesResponse } = useGetAllCategoriesQuery(undefined);
 
   // Form state
   const [formData, setFormData] = useState<CreateHouseRentRequest>({
@@ -58,7 +97,6 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
     lng: 88.6042,
     categoryId: "",
     ownerId: "",
-    // Optional extended fields
     images: [],
     securityDeposit: 0,
     advanceRent: 0,
@@ -140,7 +178,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
     setFormData((prev) => ({
       ...prev,
       utilities: {
-        ...prev.utilities,
+        ...prev.utilities!,
         [utility]: !prev.utilities?.[utility],
       },
     }));
@@ -182,23 +220,13 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
     e.preventDefault();
 
     if (!validate()) {
-      dispatch(
-        addNotification({
-          type: "error",
-          message: "Please fill in all required fields",
-        }),
-      );
+      toast.error("Please fill in all required fields");
       return;
     }
 
     try {
       await createProperty(formData).unwrap();
-      dispatch(
-        addNotification({
-          type: "success",
-          message: "Property created successfully!",
-        }),
-      );
+      toast.success("Property created successfully!");
       onClose();
       // Reset form
       setFormData({
@@ -240,12 +268,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
         },
       });
     } catch (err: any) {
-      dispatch(
-        addNotification({
-          type: "error",
-          message: err?.data?.message || "Failed to create property",
-        }),
-      );
+      toast.error(err?.data?.message || "Failed to create property");
     }
   };
 
@@ -330,7 +353,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
                     }`}
                 >
                   <option value="">Select category</option>
-                  {categoriesResponse?.data?.map((category) => (
+                  {categoriesResponse?.data?.map((category: any) => (
                     <option key={category.id} value={category.id}>
                       {category.categoryName}
                     </option>
@@ -909,7 +932,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+            className="px-8 py-4 bg-[#008ca1] hover:bg-[#007a8c] text-white font-bold rounded-2xl shadow-lg shadow-[#008ca1]/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
           >
             {isLoading ? (
               <>
@@ -918,7 +941,7 @@ const PropertyCreateModal = ({ isOpen, onClose }: PropertyCreateModalProps) => {
               </>
             ) : (
               <>
-                <Home className="w-5 h-5" />
+                <Plus className="w-5 h-5" />
                 <span>Create Property</span>
               </>
             )}

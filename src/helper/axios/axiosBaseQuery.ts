@@ -3,7 +3,7 @@ import { TMeta } from '@/types'
 import type { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosError } from 'axios'
-import axiosInstance from './axiosIntance'
+import axiosInstance from './axiosInstance'
 
 
 const axiosBaseQuery =
@@ -33,7 +33,7 @@ const axiosBaseQuery =
                         'Content-Type': contentType || 'application/json',
                     },
                 })
-                return result
+                return { data: result.data }
             } catch (axiosError) {
                 const err = axiosError as AxiosError
                 return {

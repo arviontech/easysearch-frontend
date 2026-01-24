@@ -29,6 +29,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { getHostelById } from "@/data/mockHostels";
 
 // Dynamically import Map to avoid SSR issues
@@ -90,10 +91,12 @@ export default function HostelDetailsPage({ params }: PageProps) {
           animate={{ opacity: 1, y: 0 }}
           className="relative h-[500px] rounded-2xl overflow-hidden mb-6 group"
         >
-          <img
+          <Image
             src={hostel.images[currentImageIndex]}
             alt={hostel.title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
 
           {/* Navigation Arrows */}

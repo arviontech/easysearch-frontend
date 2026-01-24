@@ -3,52 +3,17 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  LayoutDashboard,
-  Home,
-  Building2,
-  Users,
-  Utensils,
-  Stethoscope,
-  Palmtree,
-  FileText,
-  MessageSquare,
-  Settings,
   ChevronLeft,
   ChevronRight,
-  CheckCircle,
-  BarChart3,
   User,
   LogOut,
-  Tag,
+  Search,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { logout } from "@/lib/redux/features/auth/authSlice";
-import { useState } from "react";
-
-interface NavItem {
-  name: string;
-  href: string;
-  icon: React.ElementType;
-  badge?: number;
-}
-
-const navItems: NavItem[] = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Properties", href: "/admin/properties", icon: Building2 },
-  { name: "Hostels", href: "/admin/hostels", icon: Home },
-  { name: "Doctors", href: "/admin/doctors", icon: Stethoscope },
-  { name: "Catering", href: "/admin/catering", icon: Utensils },
-  { name: "Tourism", href: "/admin/tourism", icon: Palmtree },
-  { name: "Foods", href: "/admin/foods", icon: Utensils },
-  { name: "Users", href: "/admin/users", icon: Users, badge: 12 },
-  { name: "Categories", href: "/admin/categories", icon: Tag },
-  { name: "Posts", href: "/admin/posts", icon: FileText },
-  { name: "Reviews", href: "/admin/reviews", icon: MessageSquare, badge: 5 },
-  { name: "Approvals", href: "/admin/approvals", icon: CheckCircle, badge: 8 },
-  { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
-  { name: "Settings", href: "/admin/settings", icon: Settings },
-];
+import { useState, useMemo, useRef } from "react";
+import { adminNavItems, hostNavItems, userNavItems, doctorNavItems, cateringNavItems, type NavItem } from "@/config/navConfig";
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -61,6 +26,31 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.user);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const navItems: NavItem[] = useMemo(() => {
+    const role = user?.role?.toUpperCase();
+    
+    switch (role) {
+      case "SUPER_ADMIN":
+      case "ADMIN":
+        return adminNavItems;
+      case "HOST":
+        return hostNavItems;
+      case "CUSTOMER":
+        return userNavItems;
+      case "DOCTOR":
+        return doctorNavItems;
+      case "CATERING_SERVICE":
+        return cateringNavItems;
+      default:
+        // Fallback: if user exists but role is missing
+        if (user?.email) {
+          return userNavItems;
+        }
+        return []; // Return empty array when user is not authenticated
+    }
+  }, [user?.role, user?.email, user]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -69,45 +59,71 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
 
   return (
     <div
-      className={`${isCollapsed ? "w-20" : "w-48"
-        } bg-gradient-to-b from-cyan-50/60 to-blue-50/60 backdrop-blur-md border-r border-white min-h-screen fixed left-0 top-0 transition-all duration-300 ease-in-out z-40 flex flex-col shadow-[4px_0_16px_rgba(0,0,0,0.1)]`}
+      className={`${isCollapsed ? "w-20" : "w-64"
+        } bg-gradient-to-b from-cyan-50/60 to-blue-50/60 backdrop-blur-md border-r border-white h-screen fixed left-0 top-0 transition-all duration-300 ease-in-out z-40 flex flex-col shadow-[4px_0_16px_rgba(0,0,0,0.1)] overflow-hidden`}
     >
-      {/* Collapse/Expand Button Only */}
-      <div className="h-14 flex items-center justify-center px-3 border-b border-cyan-200/50">
-        <motion.div whileHover="hover" initial="initial" animate="initial">
-          <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/40 transition-all text-gray-700 relative overflow-hidden"
-            type="button"
+      {/* Branding & Collapse/Expand Button */}
+      <div className="h-16 flex items-center justify-between px-4 border-b border-white/50 bg-white/10 backdrop-blur-sm">
+        {!isCollapsed && (
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2"
           >
-            <motion.div
-              className="absolute inset-0 bg-cyan-600 rounded-full"
-              variants={{
-                initial: { scale: 0 },
-                hover: { scale: 1 },
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="relative z-10 flex items-center justify-center"
-              variants={{
-                initial: { color: "#374151" },
-                hover: { color: "#ffffff" },
-              }}
-              transition={{ duration: 0.3 }}
+            <div className="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-600/20">
+              <Search className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-700 to-blue-700">
+              easysearch
+            </span>
+          </motion.div>
+        )}
+        <div className={`flex items-center transition-all duration-300 ${isCollapsed ? "w-full justify-center" : "justify-center"}`}>
+          <motion.div whileHover="hover" initial="initial" animate="initial">
+            <button
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/40 transition-all text-gray-700 relative overflow-hidden"
+              type="button"
             >
-              {isCollapsed ? (
-                <ChevronRight className="w-4 h-4" />
-              ) : (
-                <ChevronLeft className="w-4 h-4" />
-              )}
-            </motion.div>
-          </button>
-        </motion.div>
+              <motion.div
+                className="absolute inset-0 bg-cyan-600 rounded-full"
+                variants={{
+                  initial: { scale: 0 },
+                  hover: { scale: 1 },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="relative z-10 flex items-center justify-center"
+                variants={{
+                  initial: { color: "#374151" },
+                  hover: { color: "#ffffff" },
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {isCollapsed ? (
+                  <ChevronRight className="w-4 h-4" />
+                ) : (
+                  <ChevronLeft className="w-4 h-4" />
+                )}
+              </motion.div>
+            </button>
+          </motion.div>
+        </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-3 scrollbar-hide">
+      <nav 
+        ref={navRef}
+        className="flex-1 overflow-y-auto py-3 scrollbar-hide"
+        onWheel={(e) => {
+          if (navRef.current) {
+            e.preventDefault();
+            e.stopPropagation();
+            navRef.current.scrollTop += e.deltaY;
+          }
+        }}
+      >
         <ul className="space-y-1 pl-2 pr-3">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -208,10 +224,10 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               <div className="absolute left-full bottom-0 ml-3 w-48 bg-cyan-50 backdrop-blur-md rounded-xl shadow-[0_8px_16px_rgba(0,0,0,0.15),inset_0_4px_8px_rgba(0,0,0,0.1)] border border-white py-2 z-50">
                 <div className="px-4 py-2 border-b border-cyan-200/50">
                   <p className="text-sm font-semibold text-gray-900 truncate">
-                    {user?.name || "Admin User"}
+                    {user?.name || "User"}
                   </p>
                   <p className="text-xs text-gray-600 truncate">
-                    {user?.email || "admin@rajshahi.com"}
+                    {user?.email || "user@example.com"}
                   </p>
                 </div>
                 <button
@@ -237,10 +253,10 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               </div>
               <div className="flex-1 min-w-0 text-left">
                 <p className="text-sm font-semibold text-gray-900 truncate">
-                  {user?.name || "Admin User"}
+                  {user?.name || "User"}
                 </p>
                 <p className="text-xs text-gray-600 truncate">
-                  {user?.email || "admin@rajshahi.com"}
+                  {user?.email || "user@example.com"}
                 </p>
               </div>
             </button>

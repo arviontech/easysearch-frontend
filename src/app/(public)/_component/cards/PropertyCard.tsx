@@ -22,8 +22,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 interface PropertyCardProps {
+  // ... (rest of the interface and component start)
   id: string;
   title: string;
   category?: string;
@@ -73,11 +75,11 @@ const PropertyCard = ({
     features.length > 0
       ? features
       : [
-          bedrooms && `${bedrooms} Bed`,
-          bathrooms && `${bathrooms} Bath`,
-          area && `${area} sqft`,
-          furnished !== undefined && (furnished ? "Furnished" : "Unfurnished"),
-        ].filter(Boolean) as string[];
+        bedrooms && `${bedrooms} Bed`,
+        bathrooms && `${bathrooms} Bath`,
+        area && `${area} sqft`,
+        furnished !== undefined && (furnished ? "Furnished" : "Unfurnished"),
+      ].filter(Boolean) as string[];
 
   const getCategoryIcon = (category: string) => {
     const lowerCategory = category.toLowerCase();
@@ -247,27 +249,13 @@ const PropertyCard = ({
                   <span className="text-sm text-gray-500">/month</span>
                 </div>
 
-                <div className="bg-cyan-100 text-cyan-700 text-sm font-semibold px-3 py-2 rounded-2xl border border-cyan-600 shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden flex items-center gap-2">
-                  <motion.div
-                    className="absolute inset-0 bg-cyan-600 rounded-2xl"
-                    variants={{
-                      initial: { scale: 0 },
-                      hover: { scale: 1 },
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                  <motion.div
-                    className="relative z-10 flex items-center gap-2"
-                    variants={{
-                      initial: { color: "#0e7490" },
-                      hover: { color: "#ffffff" },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Eye className="w-4 h-4" />
-                    <span>View</span>
-                  </motion.div>
-                </div>
+                <AnimatedButton
+                  className="bg-cyan-100 text-cyan-700 text-sm font-semibold border border-cyan-600 shadow-inner"
+                  size="md"
+                >
+                  <Eye className="w-4 h-4" />
+                  <span>View</span>
+                </AnimatedButton>
               </div>
             </div>
           </Link>
@@ -357,27 +345,13 @@ const PropertyCard = ({
                   <span className="text-sm text-gray-500">/month</span>
                 </div>
 
-                <div className="bg-cyan-100 text-cyan-700 text-sm font-semibold px-4 py-2.5 rounded-2xl border border-cyan-600 shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.5)] relative overflow-hidden flex items-center gap-2">
-                  <motion.div
-                    className="absolute inset-0 bg-cyan-600 rounded-2xl"
-                    variants={{
-                      initial: { scale: 0 },
-                      hover: { scale: 1 },
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                  <motion.div
-                    className="relative z-10 flex items-center gap-2"
-                    variants={{
-                      initial: { color: "#0e7490" },
-                      hover: { color: "#ffffff" },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Eye className="w-4 h-4" />
-                    <span>View Details</span>
-                  </motion.div>
-                </div>
+                <AnimatedButton
+                  className="bg-cyan-100 text-cyan-700 text-sm font-semibold border border-cyan-600 shadow-inner"
+                  size="md"
+                >
+                  <Eye className="w-4 h-4" />
+                  <span>View Details</span>
+                </AnimatedButton>
               </div>
             </div>
           </div>
